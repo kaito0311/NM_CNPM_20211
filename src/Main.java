@@ -13,8 +13,8 @@ public class Main extends Application {
 
 	public void start(Stage primaryStage) {
 		try {
-			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("QL_Sohokhau/thaydoisohokhau/thaydoinhankhau.fxml"));
-			Scene scene = new Scene(root,Width,Height);
+			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
+			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			resize.letterbox(scene, root);
