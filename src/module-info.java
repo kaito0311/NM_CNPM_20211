@@ -4,6 +4,7 @@ module QuanLiHoKhau_CNPM {
 	requires javafx.graphics;
 	requires javafx.base;
 	requires org.controlsfx.controls;
+	requires java.sql;
 	
 	opens application to javafx.graphics, javafx.fxml;
 	
@@ -18,4 +19,6 @@ module QuanLiHoKhau_CNPM {
 	
 	exports thoigian;
 	opens thoigian to javafx.graphics, javafx.fxml;
+	
+
 }

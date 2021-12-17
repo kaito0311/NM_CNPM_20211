@@ -5,6 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import database.SQLConnection;
 import dotuoi.*;
 import gioitinh.*;
 import tamvang_tamtru.*;
@@ -27,6 +32,10 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		SQLConnection sqlConnection = new SQLConnection("jdbc:sqlserver://DAT\\SQLEXPRESS;databaseName=PopulationManagement", "kdat194011", "datbk21094011");
+		
+//		sqlConnection.queryPerson_Person();
+		
 		launch(args);
 	}
 }

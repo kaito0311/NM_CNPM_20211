@@ -8,6 +8,8 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -140,7 +142,7 @@
                         <Button id="SCREEN4_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Thống kê theo độ tuổi" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutY="920.0" prefHeight="42.0" prefWidth="1441.0">
+                  <AnchorPane layoutY="920.0" prefHeight="42.0" prefWidth="1440.0">
                      <children>
                         <Line endX="1440.0" />
                         <Text layoutX="54.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
@@ -152,8 +154,8 @@
                   </AnchorPane>
                   <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0">
                      <children>
-                        <CheckComboBox id="do-tuoi-box" fx:id="do_tuoi_box" layoutX="223.0" layoutY="20.0" maxHeight="40.0" maxWidth="829.0" minHeight="40.0" minWidth="829.0" prefHeight="40.0" prefWidth="829.0">
-                          <items>
+                        <CheckComboBox id="do-tuoi-box" fx:id="doTuoiBox" layoutX="223.0" layoutY="20.0" maxHeight="40.0" maxWidth="829.0" minHeight="40.0" minWidth="829.0" prefHeight="40.0" prefWidth="829.0">
+                         <items>
 					      	<String fx:value="Mầm non" />
 					      	<String fx:value="Mẫu giáo" />
 					      	<String fx:value="Cấp 1" />
@@ -168,7 +170,7 @@
                               <Font size="30.0" />
                            </font>
                         </Label>
-                        <Button id="loc-button" layoutX="1107.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" text="Lọc">
+                        <Button id="loc-button" layoutX="1107.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleLocButton" prefHeight="40.0" prefWidth="68.0" text="Lọc">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -207,7 +209,16 @@
                             </Tab>
                             <Tab id="so-lieu-tab" text="Thống kê số liệu">
                               <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView layoutX="470.0" layoutY="47.0" prefHeight="397.0" prefWidth="355.0">
+                                            <columns>
+                                              <TableColumn prefWidth="143.0" text="Độ tuổi" />
+                                              <TableColumn prefWidth="116.0" text="Số nhân khẩu" />
+                                                <TableColumn prefWidth="95.33331298828125" text="Tỉ lệ" />
+                                            </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
                               </content>
                             </Tab>
                           </tabs>

@@ -8,6 +8,8 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -140,10 +142,10 @@
                         <Button id="SCREEN4_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Thống kê theo giới tính" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
+                  <AnchorPane layoutY="920.0" prefHeight="42.0" prefWidth="1440.0">
                      <children>
                         <Line endX="1440.0" />
-                        <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+                        <Text layoutX="54.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -152,45 +154,83 @@
                   </AnchorPane>
                   <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0">
                      <children>
-                        <Label id="gioi-tinh-label" layoutX="53.0" layoutY="50.0" maxHeight="41.0" minHeight="35.0" prefHeight="41.0" prefWidth="128.0" text="Giới tính:">
+                        <Label id="gioi-tinh-label" layoutX="53.0" layoutY="20.0" maxHeight="41.0" minHeight="35.0" prefHeight="41.0" prefWidth="128.0" text="Giới tính:">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
-                        <Button id="loc-button" layoutX="619.0" layoutY="51.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" text="Lọc">
+                        <Button id="loc-button" layoutX="619.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" text="Lọc">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <ScrollPane layoutX="18.0" layoutY="120.0" maxHeight="528.0" maxWidth="1412.0" minHeight="528.0" minWidth="1412.0" prefHeight="528.0" prefWidth="1412.0">
-                           <content>
-                              <TableView id="gioi-tinh-table" minHeight="528.0" minWidth="2650.0" prefHeight="528.0" prefWidth="2650.0">
-                                 <columns>
-                                    <TableColumn id="stt-column" maxWidth="-1.0" minWidth="50.0" prefWidth="50.0" text="STT" />                                 
-                                    <TableColumn id="ho-ten-column" maxWidth="100.0" minWidth="200.0" prefWidth="200.0" text="Họ tên" />
-                                    <TableColumn id="bi-danh-column" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" text="Bí danh" />
-                                    <TableColumn id="ngay-sinh-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="Ngày sinh" />
-                                    <TableColumn id="gioi-tinh-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="Giới tính" />
-                                    <TableColumn id="noi-sinh-column" maxWidth="-Infinity" minWidth="400.0" prefWidth="400.0" text="Nơi sinh" />
-                                    <TableColumn id="nguyen-quan-column" maxWidth="-Infinity" minWidth="400.0" prefWidth="400.0" text="Nguyên quán" />
-                                    <TableColumn id="dan-toc-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="Dân tộc" />
-                                    <TableColumn id="nghe-nghiep-column" maxWidth="-Infinity" minWidth="130.0" prefWidth="130.0" text="Nghề nghiệp" />
-                                    <TableColumn id="noi-lam-viec-column" maxWidth="-Infinity" minWidth="300.0" prefWidth="300.0" text="Nơi làm việc" />
-                                    <TableColumn id="cccd-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="CMND/CCCD" />
-                                    <TableColumn id="ngay-cap-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="Ngày cấp" />
-                                    <TableColumn id="noi-cap-column" maxWidth="-Infinity" minWidth="300.0" prefWidth="300.0" text="Nơi cấp" />
-                                    <TableColumn id="quan-he-column" maxWidth="-Infinity" minWidth="170.0" prefWidth="170.0" text="Quan hệ với chủ hộ" />
-                                 </columns>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
-                        <CheckComboBox id="gioi-tinh-box" fx:id="do_tuoi_box" layoutX="223.0" layoutY="51.0" maxHeight="40.0" maxWidth="829.0" minHeight="40.0" minWidth="254.0" prefHeight="40.0" prefWidth="354.0">
+                        <CheckComboBox id="gioi-tinh-box" fx:id="do_tuoi_box" layoutX="223.0" layoutY="20.0" maxHeight="40.0" maxWidth="829.0" minHeight="40.0" minWidth="254.0" prefHeight="40.0" prefWidth="354.0">
                           <items>
 					      	<String fx:value="Nam" />
 					      	<String fx:value="Nữ" />
 					      	<String fx:value="Giới tính khác" />
 					      </items>
                         </CheckComboBox>
+                        <TabPane layoutX="18.0" layoutY="90.0" prefHeight="565.0" prefWidth="1412.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Thống kê nhân khẩu">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ScrollPane maxHeight="528.0" maxWidth="1412.0" minHeight="528.0" minWidth="1412.0" prefHeight="528.0" prefWidth="1412.0">
+                                             <content>
+                                                <TableView id="gioi-tinh-table" minHeight="528.0" minWidth="2650.0" prefHeight="528.0" prefWidth="2650.0">
+                                                   <columns>
+                                                      <TableColumn id="stt-column" maxWidth="-1.0" minWidth="50.0" prefWidth="50.0" text="STT" />                                 
+                                                      <TableColumn id="ho-ten-column" maxWidth="100.0" minWidth="200.0" prefWidth="200.0" text="Họ tên" />
+                                                      <TableColumn id="bi-danh-column" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" text="Bí danh" />
+                                                      <TableColumn id="ngay-sinh-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="Ngày sinh" />
+                                                      <TableColumn id="gioi-tinh-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="Giới tính" />
+                                                      <TableColumn id="noi-sinh-column" maxWidth="-Infinity" minWidth="400.0" prefWidth="400.0" text="Nơi sinh" />
+                                                      <TableColumn id="nguyen-quan-column" maxWidth="-Infinity" minWidth="400.0" prefWidth="400.0" text="Nguyên quán" />
+                                                      <TableColumn id="dan-toc-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="Dân tộc" />
+                                                      <TableColumn id="nghe-nghiep-column" maxWidth="-Infinity" minWidth="130.0" prefWidth="130.0" text="Nghề nghiệp" />
+                                                      <TableColumn id="noi-lam-viec-column" maxWidth="-Infinity" minWidth="300.0" prefWidth="300.0" text="Nơi làm việc" />
+                                                      <TableColumn id="cccd-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="CMND/CCCD" />
+                                                      <TableColumn id="ngay-cap-column" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="Ngày cấp" />
+                                                      <TableColumn id="noi-cap-column" maxWidth="-Infinity" minWidth="300.0" prefWidth="300.0" text="Nơi cấp" />
+                                                      <TableColumn id="quan-he-column" maxWidth="-Infinity" minWidth="170.0" prefWidth="170.0" text="Quan hệ với chủ hộ" />
+                                                   </columns>
+                                                </TableView>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Số liệu thống kê">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="331.0" layoutY="75.0" text="Số nhân khẩu nam" />
+                                          <Label layoutX="1088.0" layoutY="75.0" text="Số nhân khẩu nữ" />
+                                          <Label layoutX="741.0" layoutY="298.0" text="Tỉ lệ nam / nữ" />
+                                          <ImageView fitHeight="179.0" fitWidth="170.0" layoutX="102.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../data/male.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="179.0" fitWidth="170.0" layoutX="794.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../data/female.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="179.0" fitWidth="170.0" layoutX="504.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../data/tilegioitinh.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
                      </children></AnchorPane>
                </children>
             </AnchorPane>
