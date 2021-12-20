@@ -13,9 +13,11 @@ public class Nationality {
 
     }
 
-    public void printDetail(){
-        System.out.println(this.nationalityID + " " + this.name);
+    @Override
+    public String toString() {
+        return "Nationality [name=" + name + ", nationalityID=" + nationalityID + "]";
     }
+    
 
     
 }

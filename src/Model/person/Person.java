@@ -20,8 +20,12 @@ public class Person {
         this.nationalityID = nationalityID;
     }
     public Person(){}
-    public void printtDetail(){
-        System.out.println(personID + " " + fullName + " " + nickName + " " + birthDate + " " + gender + " " + nationalityID + " " + ethnicID);
+    
+    @Override
+    public String toString() {
+        return "Person [birthDate=" + birthDate + ", ethnicID=" + ethnicID + ", fullName=" + fullName + ", gender="
+                + gender + ", nationalityID=" + nationalityID + ", nickName=" + nickName + ", personID=" + personID
+                + "]";
     }
     public int getPersonID() {
         return personID;

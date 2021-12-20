@@ -16,8 +16,11 @@ public class OriginPlace {
     }
 
     public OriginPlace(){}
-    
-    public void printDetail(){
-        System.out.println(personID + " " + nationID + " " + provinceID + " " + districtID + " " + communeID);
+
+    @Override
+    public String toString() {
+        return "OriginPlace [communeID=" + communeID + ", districtID=" + districtID + ", nationID=" + nationID
+                + ", personID=" + personID + ", provinceID=" + provinceID + "]";
     }
+    
 }

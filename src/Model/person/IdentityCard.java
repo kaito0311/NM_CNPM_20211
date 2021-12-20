@@ -47,10 +47,12 @@ public class IdentityCard {
         this.registerPlace = registerPlace;
     }
 
-    public IdentityCard(){} 
+    public IdentityCard(){}
 
-    public void printDetail(){
-        System.out.println(personID + " " + number + " " + registerDate + " " + registerPlace);
-
-    }
+    @Override
+    public String toString() {
+        return "IdentityCard [number=" + number + ", personID=" + personID + ", registerDate=" + registerDate
+                + ", registerPlace=" + registerPlace + "]";
+    } 
+    
 }

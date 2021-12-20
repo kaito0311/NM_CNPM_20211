@@ -26,8 +26,8 @@ public class InforPerson {
 
     @Override
     public String toString() {
-        return "Inforperson [birthPlace=" + birthPlace + ", card=" + card + ", ethnic=" + ethnic + ", nationality="
-                + nationality + ", originPlace=" + originPlace + ", person=" + person + ", work=" + work + "]";
+        return "Inforperson [birthPlace=" + birthPlace.toString() + ", card=" + card.toString() + ", ethnic=" + ethnic.toString() + ", nationality="
+                + nationality.toString() + ", originPlace=" + originPlace.toString() + ", person=" + person.toString() + ", work=" + work.toString() + "]";
     }
 
     public Person getPerson() {
