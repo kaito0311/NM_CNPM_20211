@@ -1,0 +1,483 @@
+/*Title */
+#AllScreen{
+	-fx-background-color: white;
+	-fx-text-fill:white;
+}
+/*#title1{
+	-fx-background-color: pink;
+	-fx-font-size: 13pt ;
+	-fx-text-fill:white;
+}
+#title2{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+	-fx-font-size: 13pt ;
+}
+#title3{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+	-fx-font-size: 13pt ;
+}
+#title4{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+	-fx-font-size: 13pt ;
+}
+#title1:hover{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#title2:hover{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#title3:hover{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#title4:hover{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#title1:selected{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#title2:selected{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#title3:selected{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#title4:selected{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}*/
+
+#AllScreen {
+  	-fx-tab-min-width:270;
+  	-fx-tab-max-width:270;
+  	-fx-tab-min-height:60;
+  	-fx-tab-max-height:60;
+}
+
+#title1 .tab-label{
+	-fx-font-size: 18;
+	-fx-text-fill: #ffffff;
+	-fx-font-weight: bold;
+}
+
+#title2 .tab-label{
+	-fx-font-size: 18;
+	-fx-text-fill: #ffffff;
+	-fx-font-weight: bold;
+}
+
+#title3 .tab-label{
+	-fx-font-size: 18;
+	-fx-text-fill: #ffffff;
+	-fx-font-weight: bold;
+}
+
+#title4 .tab-label{
+	-fx-font-size: 18;
+	-fx-text-fill: #ffffff;
+	-fx-font-weight: bold;
+}
+
+#title1{
+	-fx-background-color: #e7717d;
+}
+
+#title2{
+	-fx-background-color: #e7717d;
+}
+
+#title3{
+	-fx-background-color: #e7717d;
+}
+
+#title4{
+	-fx-background-color: #e7717d;
+}
+
+#title2:selected{
+	-fx-background-color: #ffffff;
+}
+
+#title3:selected{
+	-fx-background-color: #ffffff;
+}
+
+#title4:selected{
+	-fx-background-color: #ffffff;
+}
+
+#title1:selected{
+	-fx-background-color: #ffffff;
+}
+
+#title1:selected .tab-label{
+	-fx-text-fill: #e7717d;
+}
+
+#title2:selected .tab-label{
+	-fx-text-fill: #e7717d;
+}
+
+#title3:selected .tab-label{
+	-fx-text-fill: #e7717d;
+}
+
+#title4:selected .tab-label{
+	-fx-text-fill: #e7717d;
+}
+
+/*Screen1*/
+#SCREEN1_head1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN1_head2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN1_button1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN1_button2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN1_button3{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN1_button4{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN1_subbutton1{
+	-fx-background-color: white;
+	-fx-text-fill:#E7717D;
+}
+#SCREEN1_subbutton2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN1_buttonSubmit{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN1_button1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN1_button2:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN1_button3:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN1_button4:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN1_subbutton1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN1_buttonSubmit:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN1_subbutton2:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN1_button1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN1_button2:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN1_button3:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN1_button4:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN1_subbutton1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN1_subbutton2:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN1_buttonSubmit:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+
+
+
+
+/*Screen2*/
+#SCREEN2_head1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN2_head2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN2_button1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN2_button2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN2_button3{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN2_button4{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN2_subbutton1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN2_subbutton2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN2_button1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN2_button2:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN2_button3:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN2_button4:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN2_subbutton1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN2_subbutton2:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN2_button1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN2_button2:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN2_button3:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN2_button4:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN2_subbutton1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN2_subbutton2:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+
+
+
+/*Screen3*/
+#SCREEN3_head1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_head2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_button1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_button2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_button3{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_button4{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_button1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_button2:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_button3:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_button4:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton2:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_button1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN3_button2:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN3_button3:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN3_button4:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton2:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+
+
+
+/*Screen4*/
+#SCREEN4_head1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN4_head2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN4_button1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN4_button2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN4_button3{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN4_button4{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN4_subbutton1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN4_subbutton2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN4_button1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN4_button2:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN4_button3:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN4_button4:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN4_subbutton1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN4_subbutton2:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN4_button1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN4_button2:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN4_button3:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN4_button4:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN4_subbutton1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN4_subbutton2:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
