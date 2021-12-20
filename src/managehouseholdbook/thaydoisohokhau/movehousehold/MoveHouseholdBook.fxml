@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -105,7 +106,7 @@
                                     <URL value="@../../logo.css" />
                                     <URL value="@MoveHouseholdBook.css" />
                                  </stylesheets></Button>
-                              <Button id="SCREEN2_subbutton3" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Chuyển hộ khẩu">
+                              <Button id="SCREEN2_subbutton3" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Thay đổi sổ hộ khẩu">
                                  <stylesheets>
                                     <URL value="@../../logo.css" />
                                     <URL value="@MoveHouseholdBook.css" />
@@ -129,6 +130,8 @@
                         </Text>
                      </children>
                   </AnchorPane>
+                  <TextField layoutX="430.0" layoutY="414.0" promptText="Nhập ID sổ hộ khẩu" />
+                  <Button layoutX="479.0" layoutY="490.0" mnemonicParsing="false" text="Button" />
                </children>
             </AnchorPane>
          </content>

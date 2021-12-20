@@ -135,10 +135,10 @@
                     </rowConstraints>
                      <children>
                         <ComboBox id="combo-box" fx:id="comboBoxMaHoKhau" prefWidth="150.0" promptText="Ma so ho khau" styleClass="combo-box" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="1" />
-                        <ComboBox id="combo-box" fx:id="comboBoxThanhPho" prefWidth="150.0" promptText="Tỉnh/thành phố" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="3" />
+                        <ComboBox id="combo-box" fx:id="comboBoxThanhPho" onAction="#comboBoxProvinceChanged" prefWidth="150.0" promptText="Tỉnh/thành phố" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="3" />
                         <ComboBox id="combo-box" fx:id="comboBoxChuHo" prefWidth="150.0" promptText="ID chu ho" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ComboBox id="combo-box" fx:id="comboBoxQuan" prefWidth="150.0" promptText="Quân/Huyện" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="4" />
-                        <ComboBox id="combo-box" fx:id="comboBoxXa" prefWidth="150.0" promptText="Số Nhà" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox id="combo-box" fx:id="comboBoxQuan" onAction="#comboBoxDistrictChanged" prefWidth="150.0" promptText="Quân/Huyện" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="4" />
+                        <ComboBox id="combo-box" prefWidth="150.0" promptText="Số Nhà" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <ComboBox id="combo-box" fx:id="comboBoxPhuong" prefWidth="150.0" promptText="Xã/Xóm" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label fx:id="labelNhapMaHoKhau" text="Nhập Mã Hộ Khẩu">
                            <font>
@@ -155,7 +155,7 @@
                         </Label>
                      </children>
                   </GridPane>
-                  <Button id="button-submit" layoutX="650.0" layoutY="775.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="176.0" styleClass="button-submit" stylesheets="@../logo.css" text="Button" fx:id="xacNhan" />
+                  <Button id="button-submit" layoutX="650.0" layoutY="775.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#comboChanged" prefHeight="16.0" prefWidth="176.0" styleClass="button-submit" stylesheets="@../logo.css" text="Button" fx:id="xacNhan" />
                </children>
             </AnchorPane>
          </content>

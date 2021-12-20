@@ -19,6 +19,7 @@ public class resize {
   public static void letterbox(final Scene scene, final TabPane contentPane) {
     final double initWidth  = scene.getWidth();
     final double initHeight = scene.getHeight();
+    // System.out.println(initHeight + " " +initWidth);
     final double ratio      = initWidth / initHeight;
 
     SceneSizeChangeListener sizeListener = new SceneSizeChangeListener(scene, ratio, initHeight, initWidth, contentPane);
@@ -46,7 +47,6 @@ public class resize {
     public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
       final double newWidth  = scene.getWidth();
       final double newHeight = scene.getHeight();
-
       double scale_ngang = newWidth/initWidth; 
       double scale_doc = newHeight/initHeight;
 

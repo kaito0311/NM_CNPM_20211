@@ -4,8 +4,10 @@
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -53,7 +55,7 @@
       </Tab>
       <Tab id="title2" text="Quản lý thông tin sổ hộ khẩu">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0" stylesheets="@../../logo.css">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="684.0" prefWidth="1440.0" stylesheets="@../../logo.css">
                <children>
                   <AnchorPane id="SCREEN2_head1" prefHeight="200.0" prefWidth="1440.0">
                      <children>
@@ -127,6 +129,19 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="419.0" layoutY="256.0" prefHeight="702.0" prefWidth="1440.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="256.0">
+                     <children>
+                        <TextField fx:id="textFieldIDSo" layoutX="774.0" layoutY="162.0" promptText="Nhập ID sổ hộ khẩu" text="1" />
+                        <Button fx:id="buttonTakeInformation" layoutX="207.0" layoutY="454.0" mnemonicParsing="false" onAction="#changeInformation" styleClass="button-submit" stylesheets="@ChangePersonStyle.css" text="Thay đổi thông tin" />
+                        <TextField fx:id="textFieldHoTen" layoutX="774.0" layoutY="217.0" promptText="Nhập tên của bạn" text="Vũ thị huế" />
+                        <TextField fx:id="textFieldNgaySinh" layoutX="774.0" layoutY="265.0" promptText="Ngày-tháng-năm" text="2008-01-06" />
+                        <Label layoutX="583.0" layoutY="166.0" text="ID sổ hộ khẩu" />
+                        <Label layoutX="583.0" layoutY="221.0" text="Họ và Tên" />
+                        <Label layoutX="580.0" layoutY="269.0" text="Ngày tháng năm sinh" />
+                        <Button layoutX="624.0" layoutY="454.0" mnemonicParsing="false" styleClass="button-submit" stylesheets="@ChangePersonStyle.css" text="Xóa nhân khẩu" />
+                        <Button layoutX="1057.0" layoutY="454.0" mnemonicParsing="false" styleClass="button-submit" stylesheets="@ChangePersonStyle.css" text="Khai tử" />
                      </children>
                   </AnchorPane>
                </children>

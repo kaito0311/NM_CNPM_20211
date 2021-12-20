@@ -56,7 +56,7 @@
                <children>
                   <AnchorPane id="SCREEN2_head1" prefHeight="200.0" prefWidth="1440.0">
                      <children>
-                        <Button id="SCREEN2_button1" fx:id="buttonCreateNewBook" mnemonicParsing="false" onAction="#changeToCreateNewBook" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Tạo sổ hộ khẩu">
+                        <Button id="SCREEN2_button1" fx:id="buttonCreateNewBook" mnemonicParsing="false" onAction="#changeToCreateNewBook" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Sổ hộ khẩu">
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
