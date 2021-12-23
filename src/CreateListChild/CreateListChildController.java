@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package CreateList;
+package CreateListChild;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,13 +20,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author Cool IT Help
  */
-public class CreateListController implements Initializable {
+public class CreateListChildController implements Initializable {
     
     @FXML 
-     TableView lapDanhSach;  
+     TableView<Person> createListChild;  
     
     @FXML
-    private TableColumn fullName, birthDate, school, className, achievement, houseID;
+    private TableColumn<Person, String> fullName, birthDate, gender, age, houseID;
     
     @FXML
     Label lbNoti;
@@ -50,18 +44,11 @@ public class CreateListController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
                 
        
-//    tableview.getColumns().addAll(firstNameCol, lastNameCol, emailCol, actionCol );
-    list = FXCollections.observableArrayList(
-    		"Thành tích đặc biệt",
-    		"Học sinh giỏi",
-    		"Học sinh tiên tiến",
-    		"Không"
-    		);
     listPerson = new ArrayList<Person>();
     try {
-		ResultSet rs = GetData.getStudentList();
+		ResultSet rs = GetDataChild.getStudentList();
 		while(rs.next()) {
-			Person p = new Person(rs.getString("FullName"), rs.getString("BirthDate"), rs.getString("Place"), rs.getString("Class"), list, rs.getString("BookID"));
+			Person p = new Person(rs.getString("FullName"), rs.getString("BirthDate"), rs.getString("Gender"), rs.getString("Age"), rs.getString("BookID"));
 			listPerson.add(p);
 		}
 	} catch (SQLException e) {
@@ -79,39 +66,24 @@ public class CreateListController implements Initializable {
     birthDate.setCellValueFactory(
     new PropertyValueFactory<Person,String>("birthDate")
     );
-    school.setCellValueFactory(     
-             new PropertyValueFactory<Person,String>("school")
+    gender.setCellValueFactory(     
+             new PropertyValueFactory<Person,String>("gender")
     );     
-    className.setCellValueFactory(     
-            new PropertyValueFactory<Person,String>("className")
+    age.setCellValueFactory(     
+            new PropertyValueFactory<Person,String>("age")
    );
     
     houseID.setCellValueFactory(     
             new PropertyValueFactory<Person,String>("houseID")
    );
-    
-    achievement.setCellValueFactory(     
-             new PropertyValueFactory<Person,String>("achievement")
-    );         
+           
      
-    lapDanhSach.setItems(data);                         
+    createListChild.setItems(data);                         
     }  
       
     public void saveList(ActionEvent event) throws IOException {
-    	int check = 1;
-    	for (Person p:listPerson) {
-    		if (p.getAchievement().getSelectionModel().isEmpty()) {
-    			check = 0;
-    			break;
-    		}
-    	}
-    	if (check == 1) {
-    		lbNoti.setText("Lập danh sách thành công");
-    		IOFile.writeExcel(listPerson);
-    	} else {
-    		lbNoti.setText("Vui lòng chọn thành tích đầy đủ");
-    	}
-    	
+    	lbNoti.setText("Lập danh sách thành công");
+		IOFile.writeExcel(listPerson);
     }
     
     

@@ -1,0 +1,232 @@
+/*Title */
+#AllScreen{
+	-fx-background-color: white;
+	-fx-text-fill:white;
+}
+
+#AllScreen {
+  	-fx-tab-min-width:270;
+  	-fx-tab-max-width:270;
+  	-fx-tab-min-height:60;
+  	-fx-tab-max-height:60;
+}
+
+#title1 .tab-label{
+	-fx-font-size: 18;
+	-fx-text-fill: #ffffff;
+	-fx-font-weight: bold;
+}
+
+#title2 .tab-label{
+	-fx-font-size: 18;
+	-fx-text-fill: #ffffff;
+	-fx-font-weight: bold;
+}
+
+#title3 .tab-label{
+	-fx-font-size: 18;
+	-fx-text-fill: #ffffff;
+	-fx-font-weight: bold;
+}
+
+#title4 .tab-label{
+	-fx-font-size: 18;
+	-fx-text-fill: #ffffff;
+	-fx-font-weight: bold;
+}
+
+#title1{
+	-fx-background-color: #e7717d;
+}
+
+#title2{
+	-fx-background-color: #e7717d;
+}
+
+#title3{
+	-fx-background-color: #e7717d;
+}
+
+#title4{
+	-fx-background-color: #e7717d;
+}
+
+#title2:selected{
+	-fx-background-color: #ffffff;
+}
+
+#title3:selected{
+	-fx-background-color: #ffffff;
+}
+
+#title4:selected{
+	-fx-background-color: #ffffff;
+}
+
+#title1:selected{
+	-fx-background-color: #ffffff;
+}
+
+#title1:selected .tab-label{
+	-fx-text-fill: #e7717d;
+}
+
+#title2:selected .tab-label{
+	-fx-text-fill: #e7717d;
+}
+
+#title3:selected .tab-label{
+	-fx-text-fill: #e7717d;
+}
+
+#title4:selected .tab-label{
+	-fx-text-fill: #e7717d;
+}
+
+
+
+
+/*Screen3*/
+#SCREEN3_head1{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_head2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_button1{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN3_button2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_button3{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_button4{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton1{
+	-fx-background-color: white;
+	-fx-text-fill:#E7717D;
+}
+#SCREEN3_subbutton2{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN3_button1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_button2:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_button3:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_button4:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton1:hover{
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+
+#SCREEN3_button1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+
+#SCREEN3_button3:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN3_button4:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton1:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+#SCREEN3_subbutton2:pressed{
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+
+
+#MID_find1{
+	-fx-text-fill:#E7717D;
+	-fx-border-color: #E7717D #E7717D #E7717D #E7717D ;
+	-fx-border-width: 1;
+	-fx-effect: dropshadow(three-pass-box, rgba(230, 62, 62, 0.8), 0, 2, 2, 2);
+	-fx-background-radius: 5;
+}
+#MID_find2{
+	-fx-text-fill:#E7717D;
+	-fx-border-color: #E7717D #E7717D #E7717D #E7717D ;
+	-fx-border-width: 1;
+	-fx-effect: dropshadow(three-pass-box, rgba(230, 62, 62, 0.8), 0, 2, 2, 2);
+	-fx-background-radius: 5;
+}
+
+#MID_label1{
+	-fx-background-color: #E7717D;
+	-fx-alignment: CENTER;
+	-fx-text-fill:white;
+}
+
+#MID_label4{
+	-fx-background-color: #E7717D;
+	-fx-alignment: CENTER;
+	-fx-text-fill:white;
+	
+}
+#MID_label5{
+	-fx-background-color: #E7717D;
+	-fx-alignment: CENTER;
+	-fx-text-fill:white;
+	
+}
+#MID_label1:pressed{
+	-fx-background-color: pink;
+}
+
+#MID_label4:pressed{
+	-fx-background-color: pink;
+}
+#MID_label5:pressed{
+	-fx-background-color: pink;
+}
+
+#MID_table1{
+	-fx-border-color: #E7717D #E7717D #E7717D #E7717D ;
+	-fx-effect: innershadow( gaussian, #E7717D, 10, 0, 5, 5 );
+	-fx-border-width: 2;
+}
+#MID_table2{
+	-fx-border-color: #E7717D #E7717D #E7717D #E7717D ;
+	-fx-effect: innershadow( gaussian, #E7717D, 10, 0, 5, 5 );
+	-fx-border-width: 2;	
+}
+#MID_table3{
+	-fx-border-color: #E7717D #E7717D #E7717D #E7717D ;
+	-fx-effect: innershadow( gaussian, #E7717D, 10, 0, 5, 5 );
+	-fx-border-width: 2;	
+}
+#TABLE1_columm1{
+	-fx-background-color:pink;
+	-fx-font-size: 16px;
+}
+#TABLE1_columm2{
+	-fx-background-color:pink;
+	-fx-font-size: 16px;
+}

@@ -35,7 +35,7 @@ public class MainController implements Initializable{
 	@FXML
 	private ComboBox cbPosition, cbRole;
 	
-	private int userID = 1;
+	private int userID = 3;
 	
 	public void getInfoFromText(ActionEvent event) throws SQLException {
 		fullName = txtName.getText();
@@ -70,18 +70,15 @@ public class MainController implements Initializable{
 		// TODO Auto-generated method stub
 		ObservableList<String> pstList = 
 			    FXCollections.observableArrayList(
-			        "P1",
-			        "P2",
-			        "P3",
-			        "P4"
+			        "Tổ trưởng",
+			        "Tổ phó",
+			        "Thủ quỹ"
 			    );
 		cbPosition.setItems(pstList);
 		ObservableList<String> rList = 
 			    FXCollections.observableArrayList(
-			        "R1",
-			        "R2",
-			        "R3",
-			        "R4"
+			        "Admin",
+			        "Editor"
 			    );
 		cbRole.setItems(rList);
 		

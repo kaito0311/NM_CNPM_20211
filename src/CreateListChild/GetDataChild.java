@@ -1,4 +1,4 @@
-package CreateList;
+package CreateListChild;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,15 +7,13 @@ import java.sql.SQLException;
 
 import ConnectDB.ConnectToDB;
 
-public class GetData {
+public class GetDataChild {
 	
 	public static ResultSet getStudentList() throws SQLException {
-		 String sql = "select p.FullName, p.BirthDate, w.Place, e.Class, r.BookID\r\n"
-		 		+ "from Person.Person p, Person.Work w, Person.Education e, Person.Residence r\r\n"
-		 		+ "where p.PersonID = w.PersonID\r\n"
-		 		+ "	and p.PersonID = e.PersonID\r\n"
-		 		+ "	and p.PersonID = r.PersonID\r\n"
-		 		+ "	and DATEDIFF(year, p.BirthDate, GETDATE()) < 18";
+		 String sql = "select p.FullName, p.BirthDate, p.Gender, DATEDIFF(year, p.BirthDate, getdate()) as Age, r.BookID\r\n"
+		 		+ "from Person.Person p, Person.Residence r\r\n"
+		 		+ "where p.PersonID = r.PersonID\r\n"
+		 		+ "	and DATEDIFF(year, p.BirthDate, getdate()) < 18";
 		 Connection connection = ConnectToDB.openConnection();
 		 PreparedStatement stmt = connection.prepareStatement(sql);
 		 

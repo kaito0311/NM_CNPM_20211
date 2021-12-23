@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TabPane id="AllScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@application2.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateList.CreateListController">
+<TabPane id="AllScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@CreateListChild.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateListChild.CreateListChildController">
   <tabs>
       <Tab id="title1" text="Quản lý tài khoản">
          <content>
@@ -150,14 +150,13 @@
                   <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0" />
                   <AnchorPane layoutX="10.0" layoutY="260.0" prefHeight="650.0" prefWidth="1440.0">
                      <children>
-                        <TableView id="MID_table" fx:id="lapDanhSach" layoutX="120.0" layoutY="113.0" minHeight="400.0" minWidth="1200.0" prefHeight="400.0" prefWidth="1200.0">
+                        <TableView id="MID_table" fx:id="createListChild" layoutX="120.0" layoutY="113.0" minHeight="400.0" minWidth="1200.0" prefHeight="400.0" prefWidth="1200.0">
                            <columns>
-                              <TableColumn id="MID_columm1" fx:id="fullName" editable="false" maxWidth="294.0" minWidth="50.0" prefWidth="288.0" resizable="false" text="Họ tên" />
-                              <TableColumn id="MID_columm2" fx:id="birthDate" editable="false" maxWidth="190.0" minWidth="0.0" prefWidth="102.0" resizable="false" text="Ngày sinh" />
-                              <TableColumn id="MID_columm3" fx:id="school" editable="false" maxWidth="392.0" minWidth="200.0" prefWidth="296.0" resizable="false" text="Trường" />
-                              <TableColumn id="MID_columm4" fx:id="className" editable="false" maxWidth="219.0" minWidth="62.0" prefWidth="113.0" resizable="false" text="Lớp" />
-                              <TableColumn id="MID_columm5" fx:id="achievement" editable="false" maxWidth="436.0" minWidth="180.0" prefWidth="203.0" resizable="false" text="Thành tích học tập" />
-                              <TableColumn id="MID_columm6" fx:id="houseID" editable="false" maxWidth="468.0" minWidth="163.0" prefWidth="195.0" resizable="false" text="Mã hộ khẩu" />
+                              <TableColumn id="MID_columm1" fx:id="fullName" editable="false" maxWidth="410.0" minWidth="50.0" prefWidth="398.0" resizable="false" text="Họ tên" />
+                              <TableColumn id="MID_columm2" fx:id="birthDate" editable="false" maxWidth="295.0" minWidth="0.0" prefWidth="184.0" resizable="false" text="Ngày sinh" />
+                              <TableColumn id="MID_columm3" fx:id="gender" editable="false" maxWidth="392.0" minWidth="189.0" prefWidth="190.0" resizable="false" text="Giới tính" />
+                              <TableColumn id="MID_columm4" fx:id="age" editable="false" maxWidth="260.0" minWidth="62.0" prefWidth="174.0" resizable="false" text="Tuổi" />
+                              <TableColumn id="MID_columm6" fx:id="houseID" editable="false" maxWidth="468.0" minWidth="163.0" prefWidth="251.0" resizable="false" text="Mã hộ khẩu" />
                            </columns>
                         </TableView>
                         <Button id="MID_table_button" layoutX="583.0" layoutY="569.0" mnemonicParsing="false" onAction="#saveList" prefHeight="55.0" prefWidth="275.0" text="Lưu danh sách">
