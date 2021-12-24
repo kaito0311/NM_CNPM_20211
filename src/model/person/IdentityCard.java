@@ -1,42 +1,59 @@
 package model.person;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class IdentityCard {
-	private String number;
-	private LocalDate registerDate;
-	private String registerPlace;
-	
-	public IdentityCard(String number, LocalDate registerDate, String registerPlace) {
-		super();
-		this.number = number;
-		this.registerDate = registerDate;
-		this.registerPlace = registerPlace;
-	}
+    private int personID; 
+    private String number; 
+    private Date registerDate; 
+    private String registerPlace; 
+    
+    public int getPersonID() {
+        return personID;
+    }
 
-	public String getNumber() {
-		return number;
-	}
+    public void setPersonID(int personID) {
+        this.personID = personID;
+    }
 
-	public void setNumber(String number) {
-		this.number = number;
-	}
+    public String getNumber() {
+        return number;
+    }
 
-	public LocalDate getRegisterDate() {
-		return registerDate;
-	}
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
-	public void setRegisterDate(LocalDate registerDate) {
-		this.registerDate = registerDate;
-	}
+    public Date getRegisterDate() {
+        return registerDate;
+    }
 
-	public String getRegisterPlace() {
-		return registerPlace;
-	}
+    public void setRegisterDate(Date registerDate) {
+        this.registerDate = registerDate;
+    }
 
-	public void setRegisterPlace(String registerPlace) {
-		this.registerPlace = registerPlace;
-	}
-	
-	
+    public String getRegisterPlace() {
+        return registerPlace;
+    }
+
+    public void setRegisterPlace(String registerPlace) {
+        this.registerPlace = registerPlace;
+    }
+
+
+    public IdentityCard(int personID, String number, Date registerDate, String registerPlace){
+        this.personID = personID; 
+        this.number = number;
+        this.registerDate = registerDate;
+        this.registerPlace = registerPlace;
+    }
+
+    public IdentityCard(){}
+
+    @Override
+    public String toString() {
+        return "IdentityCard [number=" + number + ", personID=" + personID + ", registerDate=" + registerDate
+                + ", registerPlace=" + registerPlace + "]";
+    } 
+    
 }
