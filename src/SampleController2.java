@@ -20,7 +20,7 @@ public class SampleController2 {
 			
 		}
 		else {
-			loginNotice.setText("Tài khoản hoặc mật khẩu không chính xác");
+			loginNotice.setText("Tai khoan hoac mat khau khong chinh xac");
 		}
 	}
 }

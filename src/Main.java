@@ -1,10 +1,12 @@
 
 import javafx.application.Application;
+
 import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.fxml.FXMLLoader;
+
 
 public class Main extends Application {
 	public static double Width = 1440;

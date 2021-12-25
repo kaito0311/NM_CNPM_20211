@@ -19,7 +19,7 @@ public class ConnectDatabase {
 
   public static void ConnectData() {
     try {
-      String dbURL = "jdbc:sqlserver://SQLEXPRESS;databaseName=PopulationManagement;user=sa;password=trandoanhiep16";
+      String dbURL = "jdbc:sqlserver://localhost;databaseName=PopulationManagement;user=sa;password=trandoanhiep16";
       connection = DriverManager.getConnection(dbURL);
       statement = connection.createStatement();
 

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
@@ -17,7 +25,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TabPane id="AllScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../../application.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.createhouseholdbook.CreateNewHouseholdBookController">
+<TabPane id="AllScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../../application.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.createhouseholdbook.CreateNewHouseholdBookController">
   <tabs>
       <Tab id="title1" text="Quản lý tài khoản">
          <content>
@@ -117,45 +125,15 @@
                         </Text>
                      </children>
                   </AnchorPane>
-                  <GridPane layoutX="455.0" layoutY="375.0" prefHeight="390.0" prefWidth="690.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <ComboBox id="combo-box" fx:id="comboBoxMaHoKhau" prefWidth="150.0" promptText="Ma so ho khau" styleClass="combo-box" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="1" />
-                        <ComboBox id="combo-box" fx:id="comboBoxThanhPho" onAction="#comboBoxProvinceChanged" prefWidth="150.0" promptText="Tỉnh/thành phố" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="3" />
-                        <ComboBox id="combo-box" fx:id="comboBoxChuHo" prefWidth="150.0" promptText="ID chu ho" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ComboBox id="combo-box" fx:id="comboBoxQuan" onAction="#comboBoxDistrictChanged" prefWidth="150.0" promptText="Quân/Huyện" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="4" />
-                        <ComboBox id="combo-box" prefWidth="150.0" promptText="Số Nhà" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <ComboBox id="combo-box" fx:id="comboBoxPhuong" prefWidth="150.0" promptText="Xã/Xóm" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label fx:id="labelNhapMaHoKhau" text="Nhập Mã Hộ Khẩu">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font></Label>
-                        <Label fx:id="labelChonChuHo" text="Chủ hộ" GridPane.columnIndex="1">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font></Label>
-                        <Label text="Địa chỉ" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </GridPane>
-                  <Button id="button-submit" layoutX="650.0" layoutY="775.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#comboChanged" prefHeight="16.0" prefWidth="176.0" styleClass="button-submit" stylesheets="@../logo.css" text="Button" fx:id="xacNhan" />
+                  <Button id="button-submit" layoutX="570.0" layoutY="687.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#xacNhan" prefHeight="16.0" prefWidth="176.0" styleClass="button-submit" stylesheets="@../logo.css" text="Tạo sổ hộ khẩu" fx:id="xacNhan" />
+                  <ComboBox id="combo-box" fx:id="comboBoxQuan" layoutX="847.0" layoutY="502.0" onAction="#comboBoxDistrictChanged" prefWidth="150.0" promptText="Quân/Huyện" stylesheets="@CreateNewHouseholdBookStyle.css" />
+                  <ComboBox id="combo-box" fx:id="comboBoxThanhPho" layoutX="263.0" layoutY="502.0" onAction="#comboBoxProvinceChanged" prefWidth="150.0" promptText="Tỉnh/thành phố" stylesheets="@CreateNewHouseholdBookStyle.css" />
+                  <ComboBox id="combo-box" fx:id="comboBoxPhuong" layoutX="261.0" layoutY="595.0" prefWidth="150.0" promptText="Xã/Xóm" stylesheets="@CreateNewHouseholdBookStyle.css" />
+                  <Text layoutX="619.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THÔNG TIN CHỦ HỘ" wrappingWidth="170.205078125" />
+                  <TextField fx:id="tenChuHo" layoutX="263.0" layoutY="384.0" prefHeight="39.0" prefWidth="296.0" promptText="Họ và tên" />
+                  <TextField fx:id="soCMND" layoutX="847.0" layoutY="384.0" prefHeight="39.0" prefWidth="299.0" promptText="Số CMND/CCCD" />
+                  <Text layoutX="619.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THÔNG TIN HỘ KHẨU" wrappingWidth="189.599609375" />
+                  <TextField fx:id="detailAddress" layoutX="847.0" layoutY="586.0" prefHeight="53.0" prefWidth="303.0" promptText="Địa chỉ chi tiết" />
                </children>
             </AnchorPane>
          </content>
