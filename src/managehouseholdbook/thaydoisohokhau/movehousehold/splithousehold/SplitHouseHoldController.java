@@ -3,6 +3,7 @@ package managehouseholdbook.thaydoisohokhau.movehousehold.splithousehold;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javax.swing.text.html.HTMLDocument.RunElement;
@@ -35,47 +36,61 @@ public class SplitHouseHoldController implements Initializable {
 
     @FXML
     private TableColumn<ChangeMember, String> idHokhauColumn;
-    
+
     @FXML
-    Button submit; 
+    Button submit;
 
     ObservableList<ChangeMember> listMem = FXCollections.observableArrayList();
 
     ObservableList<String> listID = FXCollections.observableArrayList();
 
-    void takeListMember(){
+    void takeListMember() {
         try {
             String sql = "select Person.FullName, Person.PersonID, Residence.BookID, Residence.RelationshipWithHead from Person.Residence inner join Person.Person on Person.PersonID = Residence.PersonID where Residence.BookID = ?";
             PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
             preparedStatement.setString(1, this.bookID1);
             ResultSet resultSet = preparedStatement.executeQuery();
             listMem.clear();
-            while(resultSet.next()){
-                if(resultSet.getString("personID").toLowerCase().equals(this.personIDHead1)||resultSet.getString("personID").equals(this.personIDHead2))
+            while (resultSet.next()) {
+                if (resultSet.getString("personID").toLowerCase().equals(this.personIDHead1)
+                        || resultSet.getString("personID").equals(this.personIDHead2))
                     continue;
-                listMem.add(new ChangeMember(resultSet.getString("personID"), resultSet.getString("fullname"), resultSet.getString("relationshipwithhead"), listID));
+                listMem.add(new ChangeMember(resultSet.getString("personID"), resultSet.getString("fullname"),
+                        resultSet.getString("relationshipwithhead"), listID));
             }
         } catch (Exception e) {
-            //TODO: handle exception
+            // TODO: handle exception
         }
     }
 
-    void changeBookForMember(int index){
-
+    void changeBookForMember(int index) {
+        String sql = null;
+        try {
+            sql = "update person.residence set bookid = ? where personid = ?";
+            PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
+            preparedStatement.setString(1,
+                    listID.get(listMem.get(index).idHoKhau.getSelectionModel().getSelectedIndex()));
+            preparedStatement.setString(2, listMem.get(index).getPersonID());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println(sql);
+        }
     }
 
-    void updateToDataBase(){
-        // Update chu ho mot 
-        String sql = null ; 
+    void updateToDatabase() {
+        // Update chu ho mot
+        String sql = null;
         try {
-            // update o Household.book 
+            // update o Household.book
             sql = "Update Household.book set headid = ? where bookid = ?";
             PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
             preparedStatement.setString(1, personIDHead1);
             preparedStatement.setString(2, bookID1);
             preparedStatement.executeUpdate();
 
-            // Update o person.residence 
+            // Update o person.residence
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -83,30 +98,65 @@ public class SplitHouseHoldController implements Initializable {
             System.out.println(sql);
             return;
         }
-        // Insert chu ho hai 
+        // Insert chu ho hai
         try {
-            // insert new value to household.book 
-            String provinceID, districtID, communeID; 
+            // insert new value to household.book
+            String provinceID, districtID, communeID;
             sql = "select ProvinceID, DistrictID, CommuneID from Household.Book where BookID = ?";
-            PreparedStatement preparedStatement  = ConnectDatabase.connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
             preparedStatement.setString(1, bookID1);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 provinceID = resultSet.getString("provinceID");
                 districtID = resultSet.getString("districtID");
                 communeID = resultSet.getString("communeID");
+                sql = "insert into Household.book values (?, ?, ?, ?, ?, NULL, NULL, ?)";
+
+                try {
+
+                    preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
+                    preparedStatement.setString(1, this.bookID2);
+                    preparedStatement.setString(2, this.personIDHead2);
+                    preparedStatement.setString(3, provinceID);
+                    preparedStatement.setString(4, districtID);
+                    preparedStatement.setString(5, communeID);
+                    preparedStatement.setString(6, LocalDate.now().toString());
+                    preparedStatement.executeUpdate();
+                    System.out.println(this.bookID2);
+                } catch (Exception e) {
+                    // TODO: handle exception
+                    System.out.println(e.getMessage());
+                    System.out.println(getClass());
+
+                }
             }
-
-
-            // Update o person.residence 
+            // Update o person.residence
         } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("Insert book id: " + sql);
         }
 
         // Thay dooi ho khau cho cac thanh vien
-        for(int i = 0; i < listMem.size(); i++){
+        try {
+            sql = "update Person.residence set bookid = ? where personid = ?";
+            PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
+            preparedStatement.setString(1, bookID1);
+            preparedStatement.setString(2, personIDHead1);
+            preparedStatement.executeUpdate();
+            preparedStatement.setString(1, bookID2);
+            preparedStatement.setString(2, personIDHead2);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println(sql);
+        }
+        for (int i = 0; i < listMem.size(); i++) {
             changeBookForMember(i);
         }
+
     }
 
     String bookID1;
@@ -114,13 +164,12 @@ public class SplitHouseHoldController implements Initializable {
     String personIDHead1;
     String personIDHead2;
 
-
-    void init(String idHead1, String idHead2, String idHoKhau1, String idHoKhau2){ 
+    void init(String idHead1, String idHead2, String idHoKhau1, String idHoKhau2) {
         listID.add(idHoKhau1);
         listID.add(idHoKhau2);
         tableViewMember.setEditable(true);
         this.bookID1 = idHoKhau1;
-        this.bookID2 = idHoKhau2; 
+        this.bookID2 = idHoKhau2;
         this.personIDHead1 = idHead1;
         this.personIDHead2 = idHead2;
         takeListMember();
@@ -128,7 +177,7 @@ public class SplitHouseHoldController implements Initializable {
         tableViewMember.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("namePerson"));
         tableViewMember.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("relationshipWithHead"));
         relatioinshipWithHeadColumn.setCellFactory(TextFieldTableCell.<ChangeMember>forTableColumn());
-        relatioinshipWithHeadColumn.setOnEditCommit((CellEditEvent<ChangeMember, String> event)->{
+        relatioinshipWithHeadColumn.setOnEditCommit((CellEditEvent<ChangeMember, String> event) -> {
             TablePosition<ChangeMember, String> pos = event.getTablePosition();
             String newRelatioin = event.getNewValue();
             int row = pos.getRow();
@@ -141,19 +190,11 @@ public class SplitHouseHoldController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        init(Integer.toString(3), Integer.toString(4), "2", "3");
     }
-
 
     @FXML
-    void show(){
-        for(int i = 0; i < listMem.size(); i++){
-            // System.out.println(listMem.get(i).getRelatioinshipWithHead());
-            System.out.println(listMem.get(i).idHoKhau.getSelectionModel().getSelectedIndex());;
-        }
-
+    void show() {
+        updateToDatabase();
     }
-
-
 
 }

@@ -15,10 +15,10 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			ConnectDatabase.ConnectData();
-			// TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/thaydoisohokhau/changeperson/ChangePerson.fxml"));
-			// TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
-			// root.getSelectionModel().select(1);
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/thaydoisohokhau/movehousehold/splithousehold/Split.fxml"));
+			// TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/createhouseholdbook/CreateNewHouseholdBook.fxml"));
+			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
+			root.getSelectionModel().select(1);
+			// AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/thaydoisohokhau/movehousehold/MoveHouseholdBook.fxml"));
 			double _scale = 0.75; 
 
 			Scene scene = new Scene(root);

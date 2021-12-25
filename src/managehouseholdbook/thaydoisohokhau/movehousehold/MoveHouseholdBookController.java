@@ -17,6 +17,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import managehouseholdbook.thaydoisohokhau.movehousehold.changeHead.ChangeHeadController;
+import managehouseholdbook.thaydoisohokhau.movehousehold.splithousehold.ChooseHeadController;
 
 public class MoveHouseholdBookController implements Initializable {
 
@@ -51,6 +52,21 @@ public class MoveHouseholdBookController implements Initializable {
             state.show();
         } catch (Exception e) {
             //TODO: handle exception
+        }
+    }
+    @FXML
+    void splitHousehold()throws Exception{
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("./splithousehold/chooseHead.fxml"));
+            AnchorPane root = (AnchorPane)loader.load();
+            ChooseHeadController controller = loader.getController();
+            Stage state = new Stage();
+            state.setScene(new Scene(root));
+            state.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println();
         }
     }
 

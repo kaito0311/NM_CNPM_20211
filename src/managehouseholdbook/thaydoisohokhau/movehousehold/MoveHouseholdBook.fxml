@@ -135,7 +135,7 @@
                         <URL value="@MoveHouseholdBook.css" />
                      </stylesheets>
                   </Button>
-                  <Button layoutX="490.0" layoutY="514.0" mnemonicParsing="false" styleClass="button-submit" text="Tách sổ hộ khẩu">
+                  <Button layoutX="490.0" layoutY="514.0" mnemonicParsing="false" onAction="#splitHousehold" styleClass="button-submit" text="Tách sổ hộ khẩu">
                      <stylesheets>
                         <URL value="@../ChangeHouseholdBook.css" />
                         <URL value="@MoveHouseholdBook.css" />

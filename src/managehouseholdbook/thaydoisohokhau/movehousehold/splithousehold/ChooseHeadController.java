@@ -89,9 +89,24 @@ public class ChooseHeadController implements Initializable {
 
     @FXML
     void changeMember(ActionEvent event){
+
+        String idHead1, idHead2, idHoKhau1, idHoKhau2;
+        idHead1 = listPersonIDCandidateHead.get(comboBoxCandidateHead1.getSelectionModel().getSelectedIndex());
+        idHead2 = listPersonIDCandidateHead.get(comboBoxCandidateHead2.getSelectionModel().getSelectedIndex());
+
+        idHoKhau1 = bookID1;
+        bookID2 = takeNewBookID();
+        if(bookID2 == -1){
+            return;
+        }
+        else{
+            idHoKhau2 = Integer.toString(bookID2);
+        }
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("split.fxml"));
             AnchorPane root = (AnchorPane)loader.load();
+            SplitHouseHoldController controller = loader.getController();
+            controller.init(idHead1, idHead2, idHoKhau1, idHoKhau2);
             Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
         }

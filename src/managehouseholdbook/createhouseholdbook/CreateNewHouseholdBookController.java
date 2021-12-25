@@ -2,12 +2,21 @@ package managehouseholdbook.createhouseholdbook;
 
 import java.net.URL;
 
+
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.sql.Statement;
+//import java.text.NumberFormat.Style;
 import java.util.ResourceBundle;
+import java.text.Format;
+import javax.swing.Action;
+import javax.swing.JOptionPane;
 
-
+import Model.person.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,23 +28,25 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
-
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
+import managehouseholdbook.thaydoisohokhau.addnewperson.AddNewPersonController;
 import javafx.scene.Node;
 
 public class CreateNewHouseholdBookController implements Initializable {
 
-    // ============= Phần chức năng tạo sổ hộ khẩu ==============
+
 
     @FXML
     public Label labelNhapMaHoKhau;
     @FXML
     public Label labelChonChuHo;
-    @FXML
-    public ComboBox<String> comboBoxMaHoKhau;
-    @FXML
-    public ComboBox<String> comboBoxChuHo;
+//    @FXML
+//    public ComboBox<String> comboBoxMaHoKhau;
+//    @FXML
+//    public ComboBox<String> comboBoxChuHo;
     @FXML
     public ComboBox<String> comboBoxThanhPho;
     @FXML
@@ -44,6 +55,10 @@ public class CreateNewHouseholdBookController implements Initializable {
     public ComboBox<String> comboBoxPhuong;
     @FXML
     public Button xacNhan;
+    public TextField tenChuHo;
+    public TextField soCMND;
+    public TextField detailAddress;
+    //   public AddNewPersonController addPerson;
 
     ObservableList<String> listMaHoKhau = FXCollections.observableArrayList();
 
@@ -63,7 +78,7 @@ public class CreateNewHouseholdBookController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         initializeListProvince();
         comboBoxThanhPho.setItems(listProvinceName);
-        comboBoxMaHoKhau.setItems(listMaHoKhau);
+  //      comboBoxMaHoKhau.setItems(listMaHoKhau);
     }
 
     // Action lien quan den province
@@ -110,7 +125,7 @@ public class CreateNewHouseholdBookController implements Initializable {
                 listDistrictProvinceID.add(result.getString("provinceID"));
             }
             if(listDistrictName.size() == 0)
-                comboBoxQuan.setValue("Quận/Huyện");
+                comboBoxQuan.setValue("Quận huyện");
             comboBoxQuan.setItems(listDistrictName);
             // comboBoxQuan.getSelectionModel().select(-1);
             // System.out.println(comboBoxQuan.getPromptText());
@@ -118,12 +133,12 @@ public class CreateNewHouseholdBookController implements Initializable {
 
         } catch (Exception e) {
 
-            System.out.println("Lỗi rồi bạn ei");
+            System.out.println("Lá»—i rá»“i báº¡n ei");
         }
     }
 
     public void comboBoxDistrictChanged(ActionEvent event) {
-        comboBoxPhuong.setPromptText("Xã/Phường");
+        comboBoxPhuong.setPromptText("Xã phường");
         int index = comboBoxQuan.getSelectionModel().getSelectedIndex();
         System.out.println("index district : " + index);
         if(index == -1){
@@ -158,15 +173,160 @@ public class CreateNewHouseholdBookController implements Initializable {
     }
 
     public void comboChanged(ActionEvent Event) {
-        System.out.println(comboBoxMaHoKhau.getSelectionModel().getSelectedIndex());
-        System.out.println(comboBoxMaHoKhau.getValue());
+ //       System.out.println(comboBoxMaHoKhau.getSelectionModel().getSelectedIndex());
+ //       System.out.println(comboBoxMaHoKhau.getValue());
     }
 
-    public void xacNhan(ActionEvent event) {
-        System.out.println("xac nhan");
+    public void xacNhan(ActionEvent event) throws Exception {
+        System.out.println(this.soCMND.getText());
+        if(this.getHostID(this.soCMND.getText()) == 0) {
+        	JOptionPane.showMessageDialog(null,"Chủ hộ chưa tồn tại trong dữ liệu dân cư. Vui lòng thêm thông tin về chủ hộ trong phần thêm nhân khẩu");
+        	return;
+        }
+        if(this.getBookID(this.getHostID(this.soCMND.getText())) != 0) {
+        	JOptionPane.showMessageDialog(null, "Chủ hộ hiện đang nằm trong một sổ hộ khẩu khác.Để tạo sổ hộ khẩu mới vui lòng chọn chức năng tách sổ hộ khẩu");
+        	return;
+        }
+        
+      //  System.out.println(this.getHostID(this.soCMND.getText()));
+        this.createNewBook();
+        if(this.tenChuHo.getText().equals("") || this.comboBoxThanhPho.getSelectionModel().getSelectedItem().equals("")
+           || this.comboBoxPhuong.getSelectionModel().getSelectedItem().equals("") || this.comboBoxQuan.getSelectionModel().getSelectedItem().equals("")) {
+        	JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ thông tin ");
+        }else
+        	{
+        	JOptionPane.showMessageDialog(null,"Tạo sổ hộ khẩu thành công. Vui lòng chuyển sang chức năng thêm nhân khẩu để thêm thông tin các thành viên trong hộ khẩu");
+ //       	this.changeToAddNewPerson(event);
+        	}
+        	
+        
+        System.out.println(this.comboBoxQuan.getSelectionModel().getSelectedItem());
+        System.out.println(this.getDistrictID(this.comboBoxQuan.getSelectionModel().getSelectedItem()));
     }
-
-    // =========== Phần chuyển qua lại giữa các chức năng =================
+    
+    public int getHostID(String identitycard) throws SQLException {
+    	ConnectDatabase.ConnectData();
+    	try {
+        	Statement st = ConnectDatabase.connection.createStatement();
+        	ResultSet rs;
+        	rs = st.executeQuery("SELECT PersonID FROM [Person].[IdentityCard] WHERE Number ='" + identitycard +"'; ");
+        	int id = 0;
+        	while(rs.next()) {
+        	  id = rs.getInt("PersonID");
+        	}
+        	return id;
+        	}
+        	catch (Exception e){
+        		return 0;
+        	}
+    		
+    }
+    
+    public String getCommuneID(String Commune) throws SQLException {
+    	ConnectDatabase.ConnectData();
+    	try {
+    	Statement st = ConnectDatabase.connection.createStatement();
+    	ResultSet rs;
+    	rs = st.executeQuery("SELECT CommuneID FROM [Address].[Commune] WHERE Name = N'"+ Commune +"';");
+    	String id = null;
+    	while(rs.next()) {
+    	  id = rs.getString("CommuneID");
+    
+    	}
+    	return id;
+    	}
+    	catch (Exception e){
+    		System.err.println("Error");
+    	}
+		return null;
+    }
+   
+    public String getProvinceID(String Province) throws SQLException {
+    	ConnectDatabase.ConnectData();
+    	try {
+    	Statement st = ConnectDatabase.connection.createStatement();
+    	ResultSet rs;
+    	rs = st.executeQuery("SELECT ProvinceID FROM [Address].[Province] WHERE Name = N'" + Province +"'; ");
+//    	rs = st.executeQuery("select * from [Address].[Province]");
+    	String id = null;
+    	while(rs.next()) {
+    	   id = rs.getString("ProvinceID");
+  //  	  System.out.println(rs.getString("Name"));
+    	}
+   // 	st.close();
+    	return id;
+    	}
+    	catch (Exception e){
+    		System.err.println("Error");
+    	}
+		return null;
+    }
+    
+    
+    public String getDistrictID(String District) throws SQLException {
+    	ConnectDatabase.ConnectData();
+    	try {
+    	Statement st = ConnectDatabase.connection.createStatement();
+    	ResultSet rs;
+    	rs = st.executeQuery("SELECT DistrictID FROM [Address].[District] WHERE Name = N'"+ District + "'; ");
+    	String id = null;
+    	while(rs.next()) {
+    	  id = rs.getString(1);
+    
+    	}
+    	return id;
+    	}
+    	catch (Exception e){
+    		System.err.println("Error");
+    	}
+		return null;
+    }
+    
+    public void createNewBook() throws SQLException {
+    	ConnectDatabase.ConnectData();
+    	String sql = "INSERT INTO [Household].[Book] (HeadID,ProvinceID,DistrictID,CommuneID,DetailAddress,CreatedDate) VALUES (?,?,?,?,?,?) ";
+    	int headID = 0;
+    	headID = this.getHostID(this.soCMND.getText());
+    	try {
+    		
+    		PreparedStatement ps = ConnectDatabase.connection.prepareStatement(sql);
+    //		ps.setInt(1,20);
+    		ps.setInt(1,headID);
+    		ps.setString(2,this.getProvinceID(this.comboBoxThanhPho.getSelectionModel().getSelectedItem()));
+    		ps.setString(3,this.getDistrictID(this.comboBoxQuan.getSelectionModel().getSelectedItem()));
+    		ps.setString(4,this.getCommuneID(this.comboBoxPhuong.getSelectionModel().getSelectedItem()));
+    		ps.setString(5,this.detailAddress.getText());
+    		long millis = System.currentTimeMillis();
+    		Date modifiedDate = new Date(millis);
+    		ps.setDate(6, modifiedDate);
+    		ps.executeUpdate();
+    	
+    		
+    	}catch (Exception e){
+    		e.printStackTrace();
+    	}
+    }
+    
+    public int getBookID(int personID) {   // kiem tra mot nguoi nam trong ho khau nao
+    	ConnectDatabase.ConnectData();
+    	try {
+        	Statement st = ConnectDatabase.connection.createStatement();
+        	ResultSet rs;
+        	rs = st.executeQuery("SELECT BookID FROM [Person].[Residence] WHERE PersonID ='"+ personID + "'; ");
+        	int id = 0;
+        	while(rs.next()) {
+        	  id = rs.getInt("BookID");
+        
+        	}
+        	return id;
+        	}
+        	catch (Exception e){
+        		System.err.println("Error");
+        	}
+    		return 0;
+    }
+    
+    
 
     @FXML
     Button buttonChangeBook;
@@ -194,6 +354,15 @@ public class CreateNewHouseholdBookController implements Initializable {
             setNewSceneInSameWindow("../thaydoisohokhau/ChangeHouseholdBook.fxml", event);
         } catch (Exception e) {
             System.out.println("Loi changeToChangeHouseholdBook in class CreateNewHouseholdBookController...");
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
+    public void changeToAddNewPerson(ActionEvent event) throws Exception{
+    	try {
+            setNewSceneInSameWindow("../thaydoisohokhau/AddNewPerson.fxml", event);
+        } catch (Exception e) {
+            System.out.println("Loi AddNewPerson in class CreateNewHouseholdBookController...");
             System.out.println(e.getStackTrace());
         }
     }
