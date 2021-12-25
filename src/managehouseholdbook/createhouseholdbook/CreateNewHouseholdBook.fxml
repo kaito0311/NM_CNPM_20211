@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TabPane id="AllScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@application.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane id="AllScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../../application.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.createhouseholdbook.CreateNewHouseholdBookController">
   <tabs>
       <Tab id="title1" text="Quản lý tài khoản">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
                <children>
-                  <AnchorPane id="SCREEN1_head1" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="1440.0">
+                  <AnchorPane id="SCREEN1_head1" prefHeight="200.0" prefWidth="1440.0">
                      <children>
                         <Button id="SCREEN1_button1" layoutY="5.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
                         <Button id="SCREEN1_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
@@ -27,7 +33,7 @@
                         <Line endX="1440.0" stroke="#ffc5c5" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="SCREEN1_head2" layoutY="200.0" minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="1440.0">
+                  <AnchorPane id="SCREEN1_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
                      <children>
                         <Button id="SCREEN1_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
                         <Button id="SCREEN1_subbutton2" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
@@ -54,28 +60,36 @@
                <children>
                   <AnchorPane id="SCREEN2_head1" prefHeight="200.0" prefWidth="1440.0">
                      <children>
-                        <Button id="SCREEN2_button2" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" stylesheets="@QL_Sohokhau/logo.css" text="Tạo sổ hộ khẩu">
+                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Tạo sổ hộ khẩu">
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@QL_Sohokhau/images/ho-khau-red.png" />
+                                    <Image url="@../images/ho-khau-red.png" />
                                  </image>
                               </ImageView>
                            </graphic>
+                           <stylesheets>
+                              <URL value="@../logo.css" />
+                              <URL value="@CreateNewHouseholdBookStyle.css" />
+                           </stylesheets>
+                           <styleClass>
+                              <String fx:value="SCREEN2_button" />
+                              <String fx:value="Screen_button_pressed" />
+                           </styleClass>
                         </Button>
-                        <Button id="SCREEN2_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" stylesheets="@QL_Sohokhau/logo.css" text="Button">
+                        <Button id="SCREEN2_button2" fx:id="buttonChangeBook" layoutX="270.0" mnemonicParsing="false" onAction="#changeToChangeHouseholdBook" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../logo.css" text="Thay đổi sổ hộ khẩu">
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@QL_Sohokhau/images/thay-doi-red.png" />
+                                    <Image url="@../images/thay-doi-white.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button id="SCREEN2_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" stylesheets="@QL_Sohokhau/logo.css" text="Button">
+                        <Button id="SCREEN2_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../logo.css" text="Tạm trú, Tạm vắng">
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@QL_Sohokhau/images/tam-vang-red.png" />
+                                    <Image url="@../images/tam-vang-white.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
@@ -83,7 +97,16 @@
                         <Line endX="1440.0" stroke="#ffc5c5" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="SCREEN2_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0" />
+                  <AnchorPane id="SCREEN2_head2" layoutY="202.0" prefHeight="50.0" prefWidth="1440.0">
+                     <children>
+                        <Button id="SCREEN2_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" text="Tạo sổ hộ khẩu">
+                           <stylesheets>
+                              <URL value="@../logo.css" />
+                              <URL value="@CreateNewHouseholdBookStyle.css" />
+                           </stylesheets></Button>
+                        <Button id="SCREEN2_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../logo.css" text="Button" />
+                     </children>
+                  </AnchorPane>
                   <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
                      <children>
                         <Line endX="1440.0" />
@@ -94,10 +117,45 @@
                         </Text>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0">
+                  <GridPane layoutX="455.0" layoutY="375.0" prefHeight="390.0" prefWidth="690.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <VBox layoutX="1025.0" layoutY="69.0" prefHeight="200.0" prefWidth="100.0" />
-                     </children></AnchorPane>
+                        <ComboBox id="combo-box" fx:id="comboBoxMaHoKhau" prefWidth="150.0" promptText="Ma so ho khau" styleClass="combo-box" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="1" />
+                        <ComboBox id="combo-box" fx:id="comboBoxThanhPho" onAction="#comboBoxProvinceChanged" prefWidth="150.0" promptText="Tỉnh/thành phố" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="3" />
+                        <ComboBox id="combo-box" fx:id="comboBoxChuHo" prefWidth="150.0" promptText="ID chu ho" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox id="combo-box" fx:id="comboBoxQuan" onAction="#comboBoxDistrictChanged" prefWidth="150.0" promptText="Quân/Huyện" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.rowIndex="4" />
+                        <ComboBox id="combo-box" prefWidth="150.0" promptText="Số Nhà" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox id="combo-box" fx:id="comboBoxPhuong" prefWidth="150.0" promptText="Xã/Xóm" stylesheets="@CreateNewHouseholdBookStyle.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="labelNhapMaHoKhau" text="Nhập Mã Hộ Khẩu">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
+                        <Label fx:id="labelChonChuHo" text="Chủ hộ" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
+                        <Label text="Địa chỉ" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <Button id="button-submit" layoutX="650.0" layoutY="775.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#comboChanged" prefHeight="16.0" prefWidth="176.0" styleClass="button-submit" stylesheets="@../logo.css" text="Button" fx:id="xacNhan" />
                </children>
             </AnchorPane>
          </content>

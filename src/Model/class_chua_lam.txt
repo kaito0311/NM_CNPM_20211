@@ -1,0 +1,14 @@
+Model Address, Gift, Model HouseHold 
+
+
+
+Person.Education
+Person.EduStatus
+
+
+Person.ResidenceType 
+Person.Residence 
+Person.RelationshipType 
+Person.Relationship 
+Person.Photo 
+
