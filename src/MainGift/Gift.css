@@ -1,0 +1,120 @@
+#SCREEN4_button1, #SCREEN4_button2, #SCREEN4_button3, #SCREEN4_button4, #SCREEN4_button5, 
+#SCREEN4_button6, #SCREEN4_button7, #SCREEN4_button8, #SCREEN4_button9, #SCREEN4_buttonSubmit {
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+	-fx-border-color: #ffc5c5;
+	-fx-border-width: 0 1 0 0;
+	-fx-cursor: hand;
+}
+
+#SCREEN4_button1:hover, #SCREEN4_button2:hover, #SCREEN4_button3:hover, #SCREEN4_button4:hover, #SCREEN4_button5:hover, 
+#SCREEN4_button6:hover, #SCREEN4_button7:hover, #SCREEN4_button8:hover, #SCREEN4_button9:hover, #SCREEN4_buttonSubmit:hover {
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+
+#SCREEN4_button1:pressed, #SCREEN4_button2:pressed, #SCREEN4_button3:pressed, #SCREEN4_button4:pressed, #SCREEN4_button5:pressed, 
+#SCREEN4_button6:pressed, #SCREEN4_button7:pressed, #SCREEN4_button8:pressed, #SCREEN4_button8:pressed, #SCREEN4_buttonSubmit:pressed {
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+
+#SCREEN_head1, #SCREEN_head2 {
+	-fx-background-color: #E7717D;
+}
+
+#MID_find1{
+	-fx-text-fill:#E7717D;
+	-fx-border-color: #E7717D #E7717D #E7717D #E7717D ;
+	-fx-border-width: 1;
+	-fx-effect: dropshadow(three-pass-box, rgba(230, 62, 62, 0.8), 0, 2, 2, 2);
+	-fx-background-radius: 5;
+}
+#MID_find2{
+	-fx-text-fill:#E7717D;
+	-fx-border-color: #E7717D #E7717D #E7717D #E7717D ;
+	-fx-border-width: 1;
+	-fx-effect: dropshadow(three-pass-box, rgba(230, 62, 62, 0.8), 0, 2, 2, 2);
+	-fx-background-radius: 5;
+}
+
+#MID_columm1{
+	-fx-font-size: 16px;
+	-fx-background-color: pink;
+
+}
+#MID_columm2{
+	-fx-font-size: 16px;
+	-fx-background-color: pink;
+
+}
+#MID_columm3{
+	-fx-font-size: 16px;
+	-fx-background-color: pink;
+
+}
+#MID_columm4{
+	-fx-font-size: 16px;
+	-fx-background-color: pink;
+
+}
+#MID_columm5{
+	-fx-font-size: 16px;
+	-fx-background-color: pink;
+
+}
+#MID_columm6{
+	-fx-font-size: 16px;
+	-fx-background-color: pink;
+
+}
+#MID_table{
+	-fx-border-color: #E7717D #E7717D #E7717D #E7717D ;
+	-fx-effect: innershadow( gaussian, #E7717D, 10, 0, 5, 5 );
+	-fx-border-width: 2;
+
+}
+#MID_find1_button{
+	-fx-background-color: #E7717D;
+	-fx-text-fill: white;
+}
+#MID_find2_button{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+#SCREEN4_buttonSubmit{
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+}
+
+#MID_find1_button:pressed{
+	-fx-background-color: pink;
+}
+#MID_find2_button:pressed{
+	-fx-background-color: pink;
+}
+#SCREEN4_buttonSubmit:pressed{
+	-fx-background-color: pink;
+}
+#MID_label1{
+	-fx-background-color: #E7717D;
+	-fx-alignment: CENTER;
+	-fx-text-fill:white;
+}
+#MID_table1{
+	-fx-border-color: #E7717D #E7717D #E7717D #E7717D ;
+	-fx-effect: innershadow( gaussian, #E7717D, 10, 0, 5, 5 );
+	-fx-border-width: 2;
+}
+#TABLE1_columm1{
+	-fx-background-color:pink;
+	-fx-font-size: 16px;
+}
+#TABLE1_columm2{
+	-fx-background-color:pink;
+	-fx-font-size: 16px;
+}
+#TABLE1_columm3{
+	-fx-background-color:pink;
+	-fx-font-size: 16px;
+}

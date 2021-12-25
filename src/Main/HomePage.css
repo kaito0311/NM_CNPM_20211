@@ -1,0 +1,23 @@
+#SCREEN1_button1, #SCREEN1_button2, #SCREEN1_button3,
+#SCREEN1_button4, #SCREEN1_button5 {
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+	-fx-border-color: #ffc5c5;
+	-fx-border-width: 0 1 0 0;
+}
+
+#SCREEN1_button1:hover, #SCREEN1_button2:hover, #SCREEN1_button3:hover,
+#SCREEN1_button4:hover, #SCREEN1_button5:hover {
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+
+#SCREEN1_button1:pressed, #SCREEN1_button2:pressed, #SCREEN1_button3:pressed,
+#SCREEN1_button4:pressed, #SCREEN1_button5:pressed {
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+
+#SCREEN_head1, #SCREEN_head2 {
+	-fx-background-color: #E7717D;
+}

@@ -10,9 +10,9 @@ public class ConnectToDB {
 		Connection connection = null;
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			String connectionURL = "jdbc:sqlserver://DESKTOP-N17DMQT\\SQLEXPRESS:1433;databaseName=PM;integratedSecurity=true;";
+			String connectionURL = "jdbc:sqlserver://DESKTOP-N17DMQT\\SQLEXPRESS:1433;databaseName=PopulationManagement;integratedSecurity=true;";
 			connection = DriverManager.getConnection(connectionURL, "sa", "quocthang");
-			System.out.println("Ket noi thanh cong!");
+//			System.out.println("Ket noi thanh cong!");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage() + "\n" + e.getClass() + "\n" + e.getCause());

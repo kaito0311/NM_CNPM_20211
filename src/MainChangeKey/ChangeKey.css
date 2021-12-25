@@ -1,0 +1,24 @@
+#SCREEN2_button1, #SCREEN2_button2, #SCREEN2_button3, #SCREEN2_button4, #SCREEN2_button5, 
+#SCREEN2_button6, #SCREEN2_button7, #SCREEN2_button8, #SCREEN2_buttonSubmit {
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+	-fx-border-color: #ffc5c5;
+	-fx-border-width: 0 1 0 0;
+	-fx-cursor: hand;
+}
+
+#SCREEN2_button1:hover, #SCREEN2_button2:hover, #SCREEN2_button3:hover, #SCREEN2_button4:hover, #SCREEN2_button5:hover, 
+#SCREEN2_button6:hover, #SCREEN2_button7:hover, #SCREEN2_button8:hover, #SCREEN2_buttonSubmit:hover {
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+
+#SCREEN2_button1:pressed, #SCREEN2_button2:pressed, #SCREEN2_button3:pressed, #SCREEN2_button4:pressed, #SCREEN2_button5:pressed, 
+#SCREEN2_button6:pressed, #SCREEN2_button7:pressed, #SCREEN2_button8:pressed, #SCREEN2_buttonSubmit:pressed {
+	-fx-background-color: pink;
+	-fx-text-fill:white;
+}
+
+#SCREEN_head1, #SCREEN_head2 {
+	-fx-background-color: #E7717D;
+}
