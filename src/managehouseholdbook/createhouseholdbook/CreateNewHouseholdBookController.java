@@ -1,14 +1,12 @@
 package managehouseholdbook.createhouseholdbook;
 
 import java.net.URL;
-import java.sql.Connection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.NumberFormat.Style;
+
 import java.util.ResourceBundle;
 
-import javax.swing.Action;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,7 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
-import javafx.scene.input.MouseEvent;
+
 import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
 import javafx.scene.Node;

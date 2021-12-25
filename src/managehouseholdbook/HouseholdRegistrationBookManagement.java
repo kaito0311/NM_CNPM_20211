@@ -25,8 +25,6 @@ public class HouseholdRegistrationBookManagement implements Initializable {
     private Stage stage; 
     private Scene scene; 
 
-    
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
@@ -78,7 +76,4 @@ public class HouseholdRegistrationBookManagement implements Initializable {
     //         System.out.println(e.getStackTrace());
     //     }
     // }
-
-
-    
 }

@@ -6,6 +6,7 @@ public class BirthPlace {
     private String provinceID;
     private String districtID; 
     private String communeID;
+    
     public BirthPlace(int personID, String nationID, String provinceID, String districtID, String communeID) {
         this.personID = personID;
         this.nationID = nationID;

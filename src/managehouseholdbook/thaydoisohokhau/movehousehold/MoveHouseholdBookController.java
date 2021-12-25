@@ -1,10 +1,6 @@
 package managehouseholdbook.thaydoisohokhau.movehousehold;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -18,8 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import managehouseholdbook.ConnectDatabase;
+import managehouseholdbook.thaydoisohokhau.movehousehold.changeHead.ChangeHeadController;
 
 public class MoveHouseholdBookController implements Initializable {
 
@@ -27,26 +24,10 @@ public class MoveHouseholdBookController implements Initializable {
     private ComboBox<String> district;
     ObservableList<String> listDistrict = FXCollections.observableArrayList();
 
-    public void initializeListDistrict() {
-        try {
-            String sql = "select * from Address.District";
-        
-            Statement statement = ConnectDatabase.connection.createStatement();
-            ResultSet result = statement.executeQuery(sql);
-
-            while (result.next()) {
-                listDistrict.add(result.getNString("name"));
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("Cannot take data in MovehouseholdBookcontroller");
-        }
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeListDistrict();
-        district.setItems(listDistrict);
+
     }
 
     @FXML
@@ -58,6 +39,22 @@ public class MoveHouseholdBookController implements Initializable {
 
     private Stage stage;
     private Scene scene;
+    ////////////////////////////////////////////
+    @FXML
+    void changeHead()throws Exception{
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("./changeHead/ChangeHead.fxml"));
+            AnchorPane root = (AnchorPane)loader.load();
+            ChangeHeadController controller = loader.getController();
+            Stage state = new Stage();
+            state.setScene(new Scene(root));
+            state.show();
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+    }
+
+    ///////////////////////////////////////////////
 
     private void setNewSceneInSameWindow(String source, ActionEvent event) {
         try {

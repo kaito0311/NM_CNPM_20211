@@ -9,12 +9,14 @@ public class InforPerson {
     private IdentityCard card = null;
     private OriginPlace originPlace = null;
     private BirthPlace birthPlace = null;
+    private Residence residence = null;
+    private ResidenceType residenceType = null;
 
     public InforPerson() {
     }
 
     public InforPerson(Person person, Nationality nationality, Ethnic ethnic, Work work, IdentityCard card,
-            OriginPlace originPlace, BirthPlace birthPlace) {
+            OriginPlace originPlace, BirthPlace birthPlace, Residence residence, ResidenceType residenceType) {
         this.person = person;
         this.nationality = nationality;
         this.ethnic = ethnic;
@@ -22,12 +24,32 @@ public class InforPerson {
         this.card = card;
         this.originPlace = originPlace;
         this.birthPlace = birthPlace;
+        this.residence = residence;
+        this.residenceType = residenceType;
+    }
+
+    public ResidenceType getResidenceType() {
+        return residenceType;
+    }
+
+    public void setResidenceType(ResidenceType residenceType) {
+        this.residenceType = residenceType;
+    }
+
+    public Residence getResidence() {
+        return residence;
+    }
+
+    public void setResidence(Residence residence) {
+        this.residence = residence;
     }
 
     @Override
     public String toString() {
-        return "Inforperson [birthPlace=" + birthPlace.toString() + ", card=" + card.toString() + ", ethnic=" + ethnic.toString() + ", nationality="
-                + nationality.toString() + ", originPlace=" + originPlace.toString() + ", person=" + person.toString() + ", work=" + work.toString() + "]";
+        return "Inforperson [birthPlace=" + birthPlace.toString() + ", card=" + card.toString() + ", ethnic="
+                + ethnic.toString() + ", nationality="
+                + nationality.toString() + ", originPlace=" + originPlace.toString() + ", person=" + person.toString()
+                + ", work=" + work.toString() + "]";
     }
 
     public Person getPerson() {

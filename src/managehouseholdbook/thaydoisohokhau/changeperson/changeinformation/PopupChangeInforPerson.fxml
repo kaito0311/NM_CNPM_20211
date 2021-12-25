@@ -39,7 +39,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="69.0" layoutY="18.0" prefHeight="26.0" prefWidth="148.0" />
+                        <ComboBox fx:id="comboBoxBirthNation" layoutX="66.0" layoutY="16.0" onAction="#comboBoxBirthNationChange" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="185.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -49,7 +49,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFieldHoTen" layoutX="76.0" layoutY="16.0" />
+                        <TextField fx:id="textFieldNamePerson" layoutX="76.0" layoutY="16.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="395.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
@@ -59,7 +59,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="85.0" layoutY="16.0" />
+                        <TextField fx:id="textFieldOtherNamePerson" layoutX="85.0" layoutY="16.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="605.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
@@ -69,7 +69,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="76.0" layoutY="15.0" prefHeight="26.0" prefWidth="128.0" promptText="Nam" />
+                        <ComboBox fx:id="gender" layoutX="76.0" layoutY="15.0" prefHeight="26.0" prefWidth="128.0" promptText="Nam" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="416.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
@@ -79,7 +79,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="ngaySinh" layoutX="91.0" layoutY="16.0" />
+                        <TextField fx:id="textFieldBirthDate" layoutX="91.0" layoutY="16.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -89,7 +89,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="66.0" layoutY="19.0" />
+                        <TextField fx:id="textFieldEthnic" layoutX="66.0" layoutY="19.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="64.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -109,7 +109,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="85.0" layoutY="15.0" />
+                        <TextField fx:id="textFieldNationality" layoutX="85.0" layoutY="15.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
@@ -119,7 +119,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="maHoKhau" layoutX="92.0" layoutY="15.0" />
+                        <TextField fx:id="textFieldBookID" layoutX="92.0" layoutY="15.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="715.0" layoutY="64.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
@@ -129,7 +129,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="132.0" layoutY="16.0" prefHeight="26.0" prefWidth="114.0" />
+                        <TextField fx:id="textFieldRelationWithHead" layoutX="132.0" layoutY="16.0" prefHeight="26.0" prefWidth="114.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="64.0" prefHeight="64.0" prefWidth="230.0" GridPane.rowIndex="2">
@@ -139,7 +139,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="66.0" layoutY="15.0" />
+                        <TextField fx:id="textFieldIdentityCard" layoutX="66.0" layoutY="15.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="119.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -149,7 +149,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="76.0" layoutY="15.0" />
+                        <TextField fx:id="textFieldRegisterDateIdentityCard" layoutX="76.0" layoutY="15.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="240.0" layoutY="119.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
@@ -159,7 +159,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="98.0" layoutY="15.0" />
+                        <TextField fx:id="textFieldWorkPlace" layoutX="98.0" layoutY="15.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="240.0" layoutY="119.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
@@ -169,7 +169,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="92.0" layoutY="15.0" />
+                        <TextField fx:id="textFieldWork" layoutX="92.0" layoutY="15.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="240.0" layoutY="119.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -179,7 +179,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="85.0" layoutY="15.0" />
+                        <TextField fx:id="textFieldRegisterPlaceIdentityCard" layoutX="85.0" layoutY="15.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="183.0" prefHeight="34.0" prefWidth="230.0" GridPane.rowIndex="3">
@@ -198,7 +198,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="66.0" layoutY="15.0" />
+                        <ComboBox fx:id="comboBoxOriginNation" layoutX="66.0" layoutY="12.0" onAction="#comboBoxOriginNationChange" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -208,7 +208,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="76.0" layoutY="12.0" />
+                        <ComboBox fx:id="comboBoxOriginProvince" layoutX="77.0" layoutY="12.0" onAction="#comboBoxOriginProvinceChanged" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
@@ -218,7 +218,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="85.0" layoutY="15.0" />
+                        <ComboBox fx:id="comboBoxOriginDistrict" layoutX="89.0" layoutY="12.0" onAction="#comboBoxOriginDistrictChanged" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
@@ -228,7 +228,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="87.0" layoutY="17.0" />
+                        <ComboBox fx:id="comboBoxBirthCommune" layoutX="89.0" layoutY="17.0" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
@@ -257,7 +257,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="91.0" layoutY="15.0" />
+                        <ComboBox fx:id="comboBoxOriginCommune" layoutX="90.0" layoutY="12.0" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
@@ -277,7 +277,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="85.0" layoutY="15.0" />
+                        <ComboBox fx:id="comboBoxBirthDistrict" layoutX="98.0" layoutY="16.0" onAction="#comboBoxBirthDistrictChanged" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
@@ -287,7 +287,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="76.0" layoutY="15.0" />
+                        <ComboBox fx:id="comboBoxBirthProvince" layoutX="78.0" layoutY="16.0" onAction="#comboBoxBirthProvinceChanged" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="96.0" prefHeight="200.0" prefWidth="200.0">
@@ -297,7 +297,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="98.0" layoutY="18.0" prefHeight="22.0" prefWidth="118.0" style="-fx-border-color: black; -fx-padding: 0 0 0 6;" text="0012" textAlignment="CENTER">
+                        <Label fx:id="textFieldPersonID" layoutX="98.0" layoutY="18.0" prefHeight="22.0" prefWidth="118.0" style="-fx-border-color: black; -fx-padding: 0 0 0 6;" text="0012" textAlignment="CENTER">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -306,7 +306,12 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <Button layoutX="540.0" layoutY="539.0" mnemonicParsing="false" prefHeight="58.0" styleClass="button-submit" stylesheets="@../ChangePersonStyle.css" text="Lưu thông tin thay đổi" />
+            <Button fx:id="submiButton" layoutX="540.0" layoutY="539.0" mnemonicParsing="false" onAction="#submitAndSave" prefHeight="58.0" styleClass="button-submit" stylesheets="@../ChangePersonStyle.css" text="Lưu thông tin thay đổi" />
+            <Label fx:id="confirmLabel" layoutX="537.0" layoutY="496.0" prefHeight="26.0" prefWidth="300.0" textAlignment="RIGHT" textFill="#ec0c0c">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

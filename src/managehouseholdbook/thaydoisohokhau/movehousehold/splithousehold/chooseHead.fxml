@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.splithousehold.ChooseHeadController">
+   <children>
+      <Button layoutX="308.0" layoutY="140.0" mnemonicParsing="false" onAction="#takeInforCandidateHead" text="Tách hộ" />
+      <TextField layoutX="260.0" layoutY="100.0" />
+      <Label layoutX="138.0" layoutY="284.0" text="ID chủ hộ 1" />
+      <Label layoutX="138.0" layoutY="359.0" text="ID chủ hộ 2" />
+      <Label layoutX="260.0" layoutY="284.0" text="số cmnd" />
+      <Label layoutX="260.0" layoutY="359.0" prefHeight="18.0" prefWidth="58.0" text="Số CCCD" />
+      <ComboBox fx:id="comboBoxCandidateHead1" layoutX="383.0" layoutY="280.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxCandidateHead2" layoutX="383.0" layoutY="355.0" prefWidth="150.0" />
+      <Button layoutX="260.0" layoutY="441.0" mnemonicParsing="false" onAction="#changeMember" text="Thay đổi thành viên trong hộ" />
+   </children>
+</AnchorPane>

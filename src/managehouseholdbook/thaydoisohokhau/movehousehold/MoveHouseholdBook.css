@@ -9,3 +9,21 @@
     -fx-background-color: white; 
     -fx-text-fill: #E7717D;
 }
+
+.button-submit{
+    -fx-pref-width: 300px; 
+    -fx-pref-height:35px;
+    -fx-background-color: #E7717D; 
+    -fx-font-weight: bold; 
+    -fx-padding: 1 1 1 1;
+    -fx-font-size: 12px;
+    -fx-text-fill: white; 
+  
+  
+  }
+  .button-submit:hover{
+    -fx-background-color: pink; 
+    -fx-border-color: black; 
+  }
+  
+  
