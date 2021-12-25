@@ -5,61 +5,124 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
-import model.person.Person;
+import model.person.*;
+
+//import model.person.InforPerson;
 
 public class SQLConnection {
-	private String url;
-	private String username;
-	private String password;
+	public static Connection connection;
+	public static Statement statement;
+	public static ArrayList<InforPerson> danhSachNhanKhau = new ArrayList<InforPerson>();
 	
-	public SQLConnection(String url, String username, String password) {
-		super();
-		this.url = url;
-		this.username = username;
-		this.password = password;
-	}
-	
-	public void queryPerson_Person() throws SQLException{
-		
-		Connection connection = DriverManager.getConnection(url, username, password);
-		String query = "select * from Person.Person";
-		Statement statement = connection.createStatement();
-		
-		ResultSet result = statement.executeQuery(query);
-		
-		
-		while (result.next())
-			System.out.println(result.getString("FullName"));
-		
-		connection.close();
+	public static void ConnectData() {
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlserver://DAT\\SQLEXPRESS;databaseName=PopulationManagement", "kdat194011", "datbk21094011");
+			statement = connection.createStatement();
 			
+		} catch (SQLException e) {
+			System.out.println("Cannot connect to database! " + e);
+		}
+
 	}
 	
+	public static void setList() {
+		danhSachNhanKhau.clear();
+		String sql = "select p.*, e.Name as EthName, e.OtherName as EOtherName, n.Name as NaName, bp.NationID as BirPlNID, bp.ProvinceID as BirPlPID, bp.DistrictID as BirPlDID, bp.CommuneID as BirPlCID, op.NationID as OriPlNID, op.ProvinceID as OriPlPID, op.DistrictID as OriPlDID, op.CommuneID as OriPlCID, ic.Number as CCCD, ic.RegisterDate as IDDate, ic.RegisterPlace as IDPlace, r.ResidenceTypeID as ReTyID, r.PrePermanentAddress as PrPeAd, r.BookID as BoID, r.RelationshipWithHead as ReWiHe, rt.Name as ReTyName, edu.AcademicLevel as AcLe, edu.PrimarySchool as PrSc, edu.JuniorHighSchool as JuHiSc, edu.HighSchool as HiSc, edu.Class as Class, al.Name as AcLeName, w.Job as Job, w.Place as WoPl, w.ModifiedDate as WoDate, ta.CertificateID as TACeID, ta.TempResidencePlace as TATeRePlace, ta.FromDate as TAFrDate, ta.ToDate as TAToDate, ta.CertifiedDate as TACeDate, tr.CertificateID as TRCeID, tr.FromDate as TRFrDate, tr.ToDate as TRToDate, tr.ProvinceID as TRPID, tr.DistrictID as TRDID, tr.CommuneID as TRCID, tr.DetailAddress as TRDeAd, tr.CertifiedDate as TRCeDate from Person.Person p join Person.BirthPlace bp on bp.PersonID = p.PersonID join Person.OriginPlace op on op.PersonID = p.PersonID join Person.Ethnic e on e.EthnicID = p.EthnicID join Person.Nationality n on n.NationalityID = p.NationalityID join Person.IdentityCard ic on ic.PersonID = p.PersonID join Person.Residence r on r.PersonID = p.PersonID join Person.ResidenceType rt on rt.ResidenceTypeID = r.ResidenceTypeID left join Person.Education edu on edu.PersonID = p.PersonID left join Person.AcademicLevel al on al.Level = edu.AcademicLevel left join Person.Work w on w.PersonID = p.PersonID left join Person.TemporaryAbsent ta on ta.PersonID = p.PersonID left join Person.TemporaryResidence tr on tr.PersonID = p.PersonID ";
+//		System.out.println(sql);
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			
+			while(result.next()) {
+				danhSachNhanKhau.add(new InforPerson(new Person(result.getInt("PersonID"), result.getString("FullName"), result.getString("NickName"), result.getDate("BirthDate"), result.getInt("Gender"), result.getString("EthnicID"), result.getString("NationalityID")), 
+									 new Nationality(result.getString("NationalityID"), result.getString("NaName")),
+									 new Ethnic(result.getString("EthnicID"), result.getString("EthName")), 
+									 new Work(result.getInt("PersonID"), result.getString("Job"), result.getString("WoPl"), result.getDate("WoDate")),
+									 new IdentityCard(result.getInt("PersonID"), result.getString("CCCD"), result.getDate("IDDate"), result.getString("IDPlace")),
+									 new OriginPlace(result.getInt("PersonID"), result.getString("OriPlNID"), result.getString("OriPlPID"), result.getString("OriPlDID"), result.getString("OriPlCID")),
+									 new BirthPlace(result.getInt("PersonID"), result.getString("BirPlNID"), result.getString("BirPlPID"), result.getString("BirPlDID"), result.getString("BirPlCID")),
+									 new TemporaryAbsence(result.getInt("TACeID"), result.getInt("PersonID"), result.getString("TATeRePlace"), result.getDate("TAFrDate"), result.getDate("TAToDate"), result.getDate("TACeDate")),
+									 new TemporaryResidence(result.getInt("TRCeID"), result.getInt("PersonID"), result.getDate("TRFrDate"), result.getDate("TRToDate"), result.getString("TRPID"), result.getString("TRDID"), result.getString("TRCID"), result.getString("TRDeAd"), result.getDate("TRCeDate")), 
+									 new Education(result.getInt("PersonID"), result.getInt("AcLe"), result.getString("PrSc"), result.getString("JuHiSc"), result.getString("HiSc"), result.getString("Class")), 
+									 new AcademicLevel(result.getInt("AcLe"), result.getString("AcLeName")), 
+									 new ResidenceType(result.getInt("ReTyID"), result.getString("ReTyName")),
+									 new Residence(result.getInt("PersonID"), result.getInt("ReTyID"), result.getString("PrPeAd"), result.getInt("BoID"), result.getString("ReWiHe"))));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
+	public static String toNation(String nationID) {
+		String a = null;
+		String sql = "select * from Address.Nation where NationID = '" + nationID + "'";
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			if(result.next()) 
+				a = result.getString("Name");
 
-	public String getUrl() {
-		return url;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return a;
 	}
+	
+	public static String toProvince(String provinceID) {
+		String a = null;
+		String sql = "select Name from Address.Province where provinceID = '" + provinceID + "'";
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			if(result.next()) 
+				a = result.getString("Name");
 
-	public void setUrl(String url) {
-		this.url = url;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return a;
 	}
+	
+	public static String toDistrict(String districtID) {
+		String a = null;
+		String sql = "select Name from Address.District where districtID = '" + districtID + "'";
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			if(result.next()) 
+				a = result.getString("Name");
 
-	public String getUsername() {
-		return username;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return a;
 	}
+	
+	public static String toCommune(String communeID) {
+		String a = null;
+		String sql = "select Name from Address.Commune where communeID = '" + communeID + "'";
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			if(result.next()) 
+				a = result.getString("Name");
 
-	public void setUsername(String username) {
-		this.username = username;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return a;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	
+	public static String toPlace(String nationID, String provinceID, String districtID, String communeID) {
+		return toCommune(communeID) + ", " + toDistrict(districtID) + ", " + toProvince(provinceID) + ", " + toNation(nationID);
 	}
 	
 }
