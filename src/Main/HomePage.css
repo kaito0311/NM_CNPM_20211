@@ -1,0 +1,34 @@
+#SCREEN1_button1, #SCREEN1_button2, #SCREEN1_button3,
+#SCREEN1_button4, #SCREEN1_button5, #SCREEN1_button6 {
+	-fx-background-color: #E7717D;
+	-fx-text-fill:white;
+	-fx-border-color: #ffc5c5;
+	-fx-border-width: 0 1 0 0;
+}
+
+#SCREEN1_button1{
+	-fx-background-image: url('file:/D:/Java/QLHK_CNPM_2/data/home-white.png');
+	-fx-background-size: 50 50;
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center center;
+}
+#SCREEN1_button1:focused{
+	-fx-background-image: url('file:/D:/Java/QLHK_CNPM_2/data/home-red.png');	
+}
+#SCREEN1_button1:hover, #SCREEN1_button2:hover, #SCREEN1_button3:hover,
+#SCREEN1_button4:hover, #SCREEN1_button5:hover, #SCREEN1_button6:hover {
+	-fx-background-color: #f08b9c;
+	-fx-text-fill:white;
+}
+
+#SCREEN1_button1:focused, #SCREEN1_button2:focused, #SCREEN1_button3:focused,
+#SCREEN1_button4:focused, #SCREEN1_button5:focused, #SCREEN1_button6:focused {
+	-fx-background-color: white;
+	-fx-text-fill:#E7717D;
+}
+
+
+
+#SCREEN_head1, #SCREEN_head2 {
+	-fx-background-color: #E7717D;
+}

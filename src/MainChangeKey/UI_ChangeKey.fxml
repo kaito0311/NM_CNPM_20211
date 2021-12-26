@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" stylesheets="@ChangeKey.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainChangeKey.ControllerChangeKey">
+   <children>
+      <Pane prefHeight="60.0" prefWidth="1440.0" style="-fx-background-color: #E7717D;">
+         <children>
+            <Button id="SCREEN2_button2" layoutX="90.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Quản lý tài khoản">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN2_button1" mnemonicParsing="false" onAction="#changeToHomePage" prefHeight="60.0" prefWidth="90.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN2_button3" layoutX="360.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN2_button4" layoutX="630.0" mnemonicParsing="false" onAction="#changeToCreateListScholar" prefHeight="60.0" prefWidth="270.0" text="Cấp phần thưởng">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN2_button5" layoutX="900.0" mnemonicParsing="false" onAction="#changeToThongKeHome" prefHeight="60.0" prefWidth="270.0" text="Thống kê">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN2_button5" layoutX="1170.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+         <children>
+            <AnchorPane id="SCREEN_head1" prefHeight="200.0" prefWidth="1440.0">
+               <children>
+                  <Button id="SCREEN2_button6" contentDisplay="TOP" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Đăng xuất">
+                     <graphic>
+                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/sign_out.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN2_button7" fx:id="buttonChangeInfo" contentDisplay="TOP" layoutX="270.0" mnemonicParsing="false" onAction="#changeToChangeInfo" prefHeight="200.0" prefWidth="270.0" text="Thay đổi thông tin cá nhân" textAlignment="CENTER" wrapText="true">
+                     <graphic>
+                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/information.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN2_button8" contentDisplay="TOP" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Đổi mật khẩu">
+                     <graphic>
+                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/key.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+                  <Line endX="1440.0" stroke="#ffc5c5" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="SCREEN_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
+               <children>
+                  <Button id="SCREEN1_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Quản lý tài khoản" textFill="#e7717d">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN1_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Đổi mật khẩu" textFill="#e7717d">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
+               <children>
+                  <Line endX="1440.0" />
+                  <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="-14.0" layoutY="271.0" prefHeight="650.0" prefWidth="1440.0">
+               <children>
+                  <Label layoutX="500.0" layoutY="75.0" prefHeight="37.0" prefWidth="145.0" text="Mật khẩu hiện tại">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="500.0" layoutY="212.0" prefHeight="37.0" prefWidth="134.0" text="Mật khẩu mới">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="500.0" layoutY="346.0" prefHeight="37.0" prefWidth="197.0" text="Xác nhận mật khẩu mới">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button id="SCREEN2_buttonSubmit" fx:id="SCREEN2_buttonSubmit" layoutX="545.0" layoutY="534.0" mnemonicParsing="false" onAction="#changePass" prefHeight="60.0" prefWidth="350.0" text="Xác nhận" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="611.0" layoutY="214.0" prefHeight="34.0" prefWidth="21.0" text="(*)" textFill="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="638.0" layoutY="77.0" prefHeight="34.0" prefWidth="21.0" text="(*)" textFill="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="687.0" layoutY="348.0" prefHeight="34.0" prefWidth="21.0" text="(*)" textFill="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passNow" layoutX="500.0" layoutY="112.0" prefHeight="60.0" prefWidth="440.0" />
+                  <PasswordField fx:id="passNew" layoutX="500.0" layoutY="250.0" prefHeight="60.0" prefWidth="440.0" />
+                  <PasswordField fx:id="passNewCf" layoutX="500.0" layoutY="380.0" prefHeight="60.0" prefWidth="440.0" />
+                  <Label fx:id="lbNoti" alignment="CENTER" layoutX="470.0" layoutY="466.0" prefHeight="42.0" prefWidth="500.0" textFill="RED">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

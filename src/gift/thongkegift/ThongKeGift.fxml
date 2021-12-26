@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gift.thongkegift.ThongKeGiftController">
+   <children>
+      <Pane prefHeight="60.0" prefWidth="1440.0" style="-fx-background-color: #E7717D;">
+         <children>
+            <Button id="SCREEN4_button4" layoutX="630.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Cấp phần thưởng">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN4_button1" mnemonicParsing="false" onAction="#changeToHomePage" prefHeight="60.0" prefWidth="90.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN4_button2" layoutX="90.0" mnemonicParsing="false" onAction="#changeToChangeInfo" prefHeight="60.0" prefWidth="270.0" text="Quản lý tài khoản">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN4_button3" layoutX="360.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN4_button5" layoutX="900.0" mnemonicParsing="false" onAction="#changeToThongKeHome" prefHeight="60.0" prefWidth="270.0" text="Thống kê">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN4_button6" layoutX="1170.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+         <children>
+            <AnchorPane id="SCREEN_head1" prefHeight="200.0" prefWidth="1440.0">
+               <children>
+                  <Button id="SCREEN4_button6" contentDisplay="TOP" mnemonicParsing="false" onAction="#changeToCreateListChild" prefHeight="200.0" prefWidth="270.0" text="Lập danh sách">
+                     <graphic>
+                        <ImageView fitHeight="125.0" fitWidth="154.0">
+                           <image>
+                              <Image url="@../../img/list-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN4_button7" contentDisplay="TOP" layoutX="270.0" layoutY="-2.0" mnemonicParsing="false" onAction="#changeToGiftChild" prefHeight="200.0" prefWidth="270.0" text="Chia phần thưởng">
+                     <graphic>
+                        <ImageView fitHeight="118.0" fitWidth="168.0">
+                           <image>
+                              <Image url="@../../img/money-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN4_button8" contentDisplay="TOP" layoutX="540.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Thống kê">
+                     <graphic>
+                        <ImageView fitHeight="118.0" fitWidth="118.0">
+                           <image>
+                              <Image url="@../../img/analyst-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+                  <Line endX="1440.0" stroke="#ffc5c5" />
+                  <Button id="SCREEN4_button9" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="1170.0" layoutY="1.0" mnemonicParsing="false" onAction="#changeToScholarship" prefHeight="197.0" prefWidth="270.0" style="-fx-border-width: 0 0 0 1;" text="Chuyển sang phát học bổng">
+                     <graphic>
+                        <ImageView fx:id="changeToGift" fitHeight="137.0" fitWidth="137.0">
+                           <image>
+                              <Image url="@../../img/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane id="SCREEN_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
+               <children>
+                  <Button id="SCREEN3_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Cấp phần thưởng" textFill="#e7717d">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN3_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Quà dịp đặc biệt" textFill="#e7717d">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN3_subbutton1" layoutX="540.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Thống kê" textFill="#e7717d">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
+               <children>
+                  <Line endX="1440.0" />
+                  <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0" />
+            <AnchorPane layoutX="10.0" layoutY="260.0" prefHeight="650.0" prefWidth="1440.0">
+               <children>
+                  <TableView id="MID_table" fx:id="createListChild" layoutX="11.0" layoutY="89.0" minHeight="400.0" minWidth="1200.0" prefHeight="520.0" prefWidth="1412.0">
+                     <columns>
+                        <TableColumn id="MID_columm1" fx:id="STT" editable="false" maxWidth="1144.0" minWidth="45.333343505859375" prefWidth="53.333343505859375" resizable="false" text="STT" />
+                        <TableColumn id="MID_columm1" fx:id="fullName" editable="false" maxWidth="520.6666564941406" minWidth="50.0" prefWidth="417.0" resizable="false" text="Họ tên" />
+                        <TableColumn id="MID_columm2" fx:id="birthDate" editable="false" maxWidth="500.0" minWidth="0.0" prefWidth="148.0" resizable="false" text="Ngày sinh" />
+                        <TableColumn id="MID_columm3" fx:id="gender" editable="false" maxWidth="508.0" minWidth="103.66668701171875" prefWidth="120.0" resizable="false" text="Giới tính" />
+                        <TableColumn id="MID_columm4" fx:id="age" editable="false" maxWidth="564.0" minWidth="62.0" prefWidth="92.0" resizable="false" text="Tuổi" />
+                        <TableColumn id="MID_columm4" fx:id="gift" editable="false" maxWidth="714.0" minWidth="62.0" prefWidth="315.0" resizable="false" text="Phần quà" />
+                        <TableColumn id="MID_columm4" fx:id="value" editable="false" maxWidth="631.3333740234375" minWidth="0.0" prefWidth="116.0" resizable="false" text="Giá trị (VND)" />
+                        <TableColumn id="MID_columm6" fx:id="bookID" editable="false" maxWidth="689.0" minWidth="149.0" prefWidth="151.6666259765625" resizable="false" text="Mã hộ khẩu" />
+                     </columns>
+                  </TableView>
+                  <TextField id="MID_find1" layoutX="63.0" layoutY="24.0" prefHeight="55.0" prefWidth="335.0" promptText="Cột tìm kiếm" />
+                  <Button id="MID_find1_button" layoutX="353.0" layoutY="33.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="find" />
+                  <TextField id="MID_find2" layoutX="429.0" layoutY="23.0" prefHeight="55.0" prefWidth="335.0" promptText="Nhập tìm kiếm" />
+                  <Button id="MID_find1_button" layoutX="718.0" layoutY="32.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="find" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
