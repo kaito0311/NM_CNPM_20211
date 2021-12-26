@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" stylesheets="@Scholar.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CPT.Scholar.ControllerScholar">
+   <children>
+      <Pane prefHeight="60.0" prefWidth="1440.0" style="-fx-background-color: #E7717D;">
+         <children>
+            <Button id="SCREEN4_button1" mnemonicParsing="false" onAction="#changeToHomePage" prefHeight="60.0" prefWidth="270.0" text="Trang chủ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN4_button2" layoutX="270.0" mnemonicParsing="false" onAction="#changeToChangeInfo" prefHeight="60.0" prefWidth="270.0" text="Quản lý tài khoản">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN4_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN4_button4" layoutX="810.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Cấp phần thưởng">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="SCREEN4_button5" layoutX="1080.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Thống kê">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+         <children>
+            <AnchorPane id="SCREEN_head1" prefHeight="200.0" prefWidth="1440.0">
+               <children>
+                  <Button id="SCREEN4_button6" contentDisplay="TOP" mnemonicParsing="false" onAction="#changeToCreateListScholar" prefHeight="200.0" prefWidth="270.0" text="Lập danh sách">
+                     <graphic>
+                        <ImageView fitHeight="125.0" fitWidth="154.0">
+                           <image>
+                              <Image url="@../../img/list-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN4_button7" contentDisplay="TOP" layoutX="270.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Chia phần thưởng">
+                     <graphic>
+                        <ImageView fitHeight="118.0" fitWidth="168.0">
+                           <image>
+                              <Image url="@../../img/money-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN4_button8" contentDisplay="TOP" layoutX="540.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Thống kê">
+                     <graphic>
+                        <ImageView fitHeight="118.0" fitWidth="118.0">
+                           <image>
+                              <Image url="@../../img/analyst-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+                  <Line endX="1440.0" stroke="#ffc5c5" />
+                  <Button id="SCREEN4_button9" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="1170.0" layoutY="1.0" mnemonicParsing="false" onAction="#changeToGiftChild" prefHeight="197.0" prefWidth="270.0" style="-fx-border-width: 0 0 0 1;" text="Chuyển sang phát quà">
+                     <graphic>
+                        <ImageView fitHeight="124.0" fitWidth="201.0">
+                           <image>
+                              <Image url="@../../img/images-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane id="SCREEN_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
+               <children>
+                  <Button id="SCREEN3_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Cấp phần thưởng" textFill="#e7717d">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN3_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Quà học bổng" textFill="#e7717d">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="SCREEN3_subbutton1" layoutX="540.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Chia phần thưởng" textFill="#e7717d">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
+               <children>
+                  <Line endX="1440.0" />
+                  <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="252.0" prefHeight="650.0" prefWidth="1440.0" />
+            <AnchorPane layoutX="10.0" layoutY="260.0" prefHeight="650.0" prefWidth="1440.0">
+               <children>
+                  <TableView id="MID_table1" fx:id="tbHSG" layoutX="134.0" layoutY="120.0" prefHeight="400.0" prefWidth="350.0">
+                     <columns>
+                        <TableColumn id="TABLE1_columm2" fx:id="giftNameHSG" prefWidth="150.0" resizable="false" text="Tên phần thưởng" />
+                        <TableColumn id="TABLE1_columm1" fx:id="priceHSG" prefWidth="99.0" resizable="false" text="Đơn giá " />
+                        <TableColumn id="TABLE1_columm1" fx:id="quantityHSG" prefWidth="98.0" resizable="false" text="Số lượng" />
+                     </columns>
+                  </TableView>
+                  <TableView id="MID_table3" fx:id="tbOther" layoutX="950.0" layoutY="120.0" prefHeight="400.0" prefWidth="350.0">
+                     <columns>
+                        <TableColumn id="TABLE3_columm2" fx:id="giftNameOther" prefWidth="150.0" resizable="false" text="Tên phần thưởng" />
+                        <TableColumn id="TABLE1_columm1" fx:id="priceOther" prefWidth="99.0" resizable="false" text="Đơn giá " />
+                        <TableColumn id="TABLE3_columm1" fx:id="quantityOther" prefWidth="98.0" resizable="false" text="Số lượng" />
+                     </columns>
+                  </TableView>
+                  <TableView id="MID_table2" fx:id="tbHSTT" layoutX="542.0" layoutY="120.0" prefHeight="400.0" prefWidth="350.0">
+                     <columns>
+                        <TableColumn id="TABLE2_columm2" fx:id="giftNameHSTT" prefWidth="150.0" resizable="false" text="Tên phần thưởng" />
+                        <TableColumn id="TABLE1_columm1" fx:id="priceHSTT" prefWidth="99.0" resizable="false" text="Đơn giá " />
+                        <TableColumn id="TABLE2_columm1" fx:id="quantityHSTT" prefWidth="98.0" resizable="false" text="Số lượng" />
+                     </columns>
+                  </TableView>
+                  <Label id="MID_label1" accessibleRole="BUTTON" layoutX="134.0" layoutY="49.0" prefHeight="43.0" prefWidth="350.0" text="Phần thưởng học sinh giỏi" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label id="MID_label2" accessibleRole="BUTTON" layoutX="542.0" layoutY="49.0" prefHeight="43.0" prefWidth="350.0" text="Phần thưởng học sinh tiên tiến" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label id="MID_label3" accessibleRole="BUTTON" layoutX="950.0" layoutY="49.0" prefHeight="43.0" prefWidth="350.0" text="Khác">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button id="SCREEN4_buttonSubmit" layoutX="583.0" layoutY="570.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="275.0" text="Lưu">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
