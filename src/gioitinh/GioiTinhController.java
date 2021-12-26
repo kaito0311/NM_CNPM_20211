@@ -1,4 +1,4 @@
-package searchBook;
+package gioitinh;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
 
-public class SearchBookController implements Initializable{
+public class GioiTinhController implements Initializable{
 	private Stage stage;
 	private Scene scene;
 	
@@ -25,41 +25,11 @@ public class SearchBookController implements Initializable{
 		
 	}
 	
-	public void changeToSearchPerson(ActionEvent event) {
-		try {
-			
-//			System.out.println("Run changeToSearchPerson in SearchBookController");
-			
-			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/searchPerson/SearchPerson.fxml"));
-			root.getSelectionModel().select(4);
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-	
-	public void changeToSearchBook(ActionEvent event) {
-		try {
-			
-//			System.out.println("Run changeToSearchBook in SearchBookController");
-
-			
-			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/searchBook/SearchBook.fxml"));
-			root.getSelectionModel().select(4);
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-	
 	public void changeToThongKeDoTuoi(ActionEvent event) {
 		try {
+			System.out.println("Run changeToThongKeDoTuoi in GioiTinhController in gioitinh");
+
+			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/dotuoi/DoTuoi.fxml"));
 			root.getSelectionModel().select(3);
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -73,6 +43,10 @@ public class SearchBookController implements Initializable{
 	
 	public void changeToThongKeGioiTinh(ActionEvent event) {
 		try {
+			
+			System.out.println("Run changeToThongKeGioiTinh in GioiTinhController in gioitinh");
+
+			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/gioitinh/GioiTinh.fxml"));
 			root.getSelectionModel().select(3);
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -86,6 +60,10 @@ public class SearchBookController implements Initializable{
 
 	public void changeToThongKeTamVangTru(ActionEvent event) {
 		try {
+			
+			System.out.println("Run changeToThongKeTamVangTru in GioiTinhController in gioitinh");
+
+			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/tamvang_tamtru/TamVang_TamTru.fxml"));
 			root.getSelectionModel().select(3);
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -99,6 +77,10 @@ public class SearchBookController implements Initializable{
 	
 	public void changeToThongKeThoiGian(ActionEvent event) {
 		try {
+			
+			System.out.println("Run changeToThongKeThoiGian in GioiTinhController in gioitinh");
+
+			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/thoigian/ThoiGian.fxml"));
 			root.getSelectionModel().select(3);
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();

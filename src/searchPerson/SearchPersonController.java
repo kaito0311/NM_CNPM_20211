@@ -76,8 +76,6 @@ public class SearchPersonController implements Initializable{
 	private Text registerDate;
 	@FXML
 	private Text registerPlace;
-	
-
 //	@FXML
 //	private Button searchButton;
 	
@@ -86,8 +84,6 @@ public class SearchPersonController implements Initializable{
 		
 		if (rs == null) {
 			try {
-//				System.out.println(System.getProperty("user.dir"));
-				
 				//Get names of people
 				String query = "SELECT * FROM Person.Person;";
 				rs = SQLConnection.statement.executeQuery(query);
@@ -95,10 +91,11 @@ public class SearchPersonController implements Initializable{
 					names.add(rs.getString("PersonID") + " - " + rs.getString("FullName"));						
 				}
 				
-//				//Create store procedure getPersonInfo
-//				String createProcedure = Files.readString(Paths.get("src/database/getPersonInfor.sql"));
-//				SQLConnection.statement.executeQuery(createProcedure);	
-				
+				try {
+					//Create store procedure getPersonInfo
+					String createProcedure = Files.readString(Paths.get("src/database/getPersonInfor.sql"));
+					SQLConnection.statement.executeQuery(createProcedure);	
+				} catch (Exception e) {System.out.println(e);}
 			} catch (Exception e) {System.out.println(e);;}
 		}
 		TextFields.bindAutoCompletion(input, names);
@@ -107,14 +104,10 @@ public class SearchPersonController implements Initializable{
 	public void showPerson(ActionEvent event) throws Exception {
 		String person = input.getText();
 		String PersonID = person.substring(0, person.indexOf(" -"));
-//		System.out.println(PersonID);
-//		String text = new String(Files.readAllBytes(Paths.get("file")), StandardCharsets.UTF_8);
 		
 		String queryData = "execute getPersonInfor " + PersonID;
 		ResultSet result = SQLConnection.statement.executeQuery(queryData);
 		result.next();
-		
-//		System.out.println(result.getString("PersonID"));
 		
 		personID.setText(PersonID);
 		fullName.setText(result.getString("FullName"));
@@ -130,18 +123,18 @@ public class SearchPersonController implements Initializable{
 		registerDate.setText(result.getString("RegisterDate"));
 		registerPlace.setText(result.getString("RegisterPlace"));
 		
-		
-//		String imageURL = System.getProperty("user.dir") + "\\src\\image\\analyst-white.png";
-//		System.out.println(imageURL);
-//		photo.setImage(new Image(getClass().getResourceAsStream(imageURL)));
-		
+		try {
+			String imageURL = System.getProperty("user.dir") + "\\src\\image\\analyst-white.png";
+			System.out.println(imageURL);
+			photo.setImage(new Image(getClass().getResourceAsStream(imageURL)));
+		} catch (Exception e) {System.out.println(e);}
 		
 	}
 	
 	public void changeToSearchPerson(ActionEvent event) {
 		try {
 			
-			System.out.println("Run changeToSearchPerson in SearchPersonController");
+//			System.out.println("Run changeToSearchPerson in SearchPersonController");
 			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/searchPerson/SearchPerson.fxml"));
 			root.getSelectionModel().select(4);
@@ -157,7 +150,7 @@ public class SearchPersonController implements Initializable{
 	public void changeToSearchBook(ActionEvent event) {
 		try {
 			
-			System.out.println("Run changeToSearchBook in SearchPersonController");
+//			System.out.println("Run changeToSearchBook in SearchPersonController");
 
 			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/searchBook/SearchBook.fxml"));

@@ -1,9 +1,9 @@
-package searchBook;
+package tamvang_tamtru;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import dotuoi.*;
-import tamvang_tamtru.*;
+import gioitinh.*;
 import thoigian.*;
 import application.*;
 
@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
 
-public class SearchBookController implements Initializable{
+public class TamVangTruController implements Initializable{
 	private Stage stage;
 	private Scene scene;
 	
@@ -23,39 +23,6 @@ public class SearchBookController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		
-	}
-	
-	public void changeToSearchPerson(ActionEvent event) {
-		try {
-			
-//			System.out.println("Run changeToSearchPerson in SearchBookController");
-			
-			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/searchPerson/SearchPerson.fxml"));
-			root.getSelectionModel().select(4);
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-	
-	public void changeToSearchBook(ActionEvent event) {
-		try {
-			
-//			System.out.println("Run changeToSearchBook in SearchBookController");
-
-			
-			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/searchBook/SearchBook.fxml"));
-			root.getSelectionModel().select(4);
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
 	}
 	
 	public void changeToThongKeDoTuoi(ActionEvent event) {

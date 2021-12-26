@@ -2,10 +2,10 @@ package application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import dotuoi.*;
-import gioitinh.*;
-import tamvang_tamtru.*;
-import thoigian.*;
+//import dotuoi.*;
+//import gioitinh.*;
+//import tamvang_tamtru.*;
+//import thoigian.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +28,7 @@ public class MainController implements Initializable{
 	public void changeToSearchPerson(ActionEvent event) {
 		try {
 			
-			System.out.println("Run changeToSearchPerson in MainController");
+//			System.out.println("Run changeToSearchPerson in MainController");
 			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/searchPerson/SearchPerson.fxml"));
 			root.getSelectionModel().select(4);
@@ -45,7 +45,7 @@ public class MainController implements Initializable{
 	public void changeToSearchBook(ActionEvent event) {
 		try {
 			
-			System.out.println("Run changeToSearchBook in MainController");
+//			System.out.println("Run changeToSearchBook in MainController");
 
 			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/searchBook/SearchBook.fxml"));
@@ -62,7 +62,7 @@ public class MainController implements Initializable{
 	public void changeToThongKeDoTuoi(ActionEvent event) {
 		try {
 			
-			System.out.println("Run changeToThongKeDoTuoi in MainController");
+//			System.out.println("Run changeToThongKeDoTuoi in MainController");
 
 			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/dotuoi/DoTuoi.fxml"));
@@ -79,7 +79,7 @@ public class MainController implements Initializable{
 	public void changeToThongKeGioiTinh(ActionEvent event) {
 		try {
 			
-			System.out.println("Run changeToThongKeGioiTinh in MainController");
+//			System.out.println("Run changeToThongKeGioiTinh in MainController");
 
 			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/gioitinh/GioiTinh.fxml"));
@@ -96,7 +96,7 @@ public class MainController implements Initializable{
 	public void changeToThongKeTamVangTru(ActionEvent event) {
 		try {
 			
-			System.out.println("Run changeToThongKeTamVangTru in MainController");
+//			System.out.println("Run changeToThongKeTamVangTru in MainController");
 
 			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/tamvang_tamtru/TamVang_TamTru.fxml"));
@@ -113,7 +113,7 @@ public class MainController implements Initializable{
 	public void changeToThongKeThoiGian(ActionEvent event) {
 		try {
 			
-			System.out.println("Run changeToThongKeThoiGian in MainController");
+//			System.out.println("Run changeToThongKeThoiGian in MainController");
 
 			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("/thoigian/ThoiGian.fxml"));
