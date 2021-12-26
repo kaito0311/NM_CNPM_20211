@@ -29,6 +29,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -44,6 +45,8 @@ public class SearchPersonController implements Initializable{
 	private static ResultSet rs;
 	private static ArrayList<String> names = new ArrayList<String>();
 	
+	@FXML
+	private ScrollPane mainPane;
 	@FXML
 	private AnchorPane searchPersonPane;
 	@FXML
@@ -85,7 +88,7 @@ public class SearchPersonController implements Initializable{
 		if (rs == null) {
 			try {
 				//Get names of people
-				String query = "SELECT * FROM Person.Person;";
+				String query = "select * from Person.Person order by PersonID asc;";
 				rs = SQLConnection.statement.executeQuery(query);
 				while (rs.next()) {
 					names.add(rs.getString("PersonID") + " - " + rs.getString("FullName"));						
@@ -95,15 +98,26 @@ public class SearchPersonController implements Initializable{
 					//Create store procedure getPersonInfo
 					String createProcedure = Files.readString(Paths.get("src/database/getPersonInfor.sql"));
 					SQLConnection.statement.executeQuery(createProcedure);	
-				} catch (Exception e) {System.out.println(e);}
+				} catch (Exception e) {
+					//System.out.println(e);
+				}
 			} catch (Exception e) {System.out.println(e);;}
 		}
 		TextFields.bindAutoCompletion(input, names);
+		mainPane.setVisible(false);
 	}
 	
 	public void showPerson(ActionEvent event) throws Exception {
+		mainPane.setVisible(true);
+		
 		String person = input.getText();
-		String PersonID = person.substring(0, person.indexOf(" -"));
+		String PersonID;
+		if (person.matches("[0-9]+")) {
+			PersonID = person;
+		}
+		else {
+			PersonID = person.substring(0, person.indexOf(" -"));
+		}
 		
 		String queryData = "execute getPersonInfor " + PersonID;
 		ResultSet result = SQLConnection.statement.executeQuery(queryData);
@@ -117,17 +131,19 @@ public class SearchPersonController implements Initializable{
 		birthPlace.setText(result.getString("BirthPlace"));
 		originPlace.setText(result.getString("OriginPlace"));
 		ethnic.setText(result.getString("Ethnic"));
-//		religion.setText(result.getString("Religion"));
+		//religion.setText(result.getString("Religion"));
 		nationality.setText(result.getString("Nationality"));
 		cardNumber.setText(result.getString("CardNumber"));
 		registerDate.setText(result.getString("RegisterDate"));
 		registerPlace.setText(result.getString("RegisterPlace"));
 		
 		try {
-			String imageURL = System.getProperty("user.dir") + "\\src\\image\\analyst-white.png";
-			System.out.println(imageURL);
+			String imageURL = System.getProperty("user.dir") + result.getString("PhotoURL");
+//			System.out.println(imageURL);
 			photo.setImage(new Image(getClass().getResourceAsStream(imageURL)));
-		} catch (Exception e) {System.out.println(e);}
+		} catch (Exception e) {
+		//	System.out.println(e);
+		}
 		
 	}
 	
