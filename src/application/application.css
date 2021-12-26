@@ -1,0 +1,100 @@
+/*Title */
+#AllScreen {
+  -fx-background-color: white;
+  -fx-text-fill: white;
+  -fx-focus-color: transparent;
+
+  -fx-tab-min-width: 270;
+  -fx-tab-max-width: 270;
+  -fx-tab-min-height: 60;
+  -fx-tab-max-height: 60;
+}
+
+#title .tab-label {
+  -fx-font-size: 18;
+  -fx-text-fill: #ffffff;
+  -fx-font-weight: bold;
+}
+
+#title {
+  -fx-background-color: #e7717d;
+}
+
+#title:selected {
+  -fx-background-color: #ffffff;
+}
+
+#title:selected .tab-label {
+  -fx-text-fill: #e7717d;
+}
+
+/*Screen*/
+#SCREEN_head {
+  -fx-background-color: #e7717d;
+  -fx-text-fill: white;
+}
+
+#SCREEN_subhead {
+  -fx-background-color: #e7717d;
+  -fx-text-fill: white;
+}
+
+#SCREEN_button {
+  -fx-background-color: #e7717d;
+  -fx-text-fill: white;
+  -fx-text-alignment: center; 
+  -fx-font-size: 14;
+  -fx-font-weight: bold;
+}
+
+#SCREEN_subbutton {
+  -fx-background-color: #e7717d;
+  -fx-text-fill: white;
+  -fx-text-alignment: center; 
+  -fx-font-size: 12;
+  -fx-font-weight: bold;
+  
+}
+
+#SCREEN_button:hover {
+  -fx-background-color: #f08b9c;
+  -fx-text-fill: white;
+}
+
+#SCREEN_subbutton:hover {
+  -fx-background-color: #f08b9c;
+  -fx-text-fill: white;
+}
+
+#SCREEN_button:pressed {
+  -fx-background-color: pink;
+  -fx-text-fill: white;
+}
+
+#SCREEN_subbutton:pressed {
+  -fx-background-color: pink;
+  -fx-text-fill: white;
+}
+
+#SCREEN_button_selected {
+  -fx-background-color: #ffffff;
+  -fx-text-fill: #e7717d;
+}
+
+#SCREEN_subbutton_selected {
+  -fx-background-color: #ffffff;
+  -fx-text-fill: #e7717d;
+}
+
+/*Text field*/
+#field {
+	-fx-font-size: 14;
+	-fx-font-weight: bold;
+}
+
+/* svg*/
+#svg {
+  width: 576;
+  height: 512;
+  background-color: red;
+}
