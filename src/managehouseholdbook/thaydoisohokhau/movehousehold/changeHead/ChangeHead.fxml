@@ -7,24 +7,60 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.changeHead.ChangeHeadController">
    <children>
-      <Label fx:id="labelBookID" layoutX="92.0" layoutY="130.0" />
-      <Label fx:id="labelNumberIdentityCardNewHead" layoutX="283.0" layoutY="139.0" />
-      <Label fx:id="labelDateBirthMember" layoutX="291.0" layoutY="254.0" prefHeight="32.0" prefWidth="104.0" text="Ngày sinh" />
-      <Label layoutX="448.0" layoutY="233.0" text="Quan hệ với chủ hộ" />
-      <TextField fx:id="textFieldBookID" layoutX="92.0" layoutY="96.0" prefHeight="32.0" prefWidth="150.0" text="1" />
-      <TextField fx:id="textFieldNumberIdentiycardNewHead" layoutX="283.0" layoutY="99.0" prefHeight="32.0" prefWidth="150.0" text="001255000210" />
-      <TextField fx:id="textFieldRelationWithHead" layoutX="444.0" layoutY="254.0" prefHeight="32.0" prefWidth="216.0" />
-      <ComboBox fx:id="comboBoxMember" layoutX="92.0" layoutY="254.0" onAction="#comboBoxNamePersonChange" prefHeight="32.0" prefWidth="150.0" />
-      <Button layoutX="484.0" layoutY="99.0" mnemonicParsing="false" onAction="#changeHead" prefHeight="32.0" prefWidth="111.0" text="Xác nhận thay đổi" />
-      <Button fx:id="buttonSaveAndSubmit" layoutX="332.0" layoutY="402.0" mnemonicParsing="false" onAction="#SaveAndSubmit" text="submit" />
-      <Button layoutX="444.0" layoutY="300.0" mnemonicParsing="false" onAction="#changeRelationWithHead" text="Xác nhận thay đổi quan hệ với chủ hộ" />
-      <Label fx:id="labelConfirm" layoutX="81.0" layoutY="359.0" prefHeight="26.0" prefWidth="578.0" textFill="#ea0e0e">
+      <TextField fx:id="textFieldBookID" layoutX="35.0" layoutY="188.0" prefHeight="50.0" prefWidth="200.0" promptText="Nhập ID sổ hộ khẩu">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="textFieldNumberIdentiycardNewHead" layoutX="240.0" layoutY="188.0" prefHeight="50.0" prefWidth="340.0" promptText="Nhập CCCD người làm chủ hộ">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="textFieldRelationWithHead" layoutX="380.0" layoutY="337.0" prefHeight="50.0" prefWidth="200.0" promptText="Nhập quan hệ với chủ hộ">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <ComboBox fx:id="comboBoxMember" layoutX="35.0" layoutY="337.0" onAction="#comboBoxNamePersonChange" prefHeight="50.0" prefWidth="340.0" promptText="Chọn thành viên" style="-fx-font-size: 16;" />
+      <Button fx:id="buttonSaveAndSubmit" layoutX="595.0" layoutY="188.0" mnemonicParsing="false" onAction="#changeHead" prefHeight="50.0" prefWidth="100.0" text="Xác nhận">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Label alignment="CENTER" layoutX="173.0" layoutY="34.0" prefHeight="64.0" prefWidth="375.0" text="THAY ĐỔI NHÂN KHẨU">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="151.0" prefHeight="37.0" prefWidth="130.0" text="ID sổ hộ khẩu">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="243.0" layoutY="151.0" prefHeight="37.0" prefWidth="236.0" text="CCCD người sẽ làm chủ hộ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="300.0" prefHeight="37.0" prefWidth="164.0" text="Thành viên của hộ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="380.0" layoutY="300.0" prefHeight="37.0" prefWidth="186.0" text="Quan hệ với chủ hộ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonSaveAndSubmit1" layoutX="279.0" layoutY="459.0" mnemonicParsing="false" onAction="#SaveAndSubmit" prefHeight="50.0" prefWidth="164.0" text="Thoát">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonSaveAndSubmit2" layoutX="595.0" layoutY="337.0" mnemonicParsing="false" onAction="#changeRelationWithHead" prefHeight="50.0" prefWidth="100.0" text="Xác nhận">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-      </Label>
+      </Button>
+      <Label fx:id="labelConfirm" alignment="CENTER" layoutX="268.0" layoutY="387.0" prefHeight="28.0" prefWidth="186.0" text="Thay đổi thành công" />
    </children>
 </AnchorPane>

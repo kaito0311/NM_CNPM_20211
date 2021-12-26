@@ -16,8 +16,8 @@ public class Main extends Application {
 		try {
 			ConnectDatabase.ConnectData();
 			// TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/createhouseholdbook/CreateNewHouseholdBook.fxml"));
-			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
-			root.getSelectionModel().select(1);
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
+			
 			// AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/thaydoisohokhau/movehousehold/MoveHouseholdBook.fxml"));
 			double _scale = 0.75; 
 

@@ -5,20 +5,33 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.splithousehold.SplitHouseHoldController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.splithousehold.SplitHouseHoldController">
    <children>
-      <TableView fx:id="tableViewMember" layoutY="212.0" prefHeight="328.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="212.0">
+      <TableView fx:id="tableViewMember" layoutY="135.0" prefHeight="317.0" prefWidth="488.0" AnchorPane.bottomAnchor="88.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="135.0">
         <columns>
-          <TableColumn fx:id="personIdColumn" prefWidth="235.199951171875" text="Tên Thành viên" />
-            <TableColumn fx:id="relatioinshipWithHeadColumn" prefWidth="122.4000244140625" text="Quan hệ với chủ hộ" />
-            <TableColumn fx:id="idHokhauColumn" prefWidth="147.199951171875" text="ID hộ khẩu" />
+          <TableColumn fx:id="personIdColumn" prefWidth="236.800048828125" text="Tên Thành viên" />
+            <TableColumn fx:id="relatioinshipWithHeadColumn" minWidth="2.4000244140625" prefWidth="154.39996337890625" text="Quan hệ với chủ hộ" />
+            <TableColumn fx:id="idHokhauColumn" prefWidth="90.4000244140625" text="ID hộ khẩu" />
         </columns>
       </TableView>
-      <Label layoutX="89.0" layoutY="55.0" prefHeight="18.0" prefWidth="98.0" text="ID hộ cũ" />
-      <Label layoutX="89.0" layoutY="98.0" prefHeight="18.0" prefWidth="98.0" text="ID hộ mới" />
-      <Label layoutX="256.0" layoutY="55.0" prefHeight="18.0" prefWidth="98.0" text="Chủ hộ cũ" />
-      <Label layoutX="256.0" layoutY="98.0" prefHeight="18.0" prefWidth="97.0" text="Chủ hộ mới" />
-      <Button layoutX="329.0" layoutY="156.0" mnemonicParsing="false" onAction="#show" text="Button" />
+      <Label fx:id="labelOldBook" layoutX="89.0" layoutY="36.0" prefHeight="18.0" prefWidth="98.0" text="ID hộ cũ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="labelNewBook" layoutX="89.0" layoutY="89.0" prefHeight="18.0" prefWidth="98.0" text="ID hộ mới">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font></Label>
+      <Label fx:id="labelOldHead" layoutX="279.0" layoutY="36.0" prefHeight="18.0" prefWidth="98.0" text="Chủ hộ cũ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="labelNewHead" layoutX="279.0" layoutY="89.0" prefHeight="18.0" prefWidth="97.0" text="Chủ hộ mới">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Button fx:id="submit" layoutX="200.0" layoutY="482.0" mnemonicParsing="false" onAction="#show" text="Lưu thông tin" />
    </children>
 </AnchorPane>

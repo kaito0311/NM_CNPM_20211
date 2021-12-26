@@ -170,19 +170,14 @@ public class ChangePersonController implements Initializable {
     private Stage stage;
     private Scene scene;
 
+    @FXML
+    Button buttonCreateNewBook;
     private void setNewSceneInSameWindow(String source, ActionEvent event) throws Exception {
-        try {
 
-            TabPane root = (TabPane) FXMLLoader.load(getClass().getResource(source));
-            root.getSelectionModel().select(1);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-        } catch (Exception e) {
-
-            System.out.println("Error in class ChangePersonController");
-            System.out.println(e.getMessage());
-        }
+        AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource(source));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
     }
 
     public void changeToTabAddNewPerson(ActionEvent event) throws Exception {
@@ -190,8 +185,20 @@ public class ChangePersonController implements Initializable {
             setNewSceneInSameWindow("../addnewperson/AddNewPerson.fxml", event);
 
         } catch (Exception e) {
-            System.out.println("Error in changeToTabAddNewPerson");
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTabAddNewPerson(event);");
+        }
+    }
+
+    public void changeToTabChangePerson(ActionEvent event) throws Exception {
+        try {
+            setNewSceneInSameWindow("../changeperson/ChangePerson.fxml", event);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTabChangePerson(event);");
         }
     }
 
@@ -200,8 +207,9 @@ public class ChangePersonController implements Initializable {
             setNewSceneInSameWindow("../movehousehold/MoveHouseholdBook.fxml", event);
 
         } catch (Exception e) {
-            System.out.println("Error in changeToTabMoveHouseHold method in ChangePersonController");
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTabMoveHouseHold(event);");
         }
     }
 
@@ -210,20 +218,21 @@ public class ChangePersonController implements Initializable {
             setNewSceneInSameWindow("../deletehousehold/DeleteHouseholdBook.fxml", event);
 
         } catch (Exception e) {
-            System.out.println("Error in changeToTabDeleteHousehold in ChangePersonController");
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTabDeleteHousehold(event);");
         }
     }
-
-    @FXML
-    Button buttonCreateNewBook;
 
     public void changeToCreateNewBook(ActionEvent event) throws Exception {
         try {
             setNewSceneInSameWindow("../../createhouseholdbook/CreateNewHouseholdBook.fxml", event);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToCreateNewBook(event);");
         }
     }
+
 
 }

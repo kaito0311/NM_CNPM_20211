@@ -3,8 +3,6 @@
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,213 +11,117 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TabPane id="AllScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../../../application.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.MoveHouseholdBookController">
-  <tabs>
-      <Tab id="title1" text="Quản lý tài khoản">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.MoveHouseholdBookController">
+   <children>
+      <HBox prefHeight="60.0" prefWidth="1440.0">
+         <children>
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
+         </children>
+      </HBox>
+      <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+         <children>
+            <AnchorPane id="SCREEN2_head1" prefHeight="200.0" prefWidth="1440.0">
                <children>
-                  <AnchorPane id="SCREEN1_head1" prefHeight="200.0" prefWidth="1440.0">
-                     <children>
-                        <Button id="SCREEN1_button1" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN1_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN1_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN1_button4" layoutX="810.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
-                        <Line endX="1440.0" stroke="#ffc5c5" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane id="SCREEN1_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
-                     <children>
-                        <Button id="SCREEN1_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN1_subbutton2" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
-                     <children>
-                        <Line endX="1440.0" />
-                        <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0" />
+                  <Button id="SCREEN2_button1" fx:id="buttonCreateNewBook" mnemonicParsing="false" onAction="#changeToCreateNewBook" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Tạo sổ hộ khẩu">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/ho-khau-white.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="SCREEN2_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Thay đổi sổ hộ khẩu">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/thay-doi-red.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <stylesheets>
+                        <URL value="@../../logo.css" />
+                        <URL value="@MoveHouseholdBook.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="SCREEN2_button" />
+                        <String fx:value="Screen_button_pressed" />
+                     </styleClass>
+                  </Button>
+                  <Button id="SCREEN2_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Tạm trú, Tạm vắng">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/tam-vang-white.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+                  <Line endX="1440.0" stroke="#ffc5c5" />
                </children>
             </AnchorPane>
-         </content>
-      </Tab>
-      <Tab id="title2" text="Quản lý thông tin sổ hộ khẩu">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+            <AnchorPane id="SCREEN2_head2" layoutX="1.0" layoutY="202.0" prefHeight="50.0" prefWidth="1440.0">
                <children>
-                  <AnchorPane id="SCREEN2_head1" prefHeight="200.0" prefWidth="1440.0">
+                  <HBox layoutY="3.0" prefHeight="50.0" prefWidth="1440.0">
                      <children>
-                        <Button id="SCREEN2_button1" fx:id="buttonCreateNewBook" mnemonicParsing="false" onAction="#changeToCreateNewBook" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Tạo sổ hộ khẩu">
-                           <graphic>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../images/ho-khau-white.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
+                        <Button id="SCREEN2_subbutton1" fx:id="buttonAddNewPerson" mnemonicParsing="false" onAction="#changeToTabAddNewPerson" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../../logo.css" text="Thêm nhân khẩu mới" />
+                        <Button id="SCREEN2_subbutton2" fx:id="buttonChangePerson" mnemonicParsing="false" onAction="#changeToTabChangePerson" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" text="Thay đổi nhân khẩu">
+                           <stylesheets>
+                              <URL value="@../../logo.css" />
+                              <URL value="@MoveHouseholdBook.css" />
+                           </stylesheets>
                         </Button>
-                        <Button id="SCREEN2_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Thay đổi sổ hộ khẩu">
-                           <graphic>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../images/thay-doi-red.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
+                        <Button id="SCREEN2_subbutton3" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Thay đổi thông tin sổ hộ khẩu">
                            <stylesheets>
                               <URL value="@../../logo.css" />
                               <URL value="@MoveHouseholdBook.css" />
                            </stylesheets>
                            <styleClass>
-                              <String fx:value="SCREEN2_button" />
-                              <String fx:value="Screen_button_pressed" />
+                              <String fx:value="SCREEN2_subbutton" />
+                              <String fx:value="Screen_subutton_pressed" />
                            </styleClass>
                         </Button>
-                        <Button id="SCREEN2_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Tạm trú, Tạm vắng">
-                           <graphic>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../images/tam-vang-white.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
-                        <Line endX="1440.0" stroke="#ffc5c5" />
+                        <Button id="SCREEN2_subbutton1" fx:id="buttonDeleteHouseholdBook" mnemonicParsing="false" onAction="#changeToTabDeleteHousehold" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../../logo.css" text="Xóa hộ khẩu" />
                      </children>
-                  </AnchorPane>
-                  <AnchorPane id="SCREEN2_head2" layoutX="1.0" layoutY="202.0" prefHeight="50.0" prefWidth="1440.0">
-                     <children>
-                        <HBox layoutY="3.0" prefHeight="50.0" prefWidth="1440.0">
-                           <children>
-                              <Button id="SCREEN2_subbutton1" fx:id="buttonAddNewPerson" mnemonicParsing="false" onAction="#changeToTabAddNewPerson" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../../logo.css" text="Thêm nhân khẩu mới" />
-                              <Button id="SCREEN2_subbutton2" fx:id="buttonChangePerson" mnemonicParsing="false" onAction="#changeToTabChangePerson" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" text="Thay đổi nhân khẩu">
-                                 <stylesheets>
-                                    <URL value="@../../logo.css" />
-                                    <URL value="@MoveHouseholdBook.css" />
-                                 </stylesheets></Button>
-                              <Button id="SCREEN2_subbutton3" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Thay đổi thông tin sổ hộ khẩu">
-                                 <stylesheets>
-                                    <URL value="@../../logo.css" />
-                                    <URL value="@MoveHouseholdBook.css" />
-                                 </stylesheets>
-                                 <styleClass>
-                                    <String fx:value="SCREEN2_subbutton" />
-                                    <String fx:value="Screen_subutton_pressed" />
-                                 </styleClass></Button>
-                              <Button id="SCREEN2_subbutton1" fx:id="buttonDeleteHouseholdBook" mnemonicParsing="false" onAction="#changeToTabDeleteHousehold" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../../logo.css" text="Xóa hộ khẩu" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
-                     <children>
-                        <Line endX="1440.0" />
-                        <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-                  <Button layoutX="490.0" layoutY="410.0" mnemonicParsing="false" styleClass="button-submit" text="Chuyển sổ hộ khẩu">
-                     <stylesheets>
-                        <URL value="@../ChangeHouseholdBook.css" />
-                        <URL value="@MoveHouseholdBook.css" />
-                     </stylesheets>
-                  </Button>
-                  <Button layoutX="490.0" layoutY="514.0" mnemonicParsing="false" onAction="#splitHousehold" styleClass="button-submit" text="Tách sổ hộ khẩu">
-                     <stylesheets>
-                        <URL value="@../ChangeHouseholdBook.css" />
-                        <URL value="@MoveHouseholdBook.css" />
-                     </stylesheets>
-                  </Button>
-                  <Button layoutX="490.0" layoutY="632.0" mnemonicParsing="false" onAction="#changeHead" styleClass="button-submit" text="Thay đổi thông tin chủ hộ">
-                     <stylesheets>
-                        <URL value="@../ChangeHouseholdBook.css" />
-                        <URL value="@MoveHouseholdBook.css" />
-                     </stylesheets>
-                  </Button>
+                  </HBox>
                </children>
             </AnchorPane>
-         </content>
-      </Tab>
-      <Tab id="title3" text="Cấp phần thưởng">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+            <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
                <children>
-                  <AnchorPane id="SCREEN3_head1" prefHeight="200.0" prefWidth="1440.0">
-                     <children>
-                        <Button id="SCREEN3_button1" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN3_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN3_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN3_button4" layoutX="810.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
-                        <Line endX="1440.0" stroke="#ffc5c5" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane id="SCREEN3_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
-                     <children>
-                        <Button id="SCREEN3_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN3_subbutton2" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
-                     <children>
-                        <Line endX="1440.0" />
-                        <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0" />
+                  <Line endX="1440.0" />
+                  <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
-         </content>
-      </Tab>
-      <Tab id="title4" text="Thống kê">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
-               <children>
-                  <AnchorPane id="SCREEN4_head1" prefHeight="200.0" prefWidth="1440.0">
-                     <children>
-                        <Button id="SCREEN4_button1" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN4_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN4_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN4_button4" layoutX="810.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
-                        <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
-                        <Line endX="1440.0" stroke="#ffc5c5" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane id="SCREEN4_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
-                     <children>
-                        <Button id="SCREEN4_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
-                        <Button id="SCREEN4_subbutton2" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
-                     <children>
-                        <Line endX="1440.0" />
-                        <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0" />
-               </children>
-            </AnchorPane>
-         </content>
-      </Tab>
-  </tabs>
-</TabPane>
+            <Button layoutX="490.0" layoutY="410.0" mnemonicParsing="false" styleClass="button-submit" text="Chuyển sổ hộ khẩu">
+               <stylesheets>
+                  <URL value="@../ChangeHouseholdBook.css" />
+                  <URL value="@MoveHouseholdBook.css" />
+               </stylesheets>
+            </Button>
+            <Button layoutX="490.0" layoutY="514.0" mnemonicParsing="false" onAction="#splitHousehold" styleClass="button-submit" text="Tách sổ hộ khẩu">
+               <stylesheets>
+                  <URL value="@../ChangeHouseholdBook.css" />
+                  <URL value="@MoveHouseholdBook.css" />
+               </stylesheets>
+            </Button>
+            <Button layoutX="490.0" layoutY="632.0" mnemonicParsing="false" onAction="#changeHead" styleClass="button-submit" text="Thay đổi thông tin chủ hộ">
+               <stylesheets>
+                  <URL value="@../ChangeHouseholdBook.css" />
+                  <URL value="@MoveHouseholdBook.css" />
+               </stylesheets>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

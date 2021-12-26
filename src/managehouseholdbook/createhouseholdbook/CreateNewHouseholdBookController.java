@@ -30,6 +30,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
 import managehouseholdbook.thaydoisohokhau.addnewperson.AddNewPersonController;
@@ -336,35 +337,27 @@ public class CreateNewHouseholdBookController implements Initializable {
     private Stage stage;
     private Scene scene;
 
-    private void setNewSceneInSameWindow(String source, ActionEvent event) {
-        try {
+    @FXML
+    Button buttonCreateNewBook;
+    private void setNewSceneInSameWindow(String source, ActionEvent event) throws Exception {
 
-            TabPane root = (TabPane) FXMLLoader.load(getClass().getResource(source));
-            root.getSelectionModel().select(1);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-        } catch (Exception e) {
-            System.out.println("Error in class ChangeHouseholdBookController");
-        }
+        AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource(source));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
     }
 
     public void changeToChangeHouseholdBook(ActionEvent event) throws Exception {
         try {
             setNewSceneInSameWindow("../thaydoisohokhau/ChangeHouseholdBook.fxml", event);
+
         } catch (Exception e) {
-            System.out.println("Loi changeToChangeHouseholdBook in class CreateNewHouseholdBookController...");
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changetoChangeHouseholdBook");
         }
     }
-    
-    public void changeToAddNewPerson(ActionEvent event) throws Exception{
-    	try {
-            setNewSceneInSameWindow("../thaydoisohokhau/AddNewPerson.fxml", event);
-        } catch (Exception e) {
-            System.out.println("Loi AddNewPerson in class CreateNewHouseholdBookController...");
-            System.out.println(e.getStackTrace());
-        }
-    }
+
+
 
 }

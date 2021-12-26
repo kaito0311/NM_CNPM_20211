@@ -89,7 +89,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFieldEthnic" layoutX="66.0" layoutY="19.0" />
+                        <ComboBox fx:id="comboBoxEthnic" layoutX="72.0" layoutY="16.0" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="64.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -109,7 +109,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFieldNationality" layoutX="85.0" layoutY="15.0" />
+                        <ComboBox fx:id="comboBoxNationality" layoutX="87.0" layoutY="16.0" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">

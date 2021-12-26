@@ -1,3 +1,20 @@
+.tab_button{
+  -fx-background-color: #e7717d;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-font-size: 20px;
+}
+
+.tab_button_press{
+  -fx-background-color: white;
+  -fx-text-fill: #e7717d;
+  -fx-font-weight: bold;
+  -fx-font-size: 20px;
+}
+
+
+
+
 .SCREEN2_button {
   /* -fx-background-image: url(file:/D:/ho-khau-red.png); */
   -fx-content-display: top;

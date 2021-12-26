@@ -5,6 +5,9 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+
+
+
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.collections.FXCollections;
@@ -13,7 +16,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
-
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.skin.LabelSkin;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
@@ -52,9 +57,17 @@ public class ChooseHeadController implements Initializable {
     ComboBox<String> comboBoxCandidateHead1;
     @FXML
     ComboBox<String> comboBoxCandidateHead2;
+    @FXML
+    Label id1, id2; 
+    @FXML
+    TextField idHoKhauCanTach;
 
     @FXML
     void takeInforCandidateHead() {
+        bookID1 = idHoKhauCanTach.getText();
+        if(bookID1.length() == 0){
+            labelInfor.setText("Mời nhập ID hộ khẩu");
+        }
         String sql = "select Person.PersonID, Person.FullName, IdentityCard.Number "
                 + " from Person.Person inner join Person.Residence "
                 + " on Person.PersonID = Residence.PersonID "
@@ -85,7 +98,20 @@ public class ChooseHeadController implements Initializable {
             System.out.println("take Infor CandidateHead");
         }
 
+        bookID2 = takeNewBookID();
+        inforLabel2.setText("Chủ của hộ có ID " + Integer.toString(bookID2));
+        inforLabel1.setText("Chủ của hộ có ID " + bookID1);
+
+
+
     }
+
+    @FXML 
+    Label labelInfor ; 
+    @FXML
+    Label inforLabel1;
+    @FXML
+    Label inforLabel2; 
 
     @FXML
     void changeMember(ActionEvent event){
@@ -95,12 +121,20 @@ public class ChooseHeadController implements Initializable {
         idHead2 = listPersonIDCandidateHead.get(comboBoxCandidateHead2.getSelectionModel().getSelectedIndex());
 
         idHoKhau1 = bookID1;
+        if(idHead1 == idHead2){
+            labelInfor.setText("Một người không thể có hai khẩu");
+            return;
+        }
         bookID2 = takeNewBookID();
         if(bookID2 == -1){
+            labelInfor.setText("Không tạo được hộ mới.");
             return;
         }
         else{
             idHoKhau2 = Integer.toString(bookID2);
+            inforLabel1.setText("Chủ hộ " + idHoKhau1);
+            inforLabel1.setText("Chủ hộ " + idHoKhau2);
+
         }
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("split.fxml"));

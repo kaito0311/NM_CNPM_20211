@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class HouseholdRegistrationBookManagement implements Initializable {
@@ -31,26 +32,22 @@ public class HouseholdRegistrationBookManagement implements Initializable {
         
     }
 
-    private void setNewSceneInSameWindow( String source, ActionEvent event) {
-        try{
+    private void setNewSceneInSameWindow( String source, ActionEvent event) throws Exception{
 
-            TabPane root = (TabPane)FXMLLoader.load(getClass().getResource(source));
-            root.getSelectionModel().select(1);
+            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource(source));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root); 
             stage.setScene(scene); 
-        }
-        catch(Exception e){
-            System.out.println("Error in class ChangeHouseholdBookController");
-        }
-    }
 
+    }
     public void changeToCreateNewBook(ActionEvent event)throws Exception{
         try{
             setNewSceneInSameWindow("createhouseholdbook/CreateNewHouseholdBook.fxml", event);
         }
         catch(Exception e){
             System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToCreateNewBook");
         }
     }
     public void changeToChangeHouseholdBook(ActionEvent event) throws Exception{
@@ -58,8 +55,9 @@ public class HouseholdRegistrationBookManagement implements Initializable {
             setNewSceneInSameWindow("thaydoisohokhau/ChangeHouseholdBook.fxml", event);
         }
         catch (Exception e){
-            System.out.println("Loi changeToChangeHouseholdBook in class HouseholdRegistrationBook...");
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToChangeHouseholdBook(event);");
         }
     }
 

@@ -15,6 +15,7 @@ import javafx.collections.ListChangeListener.Change;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
@@ -40,11 +41,24 @@ public class SplitHouseHoldController implements Initializable {
     @FXML
     Button submit;
 
+    @FXML 
+    Label labelOldHead;
+    @FXML 
+    Label labelOldBook;
+    @FXML 
+    Label labelNewHead;
+    @FXML 
+    Label labelNewBook;
+
     ObservableList<ChangeMember> listMem = FXCollections.observableArrayList();
 
     ObservableList<String> listID = FXCollections.observableArrayList();
 
     void takeListMember() {
+        labelOldBook.setText("Chủ của hộ: "+this.bookID1);
+        labelNewBook.setText("Chủ của hộ: "+ this.bookID2);
+        
+        
         try {
             String sql = "select Person.FullName, Person.PersonID, Residence.BookID, Residence.RelationshipWithHead from Person.Residence inner join Person.Person on Person.PersonID = Residence.PersonID where Residence.BookID = ?";
             PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
@@ -53,8 +67,15 @@ public class SplitHouseHoldController implements Initializable {
             listMem.clear();
             while (resultSet.next()) {
                 if (resultSet.getString("personID").toLowerCase().equals(this.personIDHead1)
-                        || resultSet.getString("personID").equals(this.personIDHead2))
+                        )
+                    {
+                        labelOldHead.setText(resultSet.getString("fullName"));
+                        continue;
+                    }
+                if(resultSet.getString("personID").equals(this.personIDHead2)){
+                    labelNewHead.setText(resultSet.getString("fullname"));
                     continue;
+                }
                 listMem.add(new ChangeMember(resultSet.getString("personID"), resultSet.getString("fullname"),
                         resultSet.getString("relationshipwithhead"), listID));
             }
@@ -66,11 +87,12 @@ public class SplitHouseHoldController implements Initializable {
     void changeBookForMember(int index) {
         String sql = null;
         try {
-            sql = "update person.residence set bookid = ? where personid = ?";
+            sql = "update person.residence set bookid = ?, relationshipwithhead = ?  where personid = ?";
             PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
             preparedStatement.setString(1,
                     listID.get(listMem.get(index).idHoKhau.getSelectionModel().getSelectedIndex()));
-            preparedStatement.setString(2, listMem.get(index).getPersonID());
+            preparedStatement.setString(2, listMem.get(index).getRelationshipWithHead());
+            preparedStatement.setString(3, listMem.get(index).getPersonID());
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -156,6 +178,8 @@ public class SplitHouseHoldController implements Initializable {
         for (int i = 0; i < listMem.size(); i++) {
             changeBookForMember(i);
         }
+
+
 
     }
 

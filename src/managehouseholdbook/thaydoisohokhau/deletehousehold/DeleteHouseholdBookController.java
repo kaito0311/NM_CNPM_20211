@@ -11,13 +11,14 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class DeleteHouseholdBookController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @FXML
@@ -27,21 +28,18 @@ public class DeleteHouseholdBookController implements Initializable {
     @FXML
     private Button buttonMoveHouseholdBook;
 
-    private Stage stage; 
-    private Scene scene; 
+    private Stage stage;
+    private Scene scene;
 
-    private void setNewSceneInSameWindow( String source, ActionEvent event) throws Exception{
-        try{
+    @FXML
+    Button buttonCreateNewBook;
 
-            TabPane root = (TabPane)FXMLLoader.load(getClass().getResource(source));
-            root.getSelectionModel().select(1);
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root); 
-            stage.setScene(scene); 
-        }
-        catch(Exception e){
-            System.out.println("Error in class DeleteHouseholdBookController");
-        }
+    private void setNewSceneInSameWindow(String source, ActionEvent event) throws Exception {
+
+        AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource(source));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
     }
 
     public void changeToTabAddNewPerson(ActionEvent event) throws Exception {
@@ -49,41 +47,53 @@ public class DeleteHouseholdBookController implements Initializable {
             setNewSceneInSameWindow("../addnewperson/AddNewPerson.fxml", event);
 
         } catch (Exception e) {
-            System.out.println("Error in changeToTabAddNewPerson");
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTabAddNewPerson(event);");
         }
     }
+
     public void changeToTabChangePerson(ActionEvent event) throws Exception {
         try {
-           setNewSceneInSameWindow("../changeperson/ChangePerson.fxml", event);
+            setNewSceneInSameWindow("../changeperson/ChangePerson.fxml", event);
 
         } catch (Exception e) {
-            System.out.println("Error in changeToChangePerson");
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTabChangePerson(event);");
         }
     }
-    public void changeToTabMoveHouseHold(ActionEvent event) throws Exception{
-        try{
+
+    public void changeToTabMoveHouseHold(ActionEvent event) throws Exception {
+        try {
             setNewSceneInSameWindow("../movehousehold/MoveHouseholdBook.fxml", event);
 
-        }
-        catch(Exception e){
-            System.out.println("Error in changeToTabMoveHouseHold method in DeletehouseholdBookController");
-            System.out.println(e.getStackTrace());
-        }
-    }
-
-    
-    @FXML 
-    Button buttonCreateNewBook;  
-    public void changeToCreateNewBook(ActionEvent event)throws Exception{
-        try{
-            setNewSceneInSameWindow("../../createhouseholdbook/CreateNewHouseholdBook.fxml", event);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTabMoveHouseHold(event);");
         }
     }
 
-    
+    public void changeToTabDeleteHousehold(ActionEvent event) throws Exception {
+        try {
+            setNewSceneInSameWindow("../deletehousehold/DeleteHouseholdBook.fxml", event);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTabDeleteHousehold(event);");
+        }
+    }
+
+    public void changeToCreateNewBook(ActionEvent event) throws Exception {
+        try {
+            setNewSceneInSameWindow("../../createhouseholdbook/CreateNewHouseholdBook.fxml", event);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToCreateNewBook(event);");
+        }
+    }
+
 }
