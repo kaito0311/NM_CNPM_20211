@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//src/application/Main.java=UTF-8
-encoding//src/thongke/thoigian/ThoiGianController.java=UTF-8
+encoding//src/searchBook/SearchBookController.java=UTF-8
+encoding//src/searchPerson/SearchPersonController.java=UTF-8

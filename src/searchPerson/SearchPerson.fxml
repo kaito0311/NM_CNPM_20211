@@ -203,15 +203,20 @@
                   <AnchorPane id="SCREEN_subhead" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0" />
                   <AnchorPane fx:id="searchPersonPane" layoutY="250.0" prefHeight="650.0" prefWidth="1440.0">
                      <children>
-                        <TextField fx:id="input" layoutX="409.0" layoutY="35.0" prefHeight="40.0" prefWidth="500.0" promptText="Nhập mã số hoặc tên người cần tìm">
+                        <TextField fx:id="input" layoutX="409.0" layoutY="35.0" prefHeight="40.0" prefWidth="500.0" promptText="Nhập mã nhân khẩu hoặc tên người cần tìm">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
                         <Button id="SCREEN_subhead" fx:id="searchButton" layoutX="909.0" layoutY="35.0" mnemonicParsing="false" onAction="#showPerson" prefHeight="40.0" prefWidth="40.0" text="🔍" />
+                        <Label fx:id="error" contentDisplay="CENTER" layoutX="610.0" layoutY="100.0" textAlignment="CENTER" textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
                         <ScrollPane fx:id="mainPane" layoutX="50.0" layoutY="103.0" prefHeight="513.0" prefWidth="1340.0">
                           <content>
-                            <AnchorPane prefHeight="1000.0" prefWidth="1335.0">
+                            <AnchorPane prefHeight="600.0" prefWidth="1335.0">
                                  <children>
                                     <Label alignment="TOP_CENTER" layoutX="590.0" layoutY="52.0" prefHeight="1000.0" prefWidth="1335.0" text="THÔNG TIN NHÂN KHẨU" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                                        <font>

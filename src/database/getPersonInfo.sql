@@ -1,11 +1,11 @@
 ﻿use [PopulationManagement]
 go
 
-if exists(select 1 from sys.procedures where name = 'getPersonInfor')
-drop procedure getPersonInfor
+if exists(select 1 from sys.procedures where name = 'getPersonInfo')
+drop procedure getPersonInfo
 go
 
-create procedure getPersonInfor
+create procedure getPersonInfo
 @id int
 as
 begin

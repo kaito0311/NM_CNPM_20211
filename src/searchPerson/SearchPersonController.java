@@ -1,6 +1,7 @@
 package searchPerson;
 
 import java.awt.Button;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -29,6 +30,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
@@ -52,33 +54,12 @@ public class SearchPersonController implements Initializable{
 	@FXML
 	private TextField input;
 	@FXML
+	private Label error;
+	@FXML
 	private ImageView photo;
 	@FXML
-	private Text personID;
-	@FXML
-	private Text fullName;
-	@FXML
-	private Text nickName;
-	@FXML
-	private Text birthDate;
-	@FXML
-	private Text gender;
-	@FXML
-	private Text birthPlace;
-	@FXML
-	private Text originPlace;
-	@FXML
-	private Text ethnic;
-	@FXML
-	private Text religion;
-	@FXML
-	private Text nationality;
-	@FXML
-	private Text cardNumber;
-	@FXML
-	private Text registerDate;
-	@FXML
-	private Text registerPlace;
+	private Text personID, fullName, nickName, birthDate, gender, birthPlace, originPlace, ethnic, religion, nationality, cardNumber, registerDate, registerPlace;
+	
 //	@FXML
 //	private Button searchButton;
 	
@@ -96,7 +77,7 @@ public class SearchPersonController implements Initializable{
 				
 				try {
 					//Create store procedure getPersonInfo
-					String createProcedure = Files.readString(Paths.get("src/database/getPersonInfor.sql"));
+					String createProcedure = Files.readString(Paths.get("src/database/getPersonInfo.sql"));
 					SQLConnection.statement.executeQuery(createProcedure);	
 				} catch (Exception e) {
 					//System.out.println(e);
@@ -104,47 +85,65 @@ public class SearchPersonController implements Initializable{
 			} catch (Exception e) {System.out.println(e);;}
 		}
 		TextFields.bindAutoCompletion(input, names);
+		reset();
+	}
+	
+	public void reset() {
 		mainPane.setVisible(false);
+		mainPane.setVvalue(0);
+		
+		error.setVisible(false);
+		error.setText("");
 	}
 	
 	public void showPerson(ActionEvent event) throws Exception {
-		mainPane.setVisible(true);
+		reset();
 		
-		String person = input.getText();
-		String PersonID;
-		if (person.matches("[0-9]+")) {
-			PersonID = person;
-		}
-		else {
-			PersonID = person.substring(0, person.indexOf(" -"));
-		}
-		
-		String queryData = "execute getPersonInfor " + PersonID;
-		ResultSet result = SQLConnection.statement.executeQuery(queryData);
-		result.next();
-		
-		personID.setText(PersonID);
-		fullName.setText(result.getString("FullName"));
-		nickName.setText(result.getString("Nickname"));
-		birthDate.setText(result.getString("BirthDate"));
-		gender.setText(result.getString("Gender"));
-		birthPlace.setText(result.getString("BirthPlace"));
-		originPlace.setText(result.getString("OriginPlace"));
-		ethnic.setText(result.getString("Ethnic"));
-		//religion.setText(result.getString("Religion"));
-		nationality.setText(result.getString("Nationality"));
-		cardNumber.setText(result.getString("CardNumber"));
-		registerDate.setText(result.getString("RegisterDate"));
-		registerPlace.setText(result.getString("RegisterPlace"));
-		
-		try {
-			String imageURL = System.getProperty("user.dir") + result.getString("PhotoURL");
-//			System.out.println(imageURL);
-			photo.setImage(new Image(getClass().getResourceAsStream(imageURL)));
+		try {		
+			String inputString = input.getText();
+			String PersonID;
+			if (inputString.matches("[0-9]+")) {
+				PersonID = inputString;
+			}
+			else {
+				PersonID = inputString.substring(0, inputString.indexOf(" -"));
+			}
+			
+			String queryData = "execute getPersonInfo " + PersonID;
+			ResultSet result = SQLConnection.statement.executeQuery(queryData);
+			
+			result.next();
+			
+			if (result.getString("PersonID") == null) throw new IOException();
+			
+			personID.setText(PersonID);
+			fullName.setText(result.getString("FullName"));
+			nickName.setText(result.getString("Nickname"));
+			birthDate.setText(result.getString("BirthDate"));
+			gender.setText(result.getString("Gender"));
+			birthPlace.setText(result.getString("BirthPlace"));
+			originPlace.setText(result.getString("OriginPlace"));
+			ethnic.setText(result.getString("Ethnic"));
+			//religion.setText(result.getString("Religion"));
+			nationality.setText(result.getString("Nationality"));
+			cardNumber.setText(result.getString("CardNumber"));
+			registerDate.setText(result.getString("RegisterDate"));
+			registerPlace.setText(result.getString("RegisterPlace"));
+			
+			try {
+				String imageURL = System.getProperty("user.dir") + result.getString("PhotoURL");
+	//			System.out.println(imageURL);
+				photo.setImage(new Image(getClass().getResourceAsStream(imageURL)));
+			} catch (Exception e) {
+			//	System.out.println(e);
+			}
+			
+			mainPane.setVisible(true);
+
 		} catch (Exception e) {
-		//	System.out.println(e);
+			error.setVisible(true);
+			error.setText("Không tìm thấy!");
 		}
-		
 	}
 	
 	public void changeToSearchPerson(ActionEvent event) {
