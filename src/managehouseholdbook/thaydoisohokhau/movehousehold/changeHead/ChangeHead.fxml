@@ -51,7 +51,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="buttonSaveAndSubmit1" layoutX="279.0" layoutY="459.0" mnemonicParsing="false" onAction="#SaveAndSubmit" prefHeight="50.0" prefWidth="164.0" text="Thoát">
+      <Button fx:id="buttonSaveAndSubmit1" layoutX="279.0" layoutY="459.0" mnemonicParsing="false" onAction="#SaveAndSubmit" prefHeight="50.0" prefWidth="164.0" text="Lưu và thoát">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

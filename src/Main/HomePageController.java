@@ -60,7 +60,7 @@ public class HomePageController {
 		try {
 		ConnectDatabase.ConnectData();
 		System.out.println("chuyen");
-		AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/src/managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
+		AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
