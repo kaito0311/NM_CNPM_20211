@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import managehouseholdbook.ConnectDatabase;
 
 public class MainController implements Initializable{
 	private Stage stage;
@@ -123,5 +124,16 @@ public class MainController implements Initializable{
 		}	
 	}
 
+	public void changeToManageHousehold(ActionEvent event) {
+		try {
+		ConnectDatabase.ConnectData();
+		AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+	} catch(Exception e) {
+		e.printStackTrace();
+		}
+	}
 	
 }

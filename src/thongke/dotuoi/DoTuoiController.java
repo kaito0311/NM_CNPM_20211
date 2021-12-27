@@ -31,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import managehouseholdbook.ConnectDatabase;
 import model.person.InforPerson;
 import thongke.PersonDetailController;
 
@@ -359,5 +360,18 @@ public class DoTuoiController implements Initializable{
 			System.out.println(e.getMessage());
 		}	
 	}	
+
+	@SuppressWarnings("exports")
+	public void changeToManageHousehold(ActionEvent event) {
+		try {
+		ConnectDatabase.ConnectData();
+		AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+	} catch(Exception e) {
+		e.printStackTrace();
+		}
+	}
 	
 }

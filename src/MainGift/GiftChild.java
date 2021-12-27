@@ -1,36 +1,39 @@
 package MainGift;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 
 public class GiftChild {
 	
-	private final SimpleStringProperty giftName;
-	private final SimpleStringProperty price;
-    private final SimpleStringProperty quantity;
+	private ComboBox<String> giftName;
+	private final SimpleIntegerProperty price;
+    private final SimpleStringProperty age;
     
-    GiftChild(String giftName, String price,  String quantity) {
-    	this.giftName = new SimpleStringProperty(giftName);
-    	this.price = new SimpleStringProperty(price);
-    	this.quantity = new SimpleStringProperty(quantity);
+    GiftChild(String age, ObservableList<String> dataGift, int price) {
+    	this.giftName = new ComboBox<String>(dataGift);
+    	this.price = new SimpleIntegerProperty(price);
+    	this.age = new SimpleStringProperty(age);
     }
     
-    public String getGiftName() {
-        return giftName.get();
+	public ComboBox<String> getGiftName() {
+		return giftName;
+	}
+    public void setGiftName(ComboBox<String> giftName) {
+        this.giftName = giftName;
     }
-    public void setGiftName(String giftName) {
-        this.giftName.set(giftName);
-    }
-    public String getPrice() {
+	public int getPrice() {
         return price.get();
     }
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price.set(price);
     }
-    public String getQuantity() {
-        return quantity.get();
+    public String getAge() {
+        return age.get();
     }
-    public void setQuantity(String quantity) {
-        this.quantity.set(quantity); 
+    public void setAge(String age) {
+        this.age.set(age); 
     }
 
 }

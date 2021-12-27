@@ -42,7 +42,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="SCREEN4_button3" layoutX="360.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu">
+            <Button id="SCREEN4_button3" layoutX="360.0" mnemonicParsing="false" onAction="#changeToManageHousehold" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

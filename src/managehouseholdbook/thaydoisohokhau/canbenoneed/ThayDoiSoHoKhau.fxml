@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane id="AllScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../../application.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QL_Sohokhau.thaydoisohokhau.ThayDoiSoHoKhauController">
+  <tabs>
+      <Tab id="title1" text="Quản lý tài khoản">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+               <children>
+                  <AnchorPane id="SCREEN1_head1" prefHeight="200.0" prefWidth="1440.0">
+                     <children>
+                        <Button id="SCREEN1_button1" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN1_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN1_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN1_button4" layoutX="810.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+                        <Line endX="1440.0" stroke="#ffc5c5" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="SCREEN1_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
+                     <children>
+                        <Button id="SCREEN1_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN1_subbutton2" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
+                     <children>
+                        <Line endX="1440.0" />
+                        <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab id="title2" text="Quản lý thông tin sổ hộ khẩu">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+               <children>
+                  <AnchorPane id="SCREEN2_head1" prefHeight="200.0" prefWidth="1440.0">
+                     <children>
+                        <Button id="SCREEN2_button1" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" stylesheets="@../logo.css" text="Tạo sổ hộ khẩu">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/ho-khau-red.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button id="SCREEN2_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" styleClass="button_pressed" text="Thêm Nhân Khẩu mới">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/thay-doi-white.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <stylesheets>
+                              <URL value="@../logo.css" />
+                              <URL value="@ThayDoiSoHoKhau.css" />
+                           </stylesheets>
+                        </Button>
+                        <Button id="SCREEN2_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" stylesheets="@../logo.css" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/tam-vang-red.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+                        <Line endX="1440.0" stroke="#ffc5c5" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="SCREEN2_head2" layoutX="1.0" layoutY="202.0" prefHeight="50.0" prefWidth="1440.0">
+                     <children>
+                        <HBox layoutY="3.0" prefHeight="50.0" prefWidth="1440.0">
+                           <children>
+                              <Button id="SCREEN2_subbutton1" mnemonicParsing="false" onAction="#changeToChuyenHoKhau" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../logo.css" text="Thêm nhân khẩu mới" />
+                              <Button id="SCREEN2_subbutton2" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../logo.css" text="Thay đổi nhân khẩu" />
+                              <Button id="SCREEN2_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../logo.css" text="Chuyển hộ khẩu" />
+                              <Button id="SCREEN2_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../logo.css" text="Xóa hộ khẩu" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
+                     <children>
+                        <Line endX="1440.0" />
+                        <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab id="title3" text="Cấp phần thưởng">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+               <children>
+                  <AnchorPane id="SCREEN3_head1" prefHeight="200.0" prefWidth="1440.0">
+                     <children>
+                        <Button id="SCREEN3_button1" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN3_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN3_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN3_button4" layoutX="810.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+                        <Line endX="1440.0" stroke="#ffc5c5" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="SCREEN3_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
+                     <children>
+                        <Button id="SCREEN3_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN3_subbutton2" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
+                     <children>
+                        <Line endX="1440.0" />
+                        <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab id="title4" text="Thống kê">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
+               <children>
+                  <AnchorPane id="SCREEN4_head1" prefHeight="200.0" prefWidth="1440.0">
+                     <children>
+                        <Button id="SCREEN4_button1" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN4_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN4_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN4_button4" layoutX="810.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Button" />
+                        <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+                        <Line endX="1440.0" stroke="#ffc5c5" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="SCREEN4_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
+                     <children>
+                        <Button id="SCREEN4_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
+                        <Button id="SCREEN4_subbutton2" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">
+                     <children>
+                        <Line endX="1440.0" />
+                        <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

@@ -42,7 +42,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="SCREEN4_button3" layoutX="360.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu">
+            <Button id="SCREEN4_button3" layoutX="360.0" mnemonicParsing="false" onAction="#changeToManageHousehold" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -163,9 +163,9 @@
                   </Button>
                   <TableView id="MID_table1" fx:id="listGiftChild" layoutX="134.0" layoutY="120.0" prefHeight="400.0" prefWidth="1154.0">
                      <columns>
-                        <TableColumn id="TABLE1_columm1" fx:id="giftName" prefWidth="564.0" resizable="false" text="Tên phần quà" />
-                        <TableColumn id="TABLE1_columm2" fx:id="price" prefWidth="295.0" resizable="false" text="Đơn giá" />
-                        <TableColumn id="TABLE1_columm3" fx:id="quantity" prefWidth="292.0" resizable="false" text="Số lượng" />
+                        <TableColumn id="TABLE1_columm1" fx:id="age" prefWidth="91.66667175292969" resizable="false" text="Độ tuổi" />
+                        <TableColumn id="TABLE1_columm1" fx:id="giftName" prefWidth="718.3333740234375" resizable="false" text="Tên phần quà" />
+                        <TableColumn id="TABLE1_columm2" fx:id="price" prefWidth="340.6666259765625" resizable="false" text="Đơn giá" />
                      </columns>
                   </TableView>
                   <Label id="MID_label1" accessibleRole="BUTTON" layoutX="134.0" layoutY="49.0" prefHeight="43.0" prefWidth="350.0" text="Danh sách phần quà" textAlignment="CENTER">

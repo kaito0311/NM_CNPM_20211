@@ -23,6 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import managehouseholdbook.ConnectDatabase;
 
 /**
  *
@@ -51,6 +52,17 @@ public class CreateListChildController implements Initializable {
     private Stage stage;
 	private Scene scene;
 	
+	public void changeToManageHousehold(ActionEvent event) {
+		try {
+		ConnectDatabase.ConnectData();
+		AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+	} catch(Exception e) {
+		e.printStackTrace();
+		}
+	}
 	public void changeToThongKeHome(ActionEvent event) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/thongke/thongkehome/Thong_Ke.fxml"));
@@ -114,7 +126,7 @@ public class CreateListChildController implements Initializable {
 			stage.setY(0);
 		}
 		catch(Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}	
 	}
 	

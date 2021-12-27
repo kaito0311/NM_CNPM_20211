@@ -1,0 +1,40 @@
+
+.Screen_subutton_pressed{
+    -fx-background-color: white; 
+    -fx-text-fill: #E7717D;
+    -fx-border-color: #E7717D;
+}
+
+.Screen_button_pressed{
+    
+    -fx-background-color: white; 
+    -fx-text-fill: #E7717D;
+}
+
+#combo-box{
+    -fx-pref-width: 300;
+    -fx-pref-height: 30;
+}
+.combo-box .list-cell 
+{
+    -fx-background: white;
+    -fx-background-color: #ffffff;
+    -fx-border-color: gray;
+    -fx-text-fill: black;
+    -fx-padding: 3 0 2 7;
+    -fx-cell-size: 30px; 
+
+}
+
+.combo-box:hover{
+    -fx-border-color: pink; 
+    -fx-focus-color: transparent;
+}
+
+
+
+#SCREEN2_button1{
+    -fx-background-color: white; 
+    -fx-text-fill: #E7717D;
+    
+}

@@ -20,18 +20,48 @@
 
 <AnchorPane prefHeight="1024.0" prefWidth="1440.0" stylesheets="@dotuoi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thongke.dotuoi.DoTuoiController">
    <children>
-      <Button id="head-thong-ke" layoutX="900.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Thống kê" />
-      <Button id="head-quan-ly-tai-khoan" layoutX="90.0" mnemonicParsing="false" onAction="#changeToChangeInfo" prefHeight="60.0" prefWidth="270.0" text="Quản lý tài khoản" />
-      <Button id="head-quan-ly-thong-tin-so-ho-khau" layoutX="360.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu" />
-      <Button id="head-quan-ly-cap-phan-thuong" layoutX="630.0" mnemonicParsing="false" onAction="#changeToCreateListScholar" prefHeight="60.0" prefWidth="270.0" text="Quản lý cấp phần thưởng" />
-      <Button id="head-tim-kiem" layoutX="1170.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm" />
+      <Button id="head-thong-ke" layoutX="900.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Thống kê">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button id="head-quan-ly-tai-khoan" layoutX="90.0" mnemonicParsing="false" onAction="#changeToChangeInfo" prefHeight="60.0" prefWidth="270.0" text="Quản lý tài khoản">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button id="head-quan-ly-thong-tin-so-ho-khau" layoutX="360.0" mnemonicParsing="false" onAction="#changeToManageHousehold" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button id="head-quan-ly-cap-phan-thuong" layoutX="630.0" mnemonicParsing="false" onAction="#changeToCreateListScholar" prefHeight="60.0" prefWidth="270.0" text="Quản lý cấp phần thưởng">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button id="head-tim-kiem" layoutX="1170.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
       <AnchorPane id="SCREEN4_head1" layoutY="60.0" prefHeight="200.0" prefWidth="1440.0">
          <children>
-            <Button id="SCREEN4_buttonhome" mnemonicParsing="false" onAction="#changeToThongKeHome" prefHeight="200.0" prefWidth="270.0" text="Trang chủ thống kê" />
-            <Button id="SCREEN4_button1" layoutX="270.0" mnemonicParsing="false" onAction="#changeToThongKeGioiTinh" prefHeight="200.0" prefWidth="270.0" text="Giới tính" />
-            <Button id="SCREEN4_button2" layoutX="540.0" mnemonicParsing="false" onAction="#changeToThongKeDoTuoi" prefHeight="200.0" prefWidth="270.0" text="Độ tuổi" />
-            <Button id="SCREEN4_button3" layoutX="810.0" mnemonicParsing="false" onAction="#changeToThongKeThoiGian" prefHeight="200.0" prefWidth="270.0" text="Thời gian" />
-            <Button id="SCREEN4_button4" layoutX="1080.0" mnemonicParsing="false" onAction="#changeToThongKeTamVangTru" prefHeight="200.0" prefWidth="270.0" text="Tạm vắng/Tạm trú" />
+            <Button id="SCREEN4_buttonhome" mnemonicParsing="false" onAction="#changeToThongKeHome" prefHeight="200.0" prefWidth="270.0" text="Trang chủ thống kê">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button id="SCREEN4_button1" layoutX="270.0" mnemonicParsing="false" onAction="#changeToThongKeGioiTinh" prefHeight="200.0" prefWidth="270.0" text="Giới tính">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button id="SCREEN4_button2" layoutX="540.0" mnemonicParsing="false" onAction="#changeToThongKeDoTuoi" prefHeight="200.0" prefWidth="270.0" text="Độ tuổi">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button id="SCREEN4_button3" layoutX="810.0" mnemonicParsing="false" onAction="#changeToThongKeThoiGian" prefHeight="200.0" prefWidth="270.0" text="Thời gian">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button id="SCREEN4_button4" layoutX="1080.0" mnemonicParsing="false" onAction="#changeToThongKeTamVangTru" prefHeight="200.0" prefWidth="270.0" text="Tạm vắng/Tạm trú">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
             <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
             <Line endX="1440.0" stroke="#ffc5c5" />
          </children>

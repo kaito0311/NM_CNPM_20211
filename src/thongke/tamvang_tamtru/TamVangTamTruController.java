@@ -26,6 +26,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import managehouseholdbook.ConnectDatabase;
 import model.person.InforPerson;
 import thongke.PersonDetailController;
 
@@ -305,6 +306,19 @@ public class TamVangTamTruController implements Initializable{
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 		}	
+	}
+
+	@SuppressWarnings("exports")
+	public void changeToManageHousehold(ActionEvent event) {
+		try {
+		ConnectDatabase.ConnectData();
+		AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+	} catch(Exception e) {
+		e.printStackTrace();
+		}
 	}
 
 }

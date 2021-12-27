@@ -7,6 +7,8 @@ module CapPhanThuong {
 	requires org.apache.poi.ooxml;
 	requires javafx.graphics;
 	requires org.controlsfx.controls;
+	requires java.desktop;
+	requires javafx.swt;
 	
 	opens Main to javafx.graphics, javafx.fxml, javafx.base;
 	opens MainChangeInfo to javafx.graphics, javafx.fxml, javafx.base;
@@ -17,6 +19,18 @@ module CapPhanThuong {
 	opens MainGift to javafx.graphics, javafx.fxml, javafx.base;
 	opens thongke.thongkehome to javafx.graphics, javafx.fxml;
 	opens gift.thongkegift to javafx.graphics, javafx.fxml;
+	opens managehouseholdbook to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.thaydoisohokhau.changeperson.death to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.thaydoisohokhau.movehousehold.splithousehold to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.thaydoisohokhau.addnewperson to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.thaydoisohokhau.movehousehold.changeHead to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.createhouseholdbook to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.thaydoisohokhau.changeperson to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.thaydoisohokhau.movehousehold to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.thaydoisohokhau.changeperson.changeinformation to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.thaydoisohokhau.deletehousehold;
+	opens managehouseholdbook.thaydoisohokhau.canbenoneed to javafx.graphics, javafx.fxml, javafx.base;
+	opens managehouseholdbook.thaydoisohokhau to javafx.graphics, javafx.fxml, javafx.base;
 	
 	exports thongke.dotuoi;
 	opens thongke.dotuoi to javafx.graphics, javafx.fxml;
