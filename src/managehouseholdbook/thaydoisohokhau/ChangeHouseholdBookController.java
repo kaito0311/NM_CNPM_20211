@@ -89,7 +89,7 @@ public class ChangeHouseholdBookController implements Initializable {
 
     public void changeToCreateNewBook(ActionEvent event) throws Exception {
         try {
-            setNewSceneInSameWindow("../createhouseholdbook/CreateNewHouseholdBook.fxml", event);
+            setNewSceneInSameWindow("/managehouseholdbook/createhouseholdbook/CreateNewHouseholdBook.fxml", event);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println(getClass());

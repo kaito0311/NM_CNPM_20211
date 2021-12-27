@@ -14,17 +14,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.changeperson.ChangePersonController">
    <children>
       <HBox prefHeight="60.0" prefWidth="1440.0">
          <children>
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" onAction="#changeToHomePage" styleClass="home_page" />
+            <Button mnemonicParsing="false" onAction="#changeToChangeInfo" styleClass="tab_head" text="Quản lý tài khoản" />
+            <Button mnemonicParsing="false" text="Quản lý thông tin sổ hộ khẩu">
+               <styleClass>
+                  <String fx:value="tab_head" />
+                  <String fx:value="tab_head_pressed" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#changeToCreateListScholar" styleClass="tab_head" text="Cấp phần thưởng" />
+            <Button mnemonicParsing="false" onAction="#changeToThongKeHome" styleClass="tab_head" text="Thống kê" />
+            <Button mnemonicParsing="false" styleClass="tab_head" text="Tìm kiếm" />
          </children>
       </HBox>
       <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="684.0" prefWidth="1440.0" stylesheets="@../../logo.css">
@@ -121,4 +124,8 @@
          </children>
       </AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@../../logo.css" />
+      <URL value="@../../../application.css" />
+   </stylesheets>
 </AnchorPane>

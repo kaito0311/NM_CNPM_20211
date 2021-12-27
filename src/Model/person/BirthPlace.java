@@ -1,4 +1,6 @@
-package Model.person;
+package model.person;
+
+import database.SQLConnection;
 
 public class BirthPlace {
     private int personID; 
@@ -6,13 +8,16 @@ public class BirthPlace {
     private String provinceID;
     private String districtID; 
     private String communeID;
-    
+    private String address;
     public BirthPlace(int personID, String nationID, String provinceID, String districtID, String communeID) {
         this.personID = personID;
         this.nationID = nationID;
         this.provinceID = provinceID;
         this.districtID = districtID;
         this.communeID = communeID;
+        SQLConnection.ConnectData();
+        this.address = SQLConnection.toPlace(nationID, provinceID, districtID, communeID);
+        SQLConnection.DisconnectData();
     }
     public BirthPlace() {
     }
@@ -50,7 +55,12 @@ public class BirthPlace {
     }
     public void setCommuneID(String communeID) {
         this.communeID = communeID;
-    } 
-    
+    }
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	} 
 
 }

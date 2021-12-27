@@ -1,10 +1,13 @@
-package Model.person;
+package model.person;
 
 import java.sql.Date;
 
 public class IdentityCard {
     private int personID; 
     private String number; 
+    private Date registerDate; 
+    private String registerPlace; 
+    
     public int getPersonID() {
         return personID;
     }
@@ -37,8 +40,6 @@ public class IdentityCard {
         this.registerPlace = registerPlace;
     }
 
-    private Date registerDate; 
-    private String registerPlace; 
 
     public IdentityCard(int personID, String number, Date registerDate, String registerPlace){
         this.personID = personID; 

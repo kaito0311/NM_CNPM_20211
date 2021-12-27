@@ -1,4 +1,4 @@
-package Model.person;
+package model.person;
 
 public class InforPerson {
 
@@ -9,50 +9,46 @@ public class InforPerson {
     private IdentityCard card = null;
     private OriginPlace originPlace = null;
     private BirthPlace birthPlace = null;
-    private Residence residence = null;
-    private ResidenceType residenceType = null;
+    private TemporaryAbsence temporaryAbsence = null;
+    private TemporaryResidence temporaryResidence = null; 
+    private Education education = null;
+    private AcademicLevel academicLevel = null;
+    private ResidenceType residenceType = null; 
+    private Residence residence = null;     
 
     public InforPerson() {
     }
 
     public InforPerson(Person person, Nationality nationality, Ethnic ethnic, Work work, IdentityCard card,
-            OriginPlace originPlace, BirthPlace birthPlace, Residence residence, ResidenceType residenceType) {
-        this.person = person;
-        this.nationality = nationality;
-        this.ethnic = ethnic;
-        this.work = work;
-        this.card = card;
-        this.originPlace = originPlace;
-        this.birthPlace = birthPlace;
-        this.residence = residence;
-        this.residenceType = residenceType;
-    }
+			OriginPlace originPlace, BirthPlace birthPlace, TemporaryAbsence temporaryAbsence,
+			TemporaryResidence temporaryResidence, Education education, AcademicLevel academicLevel,
+			ResidenceType residenceType, Residence residence) {
+		super();
+		this.person = person;
+		this.nationality = nationality;
+		this.ethnic = ethnic;
+		this.work = work;
+		this.card = card;
+		this.originPlace = originPlace;
+		this.birthPlace = birthPlace;
+		this.temporaryAbsence = temporaryAbsence;
+		this.temporaryResidence = temporaryResidence;
+		this.education = education;
+		this.academicLevel = academicLevel;
+		this.residenceType = residenceType;
+		this.residence = residence;
+	}
 
-    public ResidenceType getResidenceType() {
-        return residenceType;
-    }
+	@Override
+	public String toString() {
+		return "InforPerson [person=" + person + ", nationality=" + nationality + ", ethnic=" + ethnic + ", work="
+				+ work + ", card=" + card + ", originPlace=" + originPlace + ", birthPlace=" + birthPlace
+				+ ", temporaryAbsence=" + temporaryAbsence + ", temporaryResidence=" + temporaryResidence
+				+ ", education=" + education + ", academicLevel=" + academicLevel + ", residenceType=" + residenceType
+				+ ", residence=" + residence + "]";
+	}
 
-    public void setResidenceType(ResidenceType residenceType) {
-        this.residenceType = residenceType;
-    }
-
-    public Residence getResidence() {
-        return residence;
-    }
-
-    public void setResidence(Residence residence) {
-        this.residence = residence;
-    }
-
-    @Override
-    public String toString() {
-        return "Inforperson [birthPlace=" + birthPlace.toString() + ", card=" + card.toString() + ", ethnic="
-                + ethnic.toString() + ", nationality="
-                + nationality.toString() + ", originPlace=" + originPlace.toString() + ", person=" + person.toString()
-                + ", work=" + work.toString() + "]";
-    }
-
-    public Person getPerson() {
+	public Person getPerson() {
         return person;
     }
 
@@ -107,5 +103,53 @@ public class InforPerson {
     public void setBirthPlace(BirthPlace birthPlace) {
         this.birthPlace = birthPlace;
     }
+
+	public TemporaryAbsence getTemporaryAbsence() {
+		return temporaryAbsence;
+	}
+
+	public void setTemporaryAbsence(TemporaryAbsence temporaryAbsence) {
+		this.temporaryAbsence = temporaryAbsence;
+	}
+
+	public TemporaryResidence getTemporaryResidence() {
+		return temporaryResidence;
+	}
+
+	public void setTemporaryResidence(TemporaryResidence temporaryResidence) {
+		this.temporaryResidence = temporaryResidence;
+	}
+
+	public Education getEducation() {
+		return education;
+	}
+
+	public void setEducation(Education education) {
+		this.education = education;
+	}
+
+	public AcademicLevel getAcademicLevel() {
+		return academicLevel;
+	}
+
+	public void setAcademicLevel(AcademicLevel academicLevel) {
+		this.academicLevel = academicLevel;
+	}
+
+	public ResidenceType getResidenceType() {
+		return residenceType;
+	}
+
+	public void setResidenceType(ResidenceType residenceType) {
+		this.residenceType = residenceType;
+	}
+
+	public Residence getResidence() {
+		return residence;
+	}
+
+	public void setResidence(Residence residence) {
+		this.residence = residence;
+	}
 
 }

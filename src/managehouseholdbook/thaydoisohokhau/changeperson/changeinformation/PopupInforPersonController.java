@@ -11,16 +11,6 @@ import java.util.List;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import Model.person.BirthPlace;
-import Model.person.Ethnic;
-import Model.person.IdentityCard;
-import Model.person.InforPerson;
-import Model.person.Nationality;
-import Model.person.OriginPlace;
-import Model.person.Person;
-import Model.person.Residence;
-import Model.person.ResidenceType;
-import Model.person.Work;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -37,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
+import model.person.*;
 
 public class PopupInforPersonController extends AnchorPane implements Initializable {
 
@@ -682,7 +673,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
         textFieldOtherNamePerson.setText(inforPerson.getPerson().getNickName());
         textFieldBirthDate.setText(inforPerson.getPerson().getBirthDate().toString());
         textFieldBookID.setText(Integer.toString(inforPerson.getResidence().getBookID()));
-        textFieldRelationWithHead.setText(inforPerson.getResidence().getRelationshipWithHead());
+        textFieldRelationWithHead.setText(inforPerson.getResidence().getRelaWithHead());
 
         if (inforPerson.getCard() != null) {
             textFieldIdentityCard.setText(inforPerson.getCard().getNumber());
@@ -769,7 +760,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
 
         if ((hasCurrentID == 1)) {
             if (currentID != inforPerson.getResidence().getBookID() || !textFieldRelationWithHead.getText()
-                    .equals(inforPerson.getResidence().getRelationshipWithHead())) {
+                    .equals(inforPerson.getResidence().getRelaWithHead())) {
                 if (isDuplicateRelation11(currentID))
                     return;
 
@@ -783,7 +774,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                     ConnectDatabase.statement.executeUpdate(sql);
                     // System.out.println("rows: " + rows);
                     inforPerson.getResidence().setBookID(currentID);
-                    inforPerson.getResidence().setRelationshipWithHead(textFieldRelationWithHead.getText().toString());
+                    inforPerson.getResidence().setRelaWithHead(textFieldRelationWithHead.getText().toString());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                     System.out.println(getClass());
@@ -1108,7 +1099,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
     }
 
     void changeGender() {
-        if (gender.getSelectionModel().getSelectedIndex() != inforPerson.getPerson().getGender()) {
+        if (gender.getSelectionModel().getSelectedItem() != inforPerson.getPerson().getGender()) {
             String sql = "update person.person set gender = '" + gender.getSelectionModel().getSelectedIndex()
                     + "' where personid = '" + inforPerson.getPerson().getPersonID() + "';";
             try {
@@ -1139,7 +1130,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                 System.out.println("oke ổn");
                 return;
             }
-            inforPerson.getPerson().getBirthDate().compareTo(Date.valueOf(LocalDate.now()));
+            inforPerson.getPerson().getBirthDate().compareTo(LocalDate.now());
             String sql = "update Person.person set birthdate = '" + textFieldBirthDate.getText()
                     + "' where personid = '" + inforPerson.getPerson().getPersonID() + "'; ";
             try {

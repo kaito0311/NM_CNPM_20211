@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import Model.person.Residence;
+import model.person.Residence;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -127,7 +127,7 @@ public class ChangeHeadController implements Initializable {
                     continue;
                 listMemeber.add(new Residence()); 
                 listMemeber.get(index).setPersonID(resultSet.getInt("PersonID"));
-                listMemeber.get(index).setRelationshipWithHead(resultSet.getString("relationshipwithHead"));
+                listMemeber.get(index).setRelaWithHead(resultSet.getString("relationshipwithHead"));
 
                 listNameMember.add(resultSet.getString("fullname"));
 
@@ -152,7 +152,7 @@ public class ChangeHeadController implements Initializable {
                 // set value for label birth 
                 labelDateBirthMember.setText(listBirthMember.get(index));
                 // set value for textfield 
-                textFieldRelationWithHead.setText(listMemeber.get(index).getRelationshipWithHead());
+                textFieldRelationWithHead.setText(listMemeber.get(index).getRelaWithHead());
             }
         } catch (Exception e) {
             //TODO: handle exception
@@ -163,12 +163,12 @@ public class ChangeHeadController implements Initializable {
     void changeRelationWithHead(ActionEvent event){
         try {
             int index = comboBoxMember.getSelectionModel().getSelectedIndex();
-            String before = listMemeber.get(index).getRelationshipWithHead();
-            listMemeber.get(index).setRelationshipWithHead(textFieldRelationWithHead.getText());
+            String before = listMemeber.get(index).getRelaWithHead();
+            listMemeber.get(index).setRelaWithHead(textFieldRelationWithHead.getText());
             
             if(SaveAndSubmit()== 0)
             {
-                listMemeber.get(index).setRelationshipWithHead(before);
+                listMemeber.get(index).setRelaWithHead(before);
                 return;
             }
             String sql = "update Person.Residence set relationshipwithhead = ? where personID = ?";
@@ -194,7 +194,7 @@ public class ChangeHeadController implements Initializable {
         for(int i = 0; i < relationship11.size(); i++){
             count = 0; 
             for(int j = 0; j < listMemeber.size(); j++){
-                if(listMemeber.get(j).getRelationshipWithHead().toLowerCase().equals(relationship11.get(i).toLowerCase())){
+                if(listMemeber.get(j).getRelaWithHead().toLowerCase().equals(relationship11.get(i).toLowerCase())){
                     count += 1; 
                 }
                 if(count >= 2){

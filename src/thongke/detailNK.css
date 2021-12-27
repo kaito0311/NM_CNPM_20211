@@ -1,0 +1,185 @@
+/* box-ma-nhan-khau
+box-ho-ten
+box-bi-danh
+box-ngay-sinh
+box-hoc-van
+box-cong-viec
+box-noi-lam-viec */
+#box-ma-nhan-khau{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-ho-ten{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-bi-danh{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-ngay-sinh{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-hoc-van{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-cong-viec{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-noi-lam-viec{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-dan-toc{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-quoc-tich{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-noi-sinh{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+#box-nguyen-quan{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+
+#box-cmnd{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+
+#box-ngay-cap{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+
+#box-noi-cap{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+
+#box-ngay-dang-ki-thuong-tru{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+
+#box-dia-chi-thuong-tru-truoc-day{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, #e7717dd8, 5, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: e7717d;
+}
+
+#box-ho-khau{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(three-pass-box, #eb6674, 10, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: #e7717d;
+}
+#box-chu-ho{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(three-pass-box, #eb6674, 10, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: #e7717d;
+}
+
+#box-dia-chi{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(three-pass-box, #eb6674, 10, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: #e7717d;
+}
+
+#box-quan-he-chu-ho{
+
+    -fx-border-style: solid inside;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(three-pass-box, #eb6674, 10, 0, 0, 0);
+    -fx-border-radius: 2;
+    -fx-border-color: #e7717d;
+
+
+}
+
+
+#body{
+    -fx-background-color: white;
+    -fx-border-style: solid inside;
+    -fx-border-width: 10;
+    -fx-border-color: #e7717d;
+}

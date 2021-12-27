@@ -1,6 +1,7 @@
-package Model.person;
+package model.person;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Person {
     private int personID;
@@ -42,14 +43,16 @@ public class Person {
     public void setEthnicID(String ethnicID) {
         this.ethnicID = ethnicID;
     }
-    public int getGender() {
-        return gender;
+    public String getGender() {
+		if (gender == 1)
+			return "Nam";
+		return "Nữ";
     }
     public void setGender(int gender) {
         this.gender = gender;
     }
-    public Date getBirthDate() {
-        return birthDate;
+    public LocalDate getBirthDate() {
+        return birthDate.toLocalDate();
     }
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
@@ -69,5 +72,8 @@ public class Person {
     public void setPersonID(int personID) {
         this.personID = personID;
     } 
+    public int getAge() {
+    	return LocalDate.now().getYear() - this.getBirthDate().getYear();
+    }
     
 }

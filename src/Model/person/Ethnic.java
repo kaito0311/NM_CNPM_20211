@@ -1,4 +1,4 @@
-package Model.person;
+package model.person;
 
 public class Ethnic {
     private String ethnicID;
@@ -31,5 +31,4 @@ public class Ethnic {
         return "Ethnic [ethnicID=" + ethnicID + ", name=" + name + "]";
     } 
     
-
 }

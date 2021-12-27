@@ -13,17 +13,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.createhouseholdbook.CreateNewHouseholdBookController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" stylesheets="@../../application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.createhouseholdbook.CreateNewHouseholdBookController">
    <children>
-      <HBox prefHeight="60.0" prefWidth="1440.0">
+      <HBox prefHeight="60.0" prefWidth="1440.0" style="-fx-background-color: #e7717d;">
          <children>
-            <Button mnemonicParsing="false" text="Trang chủ" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="248.0" text="Quản lý thông tin cá nhân" />
-            <Button mnemonicParsing="false" text="Quản lý sổ hộ khẩu" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="124.0" text="Cấp Phần thưởng" />
-            <Button mnemonicParsing="false" text="Thống kê" />
-            <Button mnemonicParsing="false" text="Tìm kiếm" />
+            <Button mnemonicParsing="false" onAction="#changeToHomePage" styleClass="home_page" stylesheets="@../logo.css" />
+            <Button mnemonicParsing="false" onAction="#changeToChangeInfo" prefHeight="26.0" prefWidth="248.0" styleClass="tab_head" stylesheets="@../logo.css" text="Quản lý thông tin cá nhân" />
+            <Button mnemonicParsing="false" stylesheets="@../logo.css" text="Quản lý sổ hộ khẩu">
+               <styleClass>
+                  <String fx:value="tab_head" />
+                  <String fx:value="tab_head_pressed" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#changeToCreateListScholar" prefHeight="26.0" prefWidth="124.0" styleClass="tab_head" stylesheets="@../logo.css" text="Cấp Phần thưởng" />
+            <Button mnemonicParsing="false" onAction="#changeToThongKeHome" styleClass="tab_head" stylesheets="@../logo.css" text="Thống kê" />
+            <Button mnemonicParsing="false" styleClass="tab_head" stylesheets="@../logo.css" text="Tìm kiếm" />
          </children>
       </HBox>
       <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="870.0" prefWidth="1440.0">
@@ -81,7 +84,6 @@
                         <String fx:value="Screen_subutton_pressed" />
                      </styleClass>
                   </Button>
-                  <Button id="SCREEN2_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" stylesheets="@../logo.css" text="Button" />
                </children>
             </AnchorPane>
             <AnchorPane layoutY="900.0" prefHeight="70.0" prefWidth="1440.0">

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" stylesheets="@tamvang-tamtru.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thongke.tamvang_tamtru.TamVangTamTruController">
+   <children>
+      <Button id="head-thong-ke" layoutX="900.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Thống kê" />
+      <Button id="head-quan-ly-tai-khoan" layoutX="90.0" mnemonicParsing="false" onAction="#changeToChangeInfo" prefHeight="60.0" prefWidth="270.0" text="Quản lý tài khoản" />
+      <Button id="head-quan-ly-thong-tin-so-ho-khau" layoutX="360.0" mnemonicParsing="false" onAction="#changeToManageHousehold" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu" />
+      <Button id="head-quan-ly-cap-phan-thuong" layoutX="630.0" mnemonicParsing="false" onAction="#changeToCreateListScholar" prefHeight="60.0" prefWidth="270.0" text="Quản lý cấp phần thưởng" />
+      <Button id="head-tim-kiem" layoutX="1170.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm" />
+      <AnchorPane id="SCREEN4_head1" layoutY="60.0" prefHeight="200.0" prefWidth="1440.0">
+         <children>
+            <Button id="SCREEN4_button1" layoutX="270.0" mnemonicParsing="false" onAction="#changeToThongKeGioiTinh" prefHeight="200.0" prefWidth="270.0" text="Giới tính" />
+            <Button id="SCREEN4_button2" layoutX="540.0" mnemonicParsing="false" onAction="#changeToThongKeDoTuoi" prefHeight="200.0" prefWidth="270.0" text="Độ tuổi" />
+            <Button id="SCREEN4_button3" layoutX="810.0" mnemonicParsing="false" onAction="#changeToThongKeThoiGian" prefHeight="200.0" prefWidth="270.0" text="Thời gian" />
+            <Button id="SCREEN4_button4" layoutX="1080.0" mnemonicParsing="false" onAction="#changeToThongKeTamVangTru" prefHeight="200.0" prefWidth="270.0" text="Tạm vắng/Tạm trú" />
+            <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+            <Line endX="1440.0" stroke="#ffc5c5" />
+            <Button id="SCREEN4_buttonhome" mnemonicParsing="false" onAction="#changeToThongKeHome" prefHeight="200.0" prefWidth="270.0" text="Trang chủ thống kê" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="982.0" prefHeight="42.0" prefWidth="1441.0">
+         <children>
+            <Line endX="1440.0" />
+            <Text layoutX="54.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="260.0" prefHeight="650.0" prefWidth="1440.0">
+         <children>
+            <TabPane id="tab-mid" layoutX="18.0" layoutY="90.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="1412.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab id="danh-sach-tab" text="Danh sách nhân khẩu">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="200.0">
+                           <children>
+                              <TableView id="tam-table" fx:id="tamTable" minHeight="528.0" minWidth="859.0" prefHeight="528.0" prefWidth="1412.0">
+                                 <columns>
+                                    <TableColumn id="stt-column" fx:id="STTCol" maxWidth="43.33333206176758" minWidth="43.33333206176758" prefWidth="43.33333206176758" text="STT" />
+                                    <TableColumn id="ho-ten-column" fx:id="fullNameCol" maxWidth="274.6666679382324" minWidth="146.0" prefWidth="274.6666679382324" text="Họ tên" />
+                                    <TableColumn id="ma-ho-khau-column" fx:id="tamCol" maxWidth="252.66665649414062" minWidth="108.3333740234375" prefWidth="182.33331298828125" text="Tạm vắng/Tạm trú" />
+                                    <TableColumn id="chu-ho-column" fx:id="batdauCol" maxWidth="258.3333435058594" minWidth="117.0" prefWidth="150.0" text="Ngày bắt đầu" />
+                                    <TableColumn id="quan-he-column" fx:id="ketthucCol" maxWidth="571.6666870117188" minWidth="106.33331298828125" prefWidth="180.33331298828125" text="Ngày kết thúc" />
+                                    <TableColumn id="ngay-sinh-column" fx:id="diaChiCol" maxWidth="807.0" minWidth="94.0" prefWidth="584.6666870117188" text="Địa chỉ tạm trú" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#handleShowDetail" text="Hiển thị chi tiết" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab id="so-lieu-tab" text="Thống kê số liệu">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="284.0" layoutY="170.0" text="Số nhân khẩu tạm trú">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font></Label>
+                              <Label layoutX="1078.0" layoutY="164.0" text="Số nhân khẩu tạm vắng">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font></Label>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="61.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../data/come.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="855.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../data/leave.png" />
+                                 </image>
+                              </ImageView>
+                              <TextField layoutX="284.0" layoutY="210.0" prefHeight="38.0" prefWidth="250.0" />
+                              <TextField layoutX="1078.0" layoutY="203.0" prefHeight="45.0" prefWidth="253.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <Label fx:id="errorLabel" layoutX="1160.0" layoutY="65.0" textFill="RED" />
+            <Label id="bat-dau-label" layoutX="359.0" layoutY="19.0" maxHeight="41.0" minHeight="35.0" prefHeight="41.0" prefWidth="178.0" text="Thời gian từ:">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Button id="loc-button" layoutX="1220.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleLocButton" prefHeight="40.0" prefWidth="68.0" text="Lọc">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <DatePicker fx:id="batdauDP" layoutX="564.0" layoutY="18.0" minHeight="40.0" prefHeight="40.0" prefWidth="211.0" promptText="Ngày bắt đầu" />
+            <Label id="den-label" layoutX="811.0" layoutY="20.0" maxHeight="41.0" minHeight="35.0" prefHeight="41.0" prefWidth="56.0" text="đến">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="ketthucDP" layoutX="903.0" layoutY="20.0" minHeight="40.0" prefHeight="40.0" prefWidth="211.0" promptText="Ngày kết thúc" />
+            <ComboBox id="tam-box" fx:id="tamBox" layoutX="22.0" layoutY="20.0" minHeight="40.0" prefHeight="40.0" prefWidth="258.0" promptText="Tạm vắng / Tạm trú">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Tạm vắng" />
+                     <String fx:value="Tạm trú" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+         </children>
+      </AnchorPane>
+      <Button id="head-home" mnemonicParsing="false" onAction="#changeToHomePage" prefHeight="60.0" prefWidth="90.0" />
+   </children>
+</AnchorPane>

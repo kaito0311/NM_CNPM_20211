@@ -1,4 +1,4 @@
-package Model.user;
+package model.user;
 
 public class Role {
     private int roleID;

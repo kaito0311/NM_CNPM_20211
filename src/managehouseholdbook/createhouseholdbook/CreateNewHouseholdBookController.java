@@ -16,7 +16,7 @@ import java.text.Format;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
 
-import Model.person.Person;
+import model.person.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,8 +33,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
-import managehouseholdbook.thaydoisohokhau.addnewperson.AddNewPersonController;
+//import managehouseholdbook.thaydoisohokhau.addnewperson.AddNewPersonController;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 
 public class CreateNewHouseholdBookController implements Initializable {
 
@@ -349,7 +350,7 @@ public class CreateNewHouseholdBookController implements Initializable {
 
     public void changeToChangeHouseholdBook(ActionEvent event) throws Exception {
         try {
-            setNewSceneInSameWindow("../thaydoisohokhau/ChangeHouseholdBook.fxml", event);
+            setNewSceneInSameWindow("/managehouseholdbook/thaydoisohokhau/ChangeHouseholdBook.fxml", event);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -357,6 +358,59 @@ public class CreateNewHouseholdBookController implements Initializable {
             System.out.println("changetoChangeHouseholdBook");
         }
     }
+    
+	public void changeToHomePage(ActionEvent event) {
+		try {
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/Main/UI_HomePage.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setX(220);
+			stage.setY(0);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+	}
+
+	public void changeToChangeInfo(ActionEvent event) {
+		try {
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/MainChangeInfo/UI_ChangeInfo.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setX(220);
+			stage.setY(0);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+	}
+	
+	public void changeToCreateListScholar(ActionEvent event) {
+		try {
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/MainCreateListScholar/UI_CreateListScholar.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setX(220);
+			stage.setY(0);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+	}
+	
+	public void changeToThongKeHome(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/thongke/thongkehome/Thong_Ke.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 
 

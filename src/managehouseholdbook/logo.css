@@ -1,19 +1,63 @@
-.tab_button{
+.tab_button {
   -fx-background-color: #e7717d;
   -fx-text-fill: white;
   -fx-font-weight: bold;
   -fx-font-size: 20px;
 }
 
-.tab_button_press{
+.tab_button_press {
   -fx-background-color: white;
   -fx-text-fill: #e7717d;
   -fx-font-weight: bold;
   -fx-font-size: 20px;
 }
 
+.tab_head {
+  -fx-pref-height: 60px;
+  -fx-pref-width: 270px;
+  -fx-text-fill: white;
+  -fx-background-color: #e7717d;
+  -fx-font-size: 16px; 
+  -fx-font-weight: bold;
+	-fx-border-color: #ffc5c5;
+	-fx-border-width: 0 1 0 0;
+}
+.tab_head:hover{
+  -fx-background-color: pink; 
+}
+.tab_head:pressed{
+  -fx-background-color:white; 
+  -fx-text-fill: #e7717d;
+}
 
+.home_page{
+  -fx-pref-height: 60px;
+  -fx-pref-width: 90px;
+  -fx-text-fill: white;
+  -fx-background-color: #e7717d;
+  -fx-font-size: 16px; 
+  -fx-font-weight: bold;
 
+  -fx-background-image: url('file:/D:/Java/QLHK_CNPM_2/data/home-white.png');
+	-fx-background-size: 50 50;
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center center;
+
+	-fx-border-color: #ffc5c5;
+	-fx-border-width: 0 1 0 0;
+}
+.tab_head_pressed{
+  -fx-background-color:white; 
+  -fx-text-fill: #e7717d;
+}
+.home_page:hover{
+  -fx-background-color: pink; 
+  -fx-background-image: url('file:/D:/Java/QLHK_CNPM_2/data/home-red.png');	
+}
+.home_page:pressed{
+  -fx-background-color:white; 
+  -fx-text-fill: #e7717d;
+}
 
 .SCREEN2_button {
   /* -fx-background-image: url(file:/D:/ho-khau-red.png); */
@@ -31,7 +75,6 @@
   -fx-background-color: pink;
   -fx-text-fill: #e7717d;
 }
-
 
 .button-submit {
   -fx-pref-width: 300px;
@@ -66,3 +109,5 @@
   -fx-background-color: white;
   -fx-text-fill: #e7717d;
 }
+
+/* #Scrre */
