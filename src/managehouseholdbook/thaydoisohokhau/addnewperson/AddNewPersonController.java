@@ -2,6 +2,7 @@ package managehouseholdbook.thaydoisohokhau.addnewperson;
 
 import java.net.URL;
 
+
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -93,6 +94,10 @@ public class AddNewPersonController implements Initializable {
     public TextField soNhaSinhRa;
     @FXML
     public TextField soNhaCuTru;
+    
+    public TextField hoTenKhaiBao;
+    public TextField soCMNDKhaiBao;
+    public DatePicker ngaySinhKhaiBao;
 
     @FXML
     public Button xacNhan;
@@ -104,19 +109,22 @@ public class AddNewPersonController implements Initializable {
     public void xacNhan(ActionEvent e) throws SQLException{
 
     	// kiem tra da nhap du các thông tin cần thiết hay chưa
-    	if(this.hoTen.getText().equals("") || this.gioiTinh.getPromptText().equals("")
-    			|| this.danToc.getText().equals("") || this.quocGiaSinhRa.getText().equals("") || this.thanhPhoSinhRa.getText().equals("")
-    			|| this.huyenSinhRa.getText().equals("") || this.phuongSinhRa.getText().equals("") || this.quocGiaCuTru.getText().equals("")
-    			|| this.thanhPhoCuTru.getText().equals("") || this.huyenCuTru.getText().equals("") || this.phuongCuTru.getText().equals("")) {
-    		JOptionPane.showMessageDialog(null,"Vui lòng nhập đủ thông tin");
-    	}else {	
-        this.addNewPerson();
-        JOptionPane.showMessageDialog(null,"Thêm nhân khẩu thành công");
+//    	if(this.hoTen.getText().equals("") || this.gioiTinh.getPromptText().equals("")
+//    			|| this.danToc.getText().equals("") || this.quocGiaSinhRa.getText().equals("") || this.thanhPhoSinhRa.getText().equals("")
+//    			|| this.huyenSinhRa.getText().equals("") || this.phuongSinhRa.getText().equals("") || this.quocGiaCuTru.getText().equals("")
+//    			|| this.thanhPhoCuTru.getText().equals("") || this.huyenCuTru.getText().equals("") || this.phuongCuTru.getText().equals("")) {
+//    		JOptionPane.showMessageDialog(null,"Vui lòng nhập đủ thông tin");
+//    	}else {	
+//        this.addNewPerson();
+//        JOptionPane.showMessageDialog(null,"Thêm nhân khẩu thành công");
 //    	    System.out.println(this.thanhPhoCuTru.getText());
 //    		System.out.println(this.getProvinceID(this.thanhPhoCuTru.getText()));
 //            System.out.println(this.getNationID(this.quocGiaCuTru.getText()));
 //            System.out.println(this.getCommuneID(this.phuongSinhRa.getText()));
-    	}
+//    	    System.out.println(this.huyenCuTru.getText());
+//            System.out.println(this.getDistrictID(this.huyenCuTru.getText()));
+    	System.out.println(this.getPersonID("Nguyễn Thị Huế"));
+//    	}
     }
 
     // them nhan khau moi
@@ -267,7 +275,7 @@ public class AddNewPersonController implements Initializable {
     	try {
     	Statement st = ConnectDatabase.connection.createStatement();
     	ResultSet rs;
-    	rs = st.executeQuery("SELECT PersonID FROM [Person].[Person] WHERE Fullname like Fullname");
+    	rs = st.executeQuery("SELECT PersonID FROM [Person].[Person] WHERE Fullname = N'"+ Fullname +"'; ");
     	int id = 0;
     	while(rs.next()) {
     	  id = rs.getInt(1);
@@ -328,7 +336,7 @@ public class AddNewPersonController implements Initializable {
     	try {
     	Statement st = ConnectDatabase.connection.createStatement();
     	ResultSet rs;
-    	rs = st.executeQuery("SELECT NationID FROM [Address].[District] WHERE Name = N'"+ District + "'; ");
+    	rs = st.executeQuery("SELECT DistrictID FROM [Address].[District] WHERE Name = N'"+ District + "'; ");
     	String id = null;
     	while(rs.next()) {
     	  id = rs.getString(1);
