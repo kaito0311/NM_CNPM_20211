@@ -85,8 +85,12 @@ public class TamTruTamVangController implements Initializable {
   
     @FXML
     void dangKyTamTru(ActionEvent event) throws SQLException {
-    	if(this.hoTen.getText().equals("") || this.gioiTinh.getValue().equals("") || this.diaChiTamTru.getText().equals("")
-    			|| this.diaChiThuongTru.getText().equals("") )
+   	if(this.hoTen.getText().equals("") || this.gioiTinh.getValue().equals("") || this.diaChiTamTru.getText().equals("")
+    			|| this.diaChiThuongTru.getText().equals("") || this.ngaySinh.toString().equals("") 
+                || this.ngayTamTru.toString().equals("")) {
+   		JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ những thông tin cần thiết");
+   		
+   	}else {
     	if(this.getPersonID(this.hoTen.getText()) == 0) {
     		JOptionPane.showMessageDialog(null, "Cá nhân chưa có ID. Vui lòng chọn chức năng thêm nhân khẩu để cập nhật ID");
     		return;
@@ -94,14 +98,21 @@ public class TamTruTamVangController implements Initializable {
        //System.out.println("abc");
     	this.addResidence(11);
     	this.addTemporaryResidence();
-//    	System.out.println(this.getPersonID(this.hoTen.getText()));
+//    	System.out.println(this.getPersonID(this.hoTen.getText(),Date.valueOf(this.ngaySinh.getValue())));
     }
-
+    }
     @FXML
     void dangKyTamVang(ActionEvent event) throws HeadlessException, SQLException {
+    	if(this.hoTen.getText().equals("") || this.gioiTinh.getValue().equals("") || this.diaChiTamTru.getText().equals("")
+    			|| this.diaChiThuongTru.getText().equals("") || this.ngaySinh.toString().equals("") 
+                || this.ngayTamTru.toString().equals("")) {
+   		JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ những thông tin cần thiết");
+   		
+   	}else {
         this.addResidence(12);
     	this.addAbsent();
-    System.out.println(this.quanHeChuHo.getText());
+   	}
+//    System.out.println(this.quanHeChuHo.getText());
     }
     // them vao bang tam tru
     public void addTemporaryResidence() throws SQLException {
@@ -174,7 +185,7 @@ public class TamTruTamVangController implements Initializable {
     	int id = 0;
     	while(rs.next()) {
     	  id = rs.getInt(1);
-    
+          
     	}
     	return id;
     	}

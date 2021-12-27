@@ -125,6 +125,8 @@ public class AddNewPersonController implements Initializable {
 //            System.out.println(this.getDistrictID(this.huyenCuTru.getText()));
 //    	System.out.println(this.getPersonID("Nguyễn Thị Huế"));
     	}
+//    	System.out.println(this.getBookID(this.getHostID(this.maHoKhau.getText())));
+    	System.out.println(this.getEthnicID(this.danToc.getText()));
     }
 
     // them nhan khau moi
@@ -275,7 +277,7 @@ public class AddNewPersonController implements Initializable {
     	try {
     	Statement st = ConnectDatabase.connection.createStatement();
     	ResultSet rs;
-    	rs = st.executeQuery("SELECT PersonID FROM [Person].[Person] WHERE Fullname = N'"+ Fullname +"'; ");
+    	rs = st.executeQuery("SELECT PersonID FROM [Person].[Person] WHERE Fullname = N'"+ Fullname +"' AND  ");
     	int id = 0;
     	while(rs.next()) {
     	  id = rs.getInt(1);
@@ -288,6 +290,25 @@ public class AddNewPersonController implements Initializable {
     	}
 		return 0;
     	
+    }
+    
+    public String getEthnicID(String Ethnic) {
+    	ConnectDatabase.ConnectData();
+    	try {
+    	Statement st = ConnectDatabase.connection.createStatement();
+    	ResultSet rs;
+    	rs = st.executeQuery("SELECT EthnicID FROM [Person].[Ethnic] WHERE   Name = N'"+ Ethnic + "'; ");
+    	String id = null;
+    	while(rs.next()) {
+    	  id = rs.getString("EthnicID");
+    
+    	}
+    	return id;
+    	}
+    	catch (Exception e){
+    		System.err.println("Error");
+    	}
+		return null;
     }
     
     public String getNationID(String Nationality) throws SQLException {
