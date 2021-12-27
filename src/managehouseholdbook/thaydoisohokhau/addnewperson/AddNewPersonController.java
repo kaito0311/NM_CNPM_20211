@@ -109,22 +109,22 @@ public class AddNewPersonController implements Initializable {
     public void xacNhan(ActionEvent e) throws SQLException{
 
     	// kiem tra da nhap du các thông tin cần thiết hay chưa
-//    	if(this.hoTen.getText().equals("") || this.gioiTinh.getPromptText().equals("")
-//    			|| this.danToc.getText().equals("") || this.quocGiaSinhRa.getText().equals("") || this.thanhPhoSinhRa.getText().equals("")
-//    			|| this.huyenSinhRa.getText().equals("") || this.phuongSinhRa.getText().equals("") || this.quocGiaCuTru.getText().equals("")
-//    			|| this.thanhPhoCuTru.getText().equals("") || this.huyenCuTru.getText().equals("") || this.phuongCuTru.getText().equals("")) {
-//    		JOptionPane.showMessageDialog(null,"Vui lòng nhập đủ thông tin");
-//    	}else {	
-//        this.addNewPerson();
-//        JOptionPane.showMessageDialog(null,"Thêm nhân khẩu thành công");
+    	if(this.hoTen.getText().equals("") || this.gioiTinh.getPromptText().equals("") 
+    			|| this.danToc.getText().equals("") || this.quocGiaSinhRa.getText().equals("") || this.thanhPhoSinhRa.getText().equals("")
+    			|| this.huyenSinhRa.getText().equals("") || this.phuongSinhRa.getText().equals("") || this.quocGiaCuTru.getText().equals("")
+    			|| this.thanhPhoCuTru.getText().equals("") || this.huyenCuTru.getText().equals("") || this.phuongCuTru.getText().equals("")) {
+    		JOptionPane.showMessageDialog(null,"Vui lòng nhập đủ thông tin");
+    	}else {	
+        this.addNewPerson();
+        JOptionPane.showMessageDialog(null,"Thêm nhân khẩu thành công");
 //    	    System.out.println(this.thanhPhoCuTru.getText());
 //    		System.out.println(this.getProvinceID(this.thanhPhoCuTru.getText()));
 //            System.out.println(this.getNationID(this.quocGiaCuTru.getText()));
 //            System.out.println(this.getCommuneID(this.phuongSinhRa.getText()));
 //    	    System.out.println(this.huyenCuTru.getText());
 //            System.out.println(this.getDistrictID(this.huyenCuTru.getText()));
-    	System.out.println(this.getPersonID("Nguyễn Thị Huế"));
-//    	}
+//    	System.out.println(this.getPersonID("Nguyễn Thị Huế"));
+    	}
     }
 
     // them nhan khau moi
@@ -259,7 +259,7 @@ public class AddNewPersonController implements Initializable {
     		ps.setInt(1, id);
     		ps.setInt(2,1);
     		ps.setString(3,"NULL");
-    		ps.setInt(4, Integer.parseInt(this.maHoKhau.getText()));
+    		ps.setInt(4, this.getBookID(this.getHostID(this.maHoKhau.getText())));
     		ps.setString(5,this.quanHeVoiChuHo.getText());
     		ps.executeUpdate();
     	}catch(Exception e) {
@@ -374,8 +374,42 @@ public class AddNewPersonController implements Initializable {
 		return null;
    }
     
-   
+   public int getHostID(String identitycard) throws SQLException {
+   	ConnectDatabase.ConnectData();
+   	try {
+       	Statement st = ConnectDatabase.connection.createStatement();
+       	ResultSet rs;
+       	rs = st.executeQuery("SELECT PersonID FROM [Person].[IdentityCard] WHERE Number ='" + identitycard +"'; ");
+       	int id = 0;
+       	while(rs.next()) {
+       	  id = rs.getInt("PersonID");
+       	}
+       	return id;
+       	}
+       	catch (Exception e){
+       		return 0;
+       	}
+   		
+   }
 
+   public int getBookID(int personID) {   // kiem tra mot nguoi nam trong ho khau nao
+   	ConnectDatabase.ConnectData();
+   	try {
+       	Statement st = ConnectDatabase.connection.createStatement();
+       	ResultSet rs;
+       	rs = st.executeQuery("SELECT BookID FROM [Person].[Residence] WHERE PersonID ='"+ personID + "'; ");
+       	int id = 0;
+       	while(rs.next()) {
+       	  id = rs.getInt("BookID");
+       
+       	}
+       	return id;
+       	}
+       	catch (Exception e){
+       		System.err.println("Error");
+       	}
+   		return 0;
+   }
     @FXML
     private Button buttonAddNewPerson;
     @FXML
