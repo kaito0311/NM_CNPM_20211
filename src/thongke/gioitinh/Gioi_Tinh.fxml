@@ -24,7 +24,7 @@
       <Button id="head-quan-ly-tai-khoan" layoutX="90.0" mnemonicParsing="false" onAction="#changeToChangeInfo" prefHeight="60.0" prefWidth="270.0" text="Quản lý tài khoản" />
       <Button id="head-quan-ly-thong-tin-so-ho-khau" layoutX="360.0" mnemonicParsing="false" onAction="#changeToManageHousehold" prefHeight="60.0" prefWidth="270.0" text="Quản lý thông tin sổ hộ khẩu" />
       <Button id="head-quan-ly-cap-phan-thuong" layoutX="630.0" mnemonicParsing="false" onAction="#changeToCreateListScholar" prefHeight="60.0" prefWidth="270.0" text="Quản lý cấp phần thưởng" />
-      <Button id="head-tim-kiem" layoutX="1170.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm" />
+      <Button id="head-tim-kiem" layoutX="1170.0" mnemonicParsing="false" onAction="#changeToTimKiem" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm" />
       <AnchorPane layoutY="60.0" prefHeight="200.0" prefWidth="1440.0">
          <children>
             <Button id="SCREEN4_button1" layoutX="270.0" mnemonicParsing="false" onAction="#changeToThongKeGioiTinh" prefHeight="200.0" prefWidth="270.0" text="Giới tính" />

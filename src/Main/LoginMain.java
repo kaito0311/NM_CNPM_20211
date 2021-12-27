@@ -1,6 +1,7 @@
 package Main;
 	
 import database.SQLConnection;
+import gift.thongkegift.GetDataGiving;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -25,6 +26,7 @@ public class LoginMain extends Application {
 	public static void main(String[] args) {
 		SQLConnection.ConnectData();
 		SQLConnection.setList();
+		GetDataGiving.setGivingList();
 		SQLConnection.DisconnectData();
 		launch(args);
 	}

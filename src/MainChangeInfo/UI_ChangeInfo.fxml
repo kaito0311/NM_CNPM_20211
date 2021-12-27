@@ -57,7 +57,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="SCREEN2_button5" layoutX="1170.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm">
+            <Button id="SCREEN2_button5" layoutX="1170.0" mnemonicParsing="false" onAction="#changeToTimKiem" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

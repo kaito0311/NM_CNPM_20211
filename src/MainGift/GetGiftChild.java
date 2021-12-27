@@ -10,20 +10,53 @@ import ConnectDB.ConnectToDB;
 
 public class GetGiftChild {
 	
-	public static ArrayList<String> getGiftData(String event) throws SQLException {
-		ArrayList<String> giftData = new ArrayList<String>();
+	public static ArrayList<String> getGiftID(String event) {
+		ArrayList<String> giftID = new ArrayList<String>();
 		String sql = "select GiftID from Gift.Gift where Event = N'" + event + "'";
-		Connection connection = ConnectToDB.openConnection();
-		PreparedStatement stmt = connection.prepareStatement(sql);
-		ResultSet rs = stmt.executeQuery();
-		 
-		while(rs.next()) {
-			 giftData.add(rs.getString("GiftID"));
+		Connection connection;
+		try {
+			connection = ConnectToDB.openConnection();
+		
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			
+			System.out.println(event + " quà:");
+			while(rs.next()) {
+				System.out.println(rs.getString("GiftID"));
+				giftID.add(rs.getString("GiftID"));
+			}
+		
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		connection.close();
+		return giftID;
+	}
+	
+	public static String getGift (String giftID) {
+		String gift = "";
+		String sql = "select * from Gift.Detail d join Gift.Product p on p.ProductID = d.ProductID where d.GiftID = '" + giftID + "'";
 		
-		return giftData;
+		Connection connection;
+		try {
+			connection = ConnectToDB.openConnection();
+		
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+		 
+			while(rs.next()) {
+				gift += rs.getInt("Quantity") + " " + rs.getString("Name") + ", ";
+			}
+		
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return gift.substring(0, gift.length() - 2);
 	}
 	
 	public static ResultSet getMidAutumnGift() throws SQLException {

@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchBook.SearchBookController">
+   <children>
+      <AnchorPane id="SCREEN_head" layoutY="54.0" prefHeight="200.0" prefWidth="1440.0">
+         <children>
+            <HBox prefHeight="201.0" prefWidth="1441.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button id="SCREEN_button" fx:id="searchPersonButton" mnemonicParsing="false" onAction="#changeToSearchPerson" prefHeight="200.0" prefWidth="270.0">
+                     <graphic>
+                        <VBox alignment="CENTER" prefHeight="57.0" prefWidth="145.0">
+                           <children>
+                              <ImageView disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                                 <image>
+                                    <Image url="@../image/person_logo-white.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Tìm kiếm nhân khẩu" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </graphic>
+                  </Button>
+                  <Button id="SCREEN_button_selected" fx:id="searchBookButton" mnemonicParsing="false" onAction="#changeToSearchBook" prefHeight="200.0" prefWidth="270.0">
+                     <graphic>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                                 <image>
+                                    <Image url="@../image/ho-khau-red.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Tìm kiếm sổ hộ khẩu" textFill="#e7717d">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
+            <Line endX="1440.0" stroke="#ffc5c5" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="SCREEN_subhead" layoutY="254.0" prefHeight="50.0" prefWidth="1440.0" />
+      <AnchorPane layoutY="304.0" prefHeight="650.0" prefWidth="1440.0">
+         <children>
+            <TextField fx:id="input" layoutX="409.0" layoutY="35.0" prefHeight="40.0" prefWidth="500.0" promptText="Nhập mã hộ khẩu hoặc tên thành viên của hộ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button id="SCREEN_subhead" fx:id="searchButton" layoutX="909.0" layoutY="35.0" mnemonicParsing="false" onAction="#showBook" prefHeight="40.0" prefWidth="40.0" text="🔍" />
+            <Label fx:id="error" contentDisplay="CENTER" layoutX="620.0" layoutY="110.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ScrollPane fx:id="mainPane" layoutX="50.0" layoutY="103.0" prefHeight="513.0" prefWidth="1340.0">
+               <content>
+                  <AnchorPane prefHeight="600.0" prefWidth="1335.0">
+                     <children>
+                        <Label alignment="TOP_CENTER" layoutX="590.0" layoutY="52.0" prefHeight="1000.0" prefWidth="1335.0" text="THÔNG TIN HỘ KHẨU" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="150.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                           <children>
+                              <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã hộ khẩu:  " />
+                              <Text id="query_result" fx:id="bookID" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="150.0" layoutY="150.0" prefHeight="22.0" prefWidth="1000.0">
+                           <children>
+                              <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú:  " />
+                              <Text id="query_result" fx:id="residencePlace" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <Pane fx:id="person1Pane" layoutX="150.0" layoutY="200.0" prefHeight="150.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Họ và tên chủ hộ:  " />
+                                    <Text id="query_result" fx:id="memberName1" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID1" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate1" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="50.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender1" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress1" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person2Pane" layoutX="150.0" layoutY="350.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="2. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName2" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID2" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead2" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate2" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender2" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress2" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person3Pane" layoutX="150.0" layoutY="550.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="3. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName3" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID3" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead3" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate3" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender3" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress3" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person4Pane" layoutX="150.0" layoutY="750.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="4. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName4" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID4" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead4" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate4" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender4" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress4" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person5Pane" layoutX="150.0" layoutY="950.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="5. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName5" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID5" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead5" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate5" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender5" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress5" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person6Pane" layoutX="150.0" layoutY="1150.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="6. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName6" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID6" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead6" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate6" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender6" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress6" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person7Pane" layoutX="150.0" layoutY="1350.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="7. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName7" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID7" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead7" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate7" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender7" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress7" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person8Pane" layoutX="150.0" layoutY="1550.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="8. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person9Pane" layoutX="150.0" layoutY="1750.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="9. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName9" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID9" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead9" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate9" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender9" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress9" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person10Pane" layoutX="150.0" layoutY="1950.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="10. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName10" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID10" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead10" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate10" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender10" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress10" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person11Pane" layoutX="150.0" layoutY="2150.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="11. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName11" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID11" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead11" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate11" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender11" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress11" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="person12Pane" layoutX="150.0" layoutY="2350.0" prefHeight="200.0" prefWidth="1000.0">
+                           <children>
+                              <HBox prefHeight="22.0" prefWidth="650.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="12. Họ và tên thành viên:  " />
+                                    <Text id="query_result" fx:id="memberName12" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã nhân khẩu:  " />
+                                    <Text id="query_result" fx:id="personID12" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="50.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Quan hệ với chủ hộ:  " />
+                                    <Text id="query_result" fx:id="relationshipWithHead12" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="100.0" prefHeight="22.0" prefWidth="600.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày, tháng, năm sinh:  " />
+                                    <Text id="query_result" fx:id="birthDate12" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="650.0" layoutY="100.0" prefHeight="22.0" prefWidth="350.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới tính:  " />
+                                    <Text id="query_result" fx:id="gender12" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="50.0" layoutY="150.0" prefHeight="22.0" prefWidth="950.0">
+                                 <children>
+                                    <Text id="field" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ thường trú trước đây:  " />
+                                    <Text id="query_result" fx:id="prePermanentAddress12" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="954.0" prefHeight="70.0" prefWidth="1440.0">
+         <children>
+            <Line endX="1440.0" />
+            <Text layoutX="84.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bản quyền thuộc về nhóm 10 - CNPM Đại học Bách Khoa Hà Nội">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Pane prefHeight="60.0" prefWidth="1440.0" style="-fx-background-color: #e7717d;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#changeToHomePage" styleClass="home_page" stylesheets="@../../../ChacLaCuoiCungCNPM/src/managehouseholdbook/logo.css" />
+            <Button layoutX="90.0" mnemonicParsing="false" onAction="#changeToChangeInfo" styleClass="tab_head" stylesheets="@../../../ChacLaCuoiCungCNPM/src/managehouseholdbook/logo.css" text="Quản lý tài khoản" />
+            <Button layoutX="360.0" mnemonicParsing="false" onAction="#changeToManageHousehold" styleClass="tab_head" stylesheets="@../../../ChacLaCuoiCungCNPM/src/managehouseholdbook/logo.css" text="Quản lý thông tin sổ hộ khẩu" />
+            <Button layoutX="630.0" mnemonicParsing="false" onAction="#changeToCreateListScholar" styleClass="tab_head" stylesheets="@../../../ChacLaCuoiCungCNPM/src/managehouseholdbook/logo.css" text="Cấp phần thưởng" />
+            <Button layoutX="900.0" mnemonicParsing="false" onAction="#changeToThongKeHome" styleClass="tab_head" stylesheets="@../../../ChacLaCuoiCungCNPM/src/managehouseholdbook/logo.css" text="Thống kê" />
+            <Button layoutX="1170.0" mnemonicParsing="false" stylesheets="@../../../ChacLaCuoiCungCNPM/src/managehouseholdbook/logo.css" text="Tìm kiếm">
+               <styleClass>
+                  <String fx:value="tab_head" />
+                  <String fx:value="tab_head_pressed" />
+               </styleClass>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

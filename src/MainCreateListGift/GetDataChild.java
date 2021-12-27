@@ -10,7 +10,7 @@ import ConnectDB.ConnectToDB;
 public class GetDataChild {
 	
 	public static ResultSet getStudentList() throws SQLException {
-		 String sql = "select p.FullName, p.BirthDate, p.Gender, DATEDIFF(year, p.BirthDate, getdate()) as Age, r.BookID\r\n"
+		 String sql = "select p.PersonID, p.FullName, p.BirthDate, p.Gender, DATEDIFF(year, p.BirthDate, getdate()) as Age, r.BookID\r\n"
 		 		+ "from Person.Person p, Person.Residence r\r\n"
 		 		+ "where p.PersonID = r.PersonID\r\n"
 		 		+ "	and DATEDIFF(year, p.BirthDate, getdate()) < 18";

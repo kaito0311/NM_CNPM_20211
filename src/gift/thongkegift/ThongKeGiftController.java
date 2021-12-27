@@ -1,28 +1,74 @@
 package gift.thongkegift;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import database.SQLConnection;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import managehouseholdbook.ConnectDatabase;
 
 public class ThongKeGiftController implements Initializable{
     private Stage stage;
 	private Scene scene;
 	
-//	@FXML
-//	private TabableView <>
+	@FXML
+	private TableView <Person> giftThongKeTable;
+	@FXML
+	private TableColumn<Person, String> fullName, birthDate, gender, gift;
+	@FXML
+	private TableColumn<Person, Number> STT, age, value, bookID;
+	@FXML
+	private Label valueLabel;
+	
+	private ObservableList<Person> giftThongKeList = FXCollections.observableArrayList(GetDataGiving.danhSachNhanQua);
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		loadTable();
+		loadLabel();
+	}
+	
+	private void loadLabel() {
+		int sumValue = 0;
+		String text = "Tổng giá trị phần quà: ";
 		
+		for (Person p : giftThongKeList)
+			sumValue += p.getValue();
+		
+		text += String.format("%,d", sumValue) + " đồng";
+		
+		valueLabel.setText(text);
+	}
+
+	private void loadTable() {
+		STT.setCellValueFactory(column -> 
+			new ReadOnlyObjectWrapper<Number>(1 + giftThongKeTable.getItems().indexOf(column.getValue())));
+	    fullName.setCellValueFactory(new PropertyValueFactory<Person,String>("fullName"));
+	    birthDate.setCellValueFactory(new PropertyValueFactory<Person,String>("birthDate") );
+	    gender.setCellValueFactory(new PropertyValueFactory<Person,String>("gender"));     
+	    age.setCellValueFactory(new PropertyValueFactory<Person,Number>("age"));
+	    bookID.setCellValueFactory(new PropertyValueFactory<Person,Number>("houseID"));
+	    gift.setCellValueFactory(new PropertyValueFactory<Person,String>("gift")); 
+	    value.setCellValueFactory(new PropertyValueFactory<Person,Number>("value"));
+		
+		giftThongKeTable.setItems(giftThongKeList);
 	}
 	
 	public void changeToHomePage(ActionEvent event) {
@@ -103,6 +149,32 @@ public class ThongKeGiftController implements Initializable{
 			stage.setScene(scene);
 		} catch(Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public void changeToTimKiem(ActionEvent event) {
+		try {
+			SQLConnection.ConnectData();
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/application/Application.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setX(220);
+			stage.setY(0);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}	
+	}
+	public void changeToManageHousehold(ActionEvent event) {
+		try {
+		ConnectDatabase.ConnectData();
+		AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/managehouseholdbook/HouseholdRegistrationBookManagement.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+	} catch(Exception e) {
+		e.printStackTrace();
 		}
 	}
 

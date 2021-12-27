@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
@@ -10,17 +11,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.ChangeHouseholdBookController">
    <children>
-      <HBox prefHeight="60.0" prefWidth="1440.0">
+      <HBox prefHeight="60.0" prefWidth="1440.0" style="-fx-background-color: #e7717d;">
          <children>
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" onAction="#changeToHomePage" styleClass="home_page" stylesheets="@../logo.css" />
+            <Button mnemonicParsing="false" onAction="#changeToChangeInfo" styleClass="tab_head" stylesheets="@../logo.css" text="Quản lý tài khoản" />
+            <Button mnemonicParsing="false" stylesheets="@../logo.css" text="Quản lý thông tin sổ hộ khẩu">
+               <styleClass>
+                  <String fx:value="tab_head" />
+                  <String fx:value="tab_head_pressed" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#changeToCreateListScholar" styleClass="tab_head" stylesheets="@../logo.css" text="Cấp phần thưởng" />
+            <Button mnemonicParsing="false" onAction="#changeToThongKeHome" styleClass="tab_head" stylesheets="@../logo.css" text="Thống kê" />
+            <Button mnemonicParsing="false" onAction="#changeToTimKiem" styleClass="tab_head" stylesheets="@../logo.css" text="Tìm Kiếm" />
          </children>
       </HBox>
       <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
@@ -88,4 +92,8 @@
          </children>
       </AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@../logo.css" />
+      <URL value="@../../application.css" />
+   </stylesheets>
 </AnchorPane>

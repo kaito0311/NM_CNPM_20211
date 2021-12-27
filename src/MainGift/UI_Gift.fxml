@@ -58,7 +58,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="SCREEN4_button5" layoutX="1170.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm">
+            <Button id="SCREEN4_button5" layoutX="1170.0" mnemonicParsing="false" onAction="#changeToTimKiem" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -156,16 +156,15 @@
             <AnchorPane layoutY="250.0" prefHeight="650.0" prefWidth="1440.0" />
             <AnchorPane layoutX="10.0" layoutY="260.0" prefHeight="650.0" prefWidth="1440.0">
                <children>
-                  <Button id="SCREEN4_buttonSubmit" layoutX="583.0" layoutY="570.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="275.0" text="Lưu danh sách">
+                  <Button id="SCREEN4_buttonSubmit" layoutX="583.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleSaveList" prefHeight="55.0" prefWidth="275.0" text="Lưu danh sách">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
                   <TableView id="MID_table1" fx:id="listGiftChild" layoutX="134.0" layoutY="120.0" prefHeight="400.0" prefWidth="1154.0">
                      <columns>
-                        <TableColumn id="TABLE1_columm1" fx:id="age" prefWidth="91.66667175292969" resizable="false" text="Độ tuổi" />
-                        <TableColumn id="TABLE1_columm1" fx:id="giftName" prefWidth="718.3333740234375" resizable="false" text="Tên phần quà" />
-                        <TableColumn id="TABLE1_columm2" fx:id="price" prefWidth="340.6666259765625" resizable="false" text="Đơn giá" />
+                        <TableColumn id="TABLE1_columm1" fx:id="age" prefWidth="235.0" resizable="false" text="Độ tuổi" />
+                        <TableColumn id="TABLE1_columm1" fx:id="giftName" prefWidth="916.0" resizable="false" text="Tên phần quà" />
                      </columns>
                   </TableView>
                   <Label id="MID_label1" accessibleRole="BUTTON" layoutX="134.0" layoutY="49.0" prefHeight="43.0" prefWidth="350.0" text="Danh sách phần quà" textAlignment="CENTER">
@@ -173,7 +172,13 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="chooseEvent" layoutX="520.0" layoutY="51.0" onAction="#selectEvent" prefHeight="40.0" prefWidth="266.0" promptText="Chọn dịp trao quà" style="-fx-font-size: 16;" />
+                  <ComboBox fx:id="chooseEvent" layoutX="752.0" layoutY="51.0" onAction="#selectEvent" prefHeight="40.0" prefWidth="266.0" promptText="Chọn dịp trao quà" style="-fx-font-size: 16;" />
+                  <ComboBox fx:id="yearBox" layoutX="549.0" layoutY="51.0" onAction="#handleYearBox" prefHeight="40.0" prefWidth="143.0" promptText="Chọn năm" style="-fx-font-size: 16;" />
+                  <Label fx:id="errorLabel" layoutX="1040.0" layoutY="61.0" textFill="RED">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>

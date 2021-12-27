@@ -1,0 +1,51 @@
+.SCREEN2_button {
+  /* -fx-background-image: url(file:/D:/ho-khau-red.png); */
+  -fx-content-display: top;
+  -fx-background-color: #e7717d;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-font-size: 20px;
+}
+
+.SCREEN2_button:hover {
+  -fx-background-color: pink;
+}
+.SCREEN2_button:pressed {
+  -fx-background-color: pink;
+  -fx-text-fill: #e7717d;
+}
+
+
+.button-submit {
+  -fx-pref-width: 300px;
+  -fx-pref-height: 35px;
+  -fx-background-color: #e7717d;
+  -fx-font-weight: bold;
+  -fx-padding: 1 1 1 1;
+  -fx-font-size: 12px;
+  -fx-text-fill: white;
+}
+
+.button-submit:hover {
+  -fx-background-color: pink;
+  -fx-border-color: black;
+}
+
+.SCREEN2_subbutton {
+  -fx-pref-width: 270px;
+  -fx-pref-height: 50px;
+  -fx-border-width: 2 1 2 1;
+  -fx-border-color: white;
+  -fx-background-color: #e7717d;
+  -fx-font-weight: bold;
+  -fx-font-size: 12px;
+  -fx-text-fill: white;
+}
+
+.SCREEN2_subbutton:hover {
+  -fx-background-color: pink;
+}
+.SCREEN2_subbutton:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #e7717d;
+}

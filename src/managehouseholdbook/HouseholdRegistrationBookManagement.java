@@ -3,6 +3,7 @@ package managehouseholdbook;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import database.SQLConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -126,7 +127,20 @@ public class HouseholdRegistrationBookManagement implements Initializable {
 		e.printStackTrace();
 		}
 	}
-
+	public void changeToTimKiem(ActionEvent event) {
+		try {
+			SQLConnection.ConnectData();
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/application/Application.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setX(220);
+			stage.setY(0);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}	
+	}
     // public void changeToTemporaryResidenceAbsence(ActionEvent event) throws Exception {
     //     try{
     //         TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("thaydoisohokhau/ChangeHouseholdBook.fxml"));

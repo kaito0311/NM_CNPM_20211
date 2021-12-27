@@ -10,6 +10,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 
 public class Person {
+	private final SimpleIntegerProperty personID;
     private final SimpleStringProperty fullName;
     private final SimpleStringProperty birthDate;
     private final SimpleStringProperty gender;
@@ -17,8 +18,9 @@ public class Person {
     private final SimpleStringProperty houseID;
     
  
-     Person(String fullName, String birthDate, String gender, int age, String houseID) {
-        this.fullName = new SimpleStringProperty(fullName);
+     Person(String fullName, String birthDate, String gender, int age, String houseID, int personID) {
+        this.personID = new SimpleIntegerProperty(personID);
+		this.fullName = new SimpleStringProperty(fullName);
         this.birthDate = new SimpleStringProperty(birthDate);
         this.gender = new SimpleStringProperty(gender);
         this.age = new SimpleIntegerProperty(age);
@@ -62,6 +64,13 @@ public class Person {
     }
     public void setHouseID(String houseID) {
         this.houseID.set(houseID);   
+    }
+
+    public int getPersonID() {
+        return personID.get();
+    }
+    public void setPersonID(int personID) {
+        this.personID.set(personID);
     }
     
     

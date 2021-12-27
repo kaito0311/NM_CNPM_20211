@@ -5,10 +5,12 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Types;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import Main.LoginController;
 import model.person.Residence;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,7 +93,7 @@ public class ChangeHeadController implements Initializable {
            
            if(labelConfirm.getText().toLowerCase().equals("Thành Công".toLowerCase()) || labelConfirm.getText().toLowerCase().equals(("người này đang là chủ hộ").toLowerCase())){
                textFieldRelationWithHead.clear();
-               labelDateBirthMember.setText("Ngày sinh");
+            //    labelDateBirthMember.setText("Ngày sinh");
            }
            else{
                comboBoxMember.getItems().clear();
@@ -150,7 +152,7 @@ public class ChangeHeadController implements Initializable {
             if(index == -1) return; 
             else{
                 // set value for label birth 
-                labelDateBirthMember.setText(listBirthMember.get(index));
+                // labelDateBirthMember.setText(listBirthMember.get(index));
                 // set value for textfield 
                 textFieldRelationWithHead.setText(listMemeber.get(index).getRelaWithHead());
             }
@@ -188,6 +190,23 @@ public class ChangeHeadController implements Initializable {
     }
     @FXML
     Label labelConfirm; 
+    void SaveInforUser()
+    {
+        String sql = "insert into Household.Changing values (?, ?, ?,'1','1', ?)";
+        try {
+            PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
+            preparedStatement.setInt(1, bookID);
+            preparedStatement.setInt(2, LoginController.getUserID());
+            preparedStatement.setInt(3, 1);
+            preparedStatement.setString(4, LocalDate.now().toString());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("SaveInforUser");
+        } 
+
+    }
     @FXML
     int SaveAndSubmit(){
         int count = 0; 
@@ -203,6 +222,9 @@ public class ChangeHeadController implements Initializable {
                 }
             }
         }
+        System.out.println("hmmm");
+        SaveInforUser();
+        // 
         return 1; 
     }
     @FXML

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import ConnectDB.ConnectToDB;
+import database.SQLConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -42,7 +43,7 @@ public class CreateListChildController implements Initializable {
     
     ObservableList<Person> data;
     ObservableList<String> list;
-    ArrayList<Person> listPerson;
+    public static ArrayList<Person> listPerson;
 //    @FXML
 //    private void handleButtonAction(ActionEvent event) {
 //        System.out.println("You clicked me!");
@@ -51,7 +52,20 @@ public class CreateListChildController implements Initializable {
     
     private Stage stage;
 	private Scene scene;
-	
+	public void changeToTimKiem(ActionEvent event) {
+		try {
+			SQLConnection.ConnectData();
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/application/Application.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setX(220);
+			stage.setY(0);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}	
+	}	
 	public void changeToManageHousehold(ActionEvent event) {
 		try {
 		ConnectDatabase.ConnectData();
@@ -152,7 +166,7 @@ public class CreateListChildController implements Initializable {
     try {
 		ResultSet rs = GetDataChild.getStudentList();
 		while(rs.next()) {
-			Person p = new Person(rs.getString("FullName"),String.valueOf(ConnectToDB.VNDF.format(rs.getDate("BirthDate"))), rs.getString("Gender"), rs.getInt("Age"), rs.getString("BookID"));
+			Person p = new Person(rs.getString("FullName"),String.valueOf(ConnectToDB.VNDF.format(rs.getDate("BirthDate"))), rs.getString("Gender"), rs.getInt("Age"), rs.getString("BookID"), rs.getInt("PersonID"));
 			listPerson.add(p);
 		}
 	} catch (SQLException e) {

@@ -36,7 +36,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button id="head-tim-kiem" layoutX="1170.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm">
+      <Button id="head-tim-kiem" layoutX="1170.0" mnemonicParsing="false" onAction="#changeToTimKiem" prefHeight="60.0" prefWidth="270.0" text="Tìm kiếm">
          <font>
             <Font size="18.0" />
          </font></Button>

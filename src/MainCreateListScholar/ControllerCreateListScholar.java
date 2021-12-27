@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import ConnectDB.ConnectToDB;
+import database.SQLConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -204,5 +205,18 @@ public class ControllerCreateListScholar implements Initializable {
 			System.out.println(e.getMessage());
 		}	
 	}
-    
+	public void changeToTimKiem(ActionEvent event) {
+		try {
+			SQLConnection.ConnectData();
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/application/Application.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setX(220);
+			stage.setY(0);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}	
+	}   
 }

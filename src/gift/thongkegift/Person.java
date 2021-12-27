@@ -9,27 +9,27 @@ public class Person {
     private final SimpleStringProperty gender;
     private final SimpleIntegerProperty age;
     private final SimpleStringProperty gift;
-    private final SimpleStringProperty value;   
+    private final SimpleIntegerProperty value;   
     private final SimpleStringProperty houseID;
     
  
-    public Person(String fullName, String birthDate, String gender, int age, String houseID, String gift, String value) {
+    public Person(String fullName, String birthDate, String gender, int age, String houseID, String gift, int value) {
         this.fullName = new SimpleStringProperty(fullName);
         this.birthDate = new SimpleStringProperty(birthDate);
         this.gender = new SimpleStringProperty(gender);
         this.age = new SimpleIntegerProperty(age);
 		this.gift = new SimpleStringProperty(gift);
-		this.value = new SimpleStringProperty (value);
+		this.value = new SimpleIntegerProperty (value);
         this.houseID = new SimpleStringProperty(houseID);
         
     }
  
-    public SimpleStringProperty getGift() {
-		return gift;
+    public String getGift() {
+		return gift.get();
 	}
 
-	public SimpleStringProperty getValue() {
-		return value;
+	public int getValue() {
+		return value.get();
 	}
 
 	public String getFullName() {

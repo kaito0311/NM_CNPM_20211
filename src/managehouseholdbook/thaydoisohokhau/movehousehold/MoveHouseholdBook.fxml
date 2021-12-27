@@ -11,16 +11,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.MoveHouseholdBookController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" stylesheets="@../../../application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.MoveHouseholdBookController">
    <children>
       <HBox prefHeight="60.0" prefWidth="1440.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#changeToHomePage" text="Button" />
-            <Button mnemonicParsing="false" onAction="#changeToChangeInfo" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" onAction="#changeToCreateListScholar" text="Button" />
-            <Button mnemonicParsing="false" onAction="#changeToThongKeHome" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" onAction="#changeToHomePage" styleClass="home_page" stylesheets="@../../logo.css" />
+            <Button mnemonicParsing="false" onAction="#changeToChangeInfo" styleClass="tab_head" stylesheets="@../../logo.css" text="Quản lý tài khoản" />
+            <Button mnemonicParsing="false" stylesheets="@../../logo.css" text="Quản lý thông tin sổ hộ khẩu">
+               <styleClass>
+                  <String fx:value="tab_head" />
+                  <String fx:value="tab_head_pressed" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#changeToCreateListScholar" styleClass="tab_head" stylesheets="@../../logo.css" text="Cấp phần thưởng" />
+            <Button mnemonicParsing="false" onAction="#changeToThongKeHome" styleClass="tab_head" stylesheets="@../../logo.css" text="Thống kê" />
+            <Button mnemonicParsing="false" onAction="#changeToTimKiem" styleClass="tab_head" stylesheets="@../../logo.css" text="Tìm kiếm" />
          </children>
       </HBox>
       <AnchorPane layoutY="60.0" minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="1440.0">
@@ -36,7 +40,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="SCREEN2_button2" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Thay đổi sổ hộ khẩu">
+                  <Button layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Thay đổi sổ hộ khẩu">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -47,6 +51,7 @@
                      <stylesheets>
                         <URL value="@../../logo.css" />
                         <URL value="@MoveHouseholdBook.css" />
+                        <URL value="@../../logo.css" />
                      </stylesheets>
                      <styleClass>
                         <String fx:value="SCREEN2_button" />
