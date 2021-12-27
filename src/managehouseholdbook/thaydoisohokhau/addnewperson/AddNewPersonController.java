@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import java.text.*;
 import javax.swing.JOptionPane;
 
+import database.SQLConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swt.FXCanvas;
@@ -91,10 +92,6 @@ public class AddNewPersonController implements Initializable {
 	public TextField quanHeVoiChuHo;
 	@FXML
 	public TextField noiLamViec;
-	@FXML
-	public TextField soNhaSinhRa;
-	@FXML
-	public TextField soNhaCuTru;
 
 	@FXML
 	public Button xacNhan;
@@ -727,20 +724,56 @@ public class AddNewPersonController implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		// thêm vào bảng Residence
-		String sql6 = "insert into [Person].[Residence] (PersonID,ResidenceTypeID,PrePermanentAddress,BookID,RelationshipWithHead) values(?,?,?,?,?)";
-		try {
-			PreparedStatement ps = ConnectDatabase.connection.prepareStatement(sql6);
-			ps.setInt(1, id);
-			ps.setInt(2, 1);
-			ps.setString(3, "NULL");
-			ps.setInt(4, Integer.parseInt(this.maHoKhau.getText()));
-			ps.setString(5, this.quanHeVoiChuHo.getText());
-			ps.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    	String sql6 = "insert into [Person].[Residence] (PersonID,ResidenceTypeID,PrePermanentAddress,BookID,RelationshipWithHead) values(?,?,?,?,?)";
+    	try {
+    		PreparedStatement ps = ConnectDatabase.connection.prepareStatement(sql6);
+    		ps.setInt(1, id);
+    		ps.setInt(2,1);
+    		ps.setString(3,"NULL");
+    		ps.setInt(4, this.getBookID(this.getHostID(this.maHoKhau.getText())));
+    		ps.setString(5,this.quanHeVoiChuHo.getText());
+    		ps.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+	}
 
+	public int getHostID(String identitycard) throws SQLException {
+    	ConnectDatabase.ConnectData();
+    	try {
+        	Statement st = ConnectDatabase.connection.createStatement();
+        	ResultSet rs;
+        	rs = st.executeQuery("SELECT PersonID FROM [Person].[IdentityCard] WHERE Number ='" + identitycard +"'; ");
+        	int id = 0;
+        	while(rs.next()) {
+        	  id = rs.getInt("PersonID");
+        	}
+        	return id;
+        	}
+        	catch (Exception e){
+        		return 0;
+        	}
+    		
+    }
+
+	public int getBookID(int personID) {   // kiem tra mot nguoi nam trong ho khau nao
+		ConnectDatabase.ConnectData();
+		try {
+			Statement st = ConnectDatabase.connection.createStatement();
+			ResultSet rs;
+			rs = st.executeQuery("SELECT BookID FROM [Person].[Residence] WHERE PersonID ='"+ personID + "'; ");
+			int id = 0;
+			while(rs.next()) {
+			  id = rs.getInt("BookID");
+		
+			}
+			return id;
+			}
+			catch (Exception e){
+				System.err.println("Error");
+			}
+			return 0;
 	}
 
 	public int getPersonID(String Fullname) throws SQLException {
@@ -972,4 +1005,33 @@ public class AddNewPersonController implements Initializable {
 		}
 	}
 
+	
+    @FXML
+    Button buttonTemporaryAbsence_Residence;
+
+    public void changeToTemporaryAbsence(ActionEvent event){
+        try {
+            setNewSceneInSameWindow("/managehouseholdbook/tamtrutamvang/tamtrutamvang.fxml", event);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTemporaryAbsence");
+        }
+    }
+
+	public void changeToTimKiem(ActionEvent event) {
+		try {
+			SQLConnection.ConnectData();
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/application/Application.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setX(220);
+			stage.setY(0);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}	
+	}
 }

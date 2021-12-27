@@ -16,6 +16,7 @@ import java.text.Format;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
 
+import database.SQLConnection;
 import model.person.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -413,5 +414,31 @@ public class CreateNewHouseholdBookController implements Initializable {
 	}
 
 
+    public void changeToTemporaryAbsence(ActionEvent event){
+        try {
+            setNewSceneInSameWindow("/managehouseholdbook/tamtrutamvang/tamtrutamvang.fxml", event);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTemporaryAbsence");
+        }
+    }
+
+
+    public void changeToTimKiem(ActionEvent event) {
+		try {
+			SQLConnection.ConnectData();
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/application/Application.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setX(220);
+			stage.setY(0);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}	
+	}
 
 }
