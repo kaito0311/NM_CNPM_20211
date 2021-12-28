@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import org.controlsfx.control.textfield.TextFields;
+
 import database.SQLConnection;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
@@ -24,6 +26,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
@@ -56,6 +59,10 @@ public class TamVangTamTruController implements Initializable{
 	private TableColumn<InforPerson, String> ketthucCol;
 	@FXML
 	private TableColumn<InforPerson, String> diaChiCol;
+	@FXML
+	private TextField tamvang;
+	@FXML
+	private TextField tamtru;
 
 	@SuppressWarnings("exports")
 	public ObservableList<InforPerson> tamList = FXCollections.observableArrayList();
@@ -64,6 +71,7 @@ public class TamVangTamTruController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		loadTable();
+		loadTK();
 	}
 	
 	private void loadTable() {
@@ -99,6 +107,20 @@ public class TamVangTamTruController implements Initializable{
 			if(nk.getResidence().getResidencetypeID() == 2 || nk.getResidence().getResidencetypeID() == 3)
 				tamList.add(nk);
 		tamTable.setItems(tamList);
+	}
+	
+	private void loadTK() {
+		int tam_tru = 0, tam_vang = 0;
+		for (InforPerson nk : SQLConnection.danhSachNhanKhau) {
+			if (nk.getResidence().getResidencetypeID() == 2)
+				tam_tru++;
+			else if (nk.getResidence().getResidencetypeID() == 2)
+				tam_vang++;
+		}
+		
+		tamtru.setText(String.valueOf(tam_tru));
+		tamvang.setText(String.valueOf(tam_vang));
+		
 	}
 
 	@SuppressWarnings("exports")

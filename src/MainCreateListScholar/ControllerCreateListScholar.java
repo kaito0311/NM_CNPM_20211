@@ -7,6 +7,8 @@ package MainCreateListScholar;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -48,7 +50,7 @@ public class ControllerCreateListScholar implements Initializable {
     
     ObservableList<Person> data;
     ObservableList<String> list;
-    ArrayList<Person> listPerson;
+    public static ArrayList<Person> listPerson;
 //    @FXML
 //    private void handleButtonAction(ActionEvent event) {
 //        System.out.println("You clicked me!");
@@ -64,8 +66,8 @@ public class ControllerCreateListScholar implements Initializable {
        
 //    tableview.getColumns().addAll(firstNameCol, lastNameCol, emailCol, actionCol );
     list = FXCollections.observableArrayList(
-    		"Thành tích đặc biệt",
     		"Học sinh giỏi",
+    		"Thành tích đặc biệt",
     		"Học sinh tiên tiến",
     		"Không"
     		);
@@ -73,7 +75,8 @@ public class ControllerCreateListScholar implements Initializable {
     try {
 		ResultSet rs = GetData.getStudentList();
 		while(rs.next()) {
-			Person p = new Person(rs.getString("FullName"), String.valueOf(ConnectToDB.VNDF.format(rs.getDate("BirthDate"))), rs.getString("Place"), rs.getString("Class"), list, rs.getString("BookID"));
+			Person p = new Person(rs.getString("FullName"), String.valueOf(ConnectToDB.VNDF.format(rs.getDate("BirthDate"))), rs.getString("Place"), rs.getString("Class"), list, rs.getString("BookID"), rs.getInt("personID"));
+			p.getAchievement().getSelectionModel().selectFirst();
 			listPerson.add(p);
 		}
 	} catch (SQLException e) {
@@ -120,12 +123,65 @@ public class ControllerCreateListScholar implements Initializable {
     	if (check == 1) {
     		lbNoti.setText("Lập danh sách thành công");
     		IOFile.writeExcel(listPerson);
+    		
+    		try {
+    			String sql = "delete from Gift.Giving \n"
+        				+ "where givingID in (\n"
+        				+ "	select gi.GivingID\n"
+        				+ "	from Gift.Giving gi\n"
+        				+ "	join Gift.Gift g on g.GiftID = gi.GiftID \n"
+        				+ "	where g.Event = N'Trao thưởng cuối kì')";
+    			Connection connection = ConnectToDB.openConnection();
+    			PreparedStatement stmt = connection.prepareStatement(sql);
+    			stmt.executeUpdate();
+				
+				for (Person p:listPerson) {
+					sql = "insert into Gift.Giving\n"
+							+ "	(PersonID, GiftID, Year)\n"
+							+ "values (? ,?, 2021)";
+					stmt = connection.prepareStatement(sql);
+					stmt.setInt(1, p.getPersonID());
+					stmt.setString(2, getGift(p));
+					stmt.executeUpdate();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		
     	} else {
     		lbNoti.setText("Vui lòng chọn thành tích đầy đủ");
     	}
     	
     }
     
+    private String getGift (Person p) {
+    	int clas = Integer.valueOf(p.getClassName());
+    	String giftID = new String();
+    	
+    	if (clas < 6) {
+    		switch(p.getAchievement().getSelectionModel().getSelectedItem()) {
+    			case "Thành tích đặc biệt": 
+    			case "Học sinh giỏi": giftID = "4C"; break;
+    			case "Học sinh tiên tiến": giftID =  "4B"; break;
+    			case "Không": giftID = "4A"; break;
+    			default: System.out.println("hmm");
+    		}
+    	}
+    	
+    	else {
+    		switch(p.getAchievement().getSelectionModel().getSelectedItem()) {
+				case "Thành tích đặc biệt": 
+				case "Học sinh giỏi": giftID = "4F"; break;
+				case "Học sinh tiên tiến": giftID =  "4D"; break;
+				case "Không": giftID = "4E"; break;
+				default: System.out.println("hmm");
+	   		}
+    	}
+   		
+   		return giftID;
+
+    }
 	
 	public void changeToManageHousehold(ActionEvent event) {
 		try {
@@ -180,7 +236,7 @@ public class ControllerCreateListScholar implements Initializable {
 	
 	public void changeToScholar(ActionEvent event) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/MainScholar/UI_Scholar.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/gift/thongkescholar/UI_TKScholar.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
@@ -188,7 +244,7 @@ public class ControllerCreateListScholar implements Initializable {
 			stage.setY(0);
 		}
 		catch(Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}	
 	}
 	

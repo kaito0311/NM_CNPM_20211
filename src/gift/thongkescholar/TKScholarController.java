@@ -1,7 +1,6 @@
-package gift.thongkegift;
+package gift.thongkescholar;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import database.SQLConnection;
@@ -23,46 +22,27 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
 
-public class ThongKeGiftController implements Initializable{
+public class TKScholarController implements Initializable{
     private Stage stage;
 	private Scene scene;
 	
-//	@FXML
-//	public TableView <Person> giftThongKeTable;
-//	@FXML
-//	public TableColumn<Person, String> fullName, birthDate, event, gift;
-//	@FXML
-//	public TableColumn<Person, Number> STT, year, value, bookID;
-//	@FXML
-//	public Label valueLabel;
 	@FXML
 	private TableView <Person> giftThongKeTable;
 	@FXML
-	private TableColumn<Person, String> fullName;
+	private TableColumn<Person, String> fullName, birthDate, gender, gift;
 	@FXML
-	private TableColumn<Person, String> birthDate;
-	@FXML
-	private TableColumn<Person, String> event;
-	@FXML
-	private TableColumn<Person, String> gift;
-	@FXML
-	private TableColumn<Person, Number> STT;
-	@FXML
-	private TableColumn<Person, Number> year;
-	@FXML
-	private TableColumn<Person, Number> value;
-	@FXML
-	private TableColumn<Person, Number> bookID;
+	private TableColumn<Person, Number> STT, age, value, bookID;
 	@FXML
 	private Label valueLabel;
 	
-	private ObservableList<Person> giftThongKeList;
+	private ObservableList<Person> TKScholarList;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
-		giftThongKeList = FXCollections.observableArrayList(GetDataGiving.danhSachNhanQua);
+		
+		TKScholarList = FXCollections.observableArrayList(GetDataScholar.danhSachNhanQua);
 		loadTable();
 		loadLabel();
 	}
@@ -71,7 +51,7 @@ public class ThongKeGiftController implements Initializable{
 		int sumValue = 0;
 		String text = "Tổng giá trị phần quà: ";
 		
-		for (Person p : giftThongKeList)
+		for (Person p : TKScholarList)
 			sumValue += p.getValue();
 		
 		text += String.format("%,d", sumValue) + " đồng";
@@ -84,13 +64,13 @@ public class ThongKeGiftController implements Initializable{
 			new ReadOnlyObjectWrapper<Number>(1 + giftThongKeTable.getItems().indexOf(column.getValue())));
 	    fullName.setCellValueFactory(new PropertyValueFactory<Person,String>("fullName"));
 	    birthDate.setCellValueFactory(new PropertyValueFactory<Person,String>("birthDate") );
-	    event.setCellValueFactory(new PropertyValueFactory<Person,String>("event"));     
-	    year.setCellValueFactory(new PropertyValueFactory<Person,Number>("year"));
+	    gender.setCellValueFactory(new PropertyValueFactory<Person,String>("gender"));     
+	    age.setCellValueFactory(new PropertyValueFactory<Person,Number>("age"));
 	    bookID.setCellValueFactory(new PropertyValueFactory<Person,Number>("houseID"));
 	    gift.setCellValueFactory(new PropertyValueFactory<Person,String>("gift")); 
 	    value.setCellValueFactory(new PropertyValueFactory<Person,Number>("value"));
 		
-		giftThongKeTable.setItems(giftThongKeList);
+		giftThongKeTable.setItems(TKScholarList);
 	}
 	
 	public void changeToHomePage(ActionEvent event) {
@@ -124,20 +104,6 @@ public class ThongKeGiftController implements Initializable{
 	public void changeToScholarship(ActionEvent event) {
 		try {
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/MainCreateListScholar/UI_CreateListScholar.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.setX(220);
-			stage.setY(0);
-		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
-		}	
-	}
-	
-	public void changeToGiftChild(ActionEvent event) {
-		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/MainGift/UI_Gift.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);

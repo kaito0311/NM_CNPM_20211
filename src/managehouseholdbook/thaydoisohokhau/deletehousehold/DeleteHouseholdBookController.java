@@ -1,9 +1,13 @@
 package managehouseholdbook.thaydoisohokhau.deletehousehold;
 
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 import database.SQLConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +16,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import managehouseholdbook.ConnectDatabase;
 
 public class DeleteHouseholdBookController implements Initializable {
     @Override
@@ -32,6 +39,39 @@ public class DeleteHouseholdBookController implements Initializable {
 
     private Stage stage;
     private Scene scene;
+
+    @FXML
+
+
+
+    //============================================
+    ObservableList<String> listPersonID = FXCollections.observableArrayList();
+    @FXML
+    TextField idHoKhau; 
+    @FXML
+    Label confirm;
+    
+
+    @FXML
+    void deleteBook(){
+        String sql = null;
+        try {
+            sql = "if exists(select personID from Person.Residence where BookID = ?) begin update Person.Residence set bookid = '0' where bookID = ? delete from Household.book where bookID = ? end";
+            PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
+            preparedStatement.setString(1, idHoKhau.getText());
+            preparedStatement.setString(2, idHoKhau.getText());
+            preparedStatement.setString(3, idHoKhau.getText());
+            preparedStatement.executeUpdate();
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            confirm.setText("Lỗi khi xóa");
+            return;
+        }
+        confirm.setText("Xóa thành công");
+
+    }
 
     @FXML
     Button buttonCreateNewBook;
@@ -150,7 +190,24 @@ public class DeleteHouseholdBookController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	public void changeToTimKiem(ActionEvent event) {
+
+    
+    @FXML
+    Button buttonTemporaryAbsence_Residence;
+
+    public void changeToTemporaryAbsence(ActionEvent event){
+        try {
+            setNewSceneInSameWindow("/managehouseholdbook/tamtrutamvang/tamtrutamvang.fxml", event);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTemporaryAbsence");
+        }
+    }
+
+
+    public void changeToTimKiem(ActionEvent event) {
 		try {
 			SQLConnection.ConnectData();
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/application/Application.fxml"));

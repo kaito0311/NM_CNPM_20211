@@ -1,4 +1,4 @@
-module CapPhanThuong {
+module ChacLaCuoiCungCNPM {
 	requires javafx.controls;
 	requires javafx.fxml;
 	requires javafx.base;
@@ -18,7 +18,8 @@ module CapPhanThuong {
 	opens MainCreateListGift to javafx.graphics, javafx.fxml, javafx.base;
 	opens MainGift to javafx.graphics, javafx.fxml, javafx.base;
 	opens thongke.thongkehome to javafx.graphics, javafx.fxml;
-	opens gift.thongkegift to javafx.graphics, javafx.fxml;
+	opens gift.thongkegift to javafx.graphics, javafx.fxml, javafx.base;
+	opens gift.thongkescholar to javafx.graphics, javafx.fxml, javafx.base;
 	opens managehouseholdbook to javafx.graphics, javafx.fxml, javafx.base;
 	opens managehouseholdbook.thaydoisohokhau.changeperson.death to javafx.graphics, javafx.fxml, javafx.base;
 	opens managehouseholdbook.thaydoisohokhau.movehousehold.splithousehold to javafx.graphics, javafx.fxml, javafx.base;
@@ -31,6 +32,10 @@ module CapPhanThuong {
 	opens managehouseholdbook.thaydoisohokhau.deletehousehold;
 	opens managehouseholdbook.thaydoisohokhau.canbenoneed to javafx.graphics, javafx.fxml, javafx.base;
 	opens managehouseholdbook.thaydoisohokhau to javafx.graphics, javafx.fxml, javafx.base;
+	opens application to javafx.graphics, javafx.fxml, javafx.base;
+	opens searchBook to javafx.graphics, javafx.fxml, javafx.base;
+	opens searchPerson to javafx.graphics, javafx.fxml, javafx.base;	
+	opens managehouseholdbook.tamtrutamvang to javafx.graphics, javafx.fxml, javafx.base;
 	
 	exports thongke.dotuoi;
 	opens thongke.dotuoi to javafx.graphics, javafx.fxml;

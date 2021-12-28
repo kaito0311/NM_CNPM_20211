@@ -289,7 +289,22 @@ public class ChangePersonController implements Initializable {
 		}
 	}
 
-	public void changeToTimKiem(ActionEvent event) {
+    
+    @FXML
+    Button buttonTemporaryAbsence_Residence;
+
+    public void changeToTemporaryAbsence(ActionEvent event){
+        try {
+            setNewSceneInSameWindow("/managehouseholdbook/tamtrutamvang/tamtrutamvang.fxml", event);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTemporaryAbsence");
+        }
+    }
+
+    public void changeToTimKiem(ActionEvent event) {
 		try {
 			SQLConnection.ConnectData();
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/application/Application.fxml"));
@@ -303,4 +318,5 @@ public class ChangePersonController implements Initializable {
 			e.printStackTrace();
 		}	
 	}
+
 }

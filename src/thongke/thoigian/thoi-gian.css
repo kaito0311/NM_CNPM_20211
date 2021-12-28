@@ -25,7 +25,7 @@
 #SCREEN4_buttonhome{
 	-fx-background-color: #E7717D;
 	-fx-text-fill:white;
-	-fx-font-size: 24;
+	-fx-font-size: 16;
 	-fx-font-weight: bold;
 	-fx-alignment: bottom-center;
 	
@@ -38,7 +38,7 @@
 #SCREEN4_button1{
 	-fx-background-color: #E7717D;
 	-fx-text-fill:white;
-	-fx-font-size: 24;
+	-fx-font-size: 16;
 	-fx-font-weight: bold;
 	-fx-alignment: bottom-center;
 	
@@ -50,7 +50,7 @@
 #SCREEN4_button2{
 	-fx-background-color: #E7717D;
 	-fx-text-fill:white;
-	-fx-font-size: 24;
+	-fx-font-size: 16;
 	-fx-font-weight: bold;
 	-fx-alignment: bottom-center;
 	
@@ -62,7 +62,7 @@
 #SCREEN4_button3{
 	-fx-background-color: #E7717D;
 	-fx-text-fill:white;
-	-fx-font-size: 24;
+	-fx-font-size: 16;
 	-fx-font-weight: bold;
 	-fx-alignment: center;
 	-fx-alignment: bottom-center;
@@ -75,7 +75,7 @@
 #SCREEN4_button4{
 	-fx-background-color: #E7717D;
 	-fx-text-fill:white;
-	-fx-font-size: 24;
+	-fx-font-size: 16;
 	-fx-font-weight: bold;
 	-fx-alignment: bottom-center;
 	
@@ -297,31 +297,31 @@
 #head-home, #head-quan-ly-tai-khoan{
 	-fx-background-color: #e7717d;
 	-fx-text-fill: white;
-    -fx-font-size: 18;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
 }
 #head-quan-ly-thong-tin-so-ho-khau{
 	-fx-background-color: #e7717d;
 	-fx-text-fill: white;
-    -fx-font-size: 18;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
 }
 #head-quan-ly-cap-phan-thuong{
 	-fx-background-color: #e7717d;
 	-fx-text-fill: white;
-    -fx-font-size: 18;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
 }
 #head-thong-ke{
 	-fx-background-color: white;
 	-fx-text-fill: #e7717d;
-    -fx-font-size: 18;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
 }
 #head-tim-kiem{
 	-fx-background-color: #e7717d;
 	-fx-text-fill: white;
-    -fx-font-size: 18;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
 }
 #head-home{

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" stylesheets="@../../../application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.MoveHouseholdBookController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../../../application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.movehousehold.MoveHouseholdBookController">
    <children>
       <HBox prefHeight="60.0" prefWidth="1440.0">
          <children>
@@ -58,7 +58,7 @@
                         <String fx:value="Screen_button_pressed" />
                      </styleClass>
                   </Button>
-                  <Button id="SCREEN2_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Tạm trú, Tạm vắng">
+                  <Button id="SCREEN2_button3" layoutX="540.0" mnemonicParsing="false" onAction="#changeToTemporaryAbsence" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Tạm trú, Tạm vắng">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -107,19 +107,13 @@
                   </Text>
                </children>
             </AnchorPane>
-            <Button layoutX="490.0" layoutY="410.0" mnemonicParsing="false" styleClass="button-submit" text="Chuyển sổ hộ khẩu">
+            <Button layoutX="570.0" layoutY="426.0" mnemonicParsing="false" onAction="#splitHousehold" styleClass="button-submit" text="Tách sổ hộ khẩu">
                <stylesheets>
                   <URL value="@../ChangeHouseholdBook.css" />
                   <URL value="@MoveHouseholdBook.css" />
                </stylesheets>
             </Button>
-            <Button layoutX="490.0" layoutY="514.0" mnemonicParsing="false" onAction="#splitHousehold" styleClass="button-submit" text="Tách sổ hộ khẩu">
-               <stylesheets>
-                  <URL value="@../ChangeHouseholdBook.css" />
-                  <URL value="@MoveHouseholdBook.css" />
-               </stylesheets>
-            </Button>
-            <Button layoutX="490.0" layoutY="632.0" mnemonicParsing="false" onAction="#changeHead" styleClass="button-submit" text="Thay đổi thông tin chủ hộ">
+            <Button layoutX="570.0" layoutY="562.0" mnemonicParsing="false" onAction="#changeHead" styleClass="button-submit" text="Thay đổi thông tin chủ hộ">
                <stylesheets>
                   <URL value="@../ChangeHouseholdBook.css" />
                   <URL value="@MoveHouseholdBook.css" />

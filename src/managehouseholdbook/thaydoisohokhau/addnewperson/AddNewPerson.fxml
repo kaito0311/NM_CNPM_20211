@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.addnewperson.AddNewPersonController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="managehouseholdbook.thaydoisohokhau.addnewperson.AddNewPersonController">
    <children>
       <HBox prefHeight="60.0" prefWidth="1440.0" style="-fx-background-color: #e7717d;">
          <children>
@@ -60,7 +60,7 @@
                         <URL value="@AddNewPersonStyle.css" />
                      </stylesheets>
                   </Button>
-                  <Button id="SCREEN2_button3" layoutX="540.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Tạm trú, Tạm vắng">
+                  <Button id="SCREEN2_button3" layoutX="540.0" mnemonicParsing="false" onAction="#changeToTemporaryAbsence" prefHeight="200.0" prefWidth="270.0" styleClass="SCREEN2_button" stylesheets="@../../logo.css" text="Tạm trú, Tạm vắng">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -102,7 +102,7 @@
             </AnchorPane>
             <AnchorPane layoutY="255.0" prefHeight="649.0" prefWidth="1440.0">
                <children>
-                  <GridPane layoutX="175.0" layoutY="78.0" prefHeight="350.0" prefWidth="1250.0">
+                  <GridPane layoutX="72.0" layoutY="90.0" prefHeight="350.0" prefWidth="1250.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.4" minWidth="10.0" prefWidth="230.4" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.59997558593747" minWidth="10.0" prefWidth="241.59997558593747" />
@@ -145,20 +145,7 @@
                               <DatePicker fx:id="ngaySinh" layoutX="84.0" layoutY="16.0" prefHeight="26.0" prefWidth="156.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="605.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
-                           <children>
-                              <ComboBox fx:id="gioiTinh" layoutX="-152.0" layoutY="10.0" prefHeight="26.0" prefWidth="150.0" promptText="Nam" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="416.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
-                           <children>
-                              <Label layoutY="16.0" prefHeight="26.0" prefWidth="73.0" text="Giới tính:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
+                        <AnchorPane layoutX="605.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" />
                         <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
                               <Label layoutY="15.0" prefHeight="26.0" prefWidth="98.0" text="Dân tộc: ">
@@ -191,7 +178,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <children>
-                              <Label layoutY="15.0" prefHeight="26.0" prefWidth="98.0" text="Hộ Khẩu">
+                              <Label layoutY="15.0" prefHeight="26.0" prefWidth="98.0" text="CCCD chủ hộ:">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -308,16 +295,7 @@
                               <ComboBox fx:id="comboBoxOriginCommune" layoutX="80.0" layoutY="15.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
-                           <children>
-                              <Label layoutY="15.0" prefHeight="26.0" prefWidth="98.0" text="Số nhà">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="soNhaCuTru" layoutX="98.0" layoutY="15.0" />
-                           </children>
-                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
                         <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
                            <children>
                               <Label layoutY="3.0" prefHeight="26.0" prefWidth="98.0" text="Quê quán (*):">
@@ -337,16 +315,7 @@
                               <ComboBox fx:id="comboBoxBirthCommune" layoutX="78.0" layoutY="16.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                           <children>
-                              <Label layoutY="15.0" prefHeight="26.0" prefWidth="98.0" text="Số nhà:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="soNhaSinhRa" layoutX="98.0" layoutY="15.0" />
-                           </children>
-                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                         <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
                            <children>
                               <Label layoutY="15.0" prefHeight="26.0" prefWidth="98.0" text="Quận/Huyện">
@@ -382,14 +351,19 @@
                               </Label>
                            </children>
                         </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                           <children>
+                              <Label layoutY="16.0" prefHeight="26.0" prefWidth="73.0" text="Giới tính:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="gioiTinh" layoutX="83.0" layoutY="16.0" prefHeight="26.0" prefWidth="150.0" promptText="Nam" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </GridPane>
-                  <ImageView fitHeight="239.0" fitWidth="140.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/thay-doi-red.png" />
-                     </image>
-                  </ImageView>
-                  <Button layoutX="507.0" layoutY="23.0" mnemonicParsing="false" onAction="#xacNhan" prefHeight="58.0" styleClass="button-submit" stylesheets="@AddNewPersonStyle.css" text="Xác nhận" fx:id="xacNhan" />
+                  <Button layoutX="570.0" layoutY="491.0" mnemonicParsing="false" onAction="#xacNhan" prefHeight="58.0" styleClass="button-submit" stylesheets="@AddNewPersonStyle.css" text="Xác nhận" fx:id="xacNhan" />
                </children>
             </AnchorPane>
          </children>

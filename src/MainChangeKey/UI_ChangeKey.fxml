@@ -110,14 +110,14 @@
                   <Line endX="1440.0" stroke="#ffc5c5" />
                </children>
             </AnchorPane>
-            <AnchorPane id="SCREEN_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
+            <AnchorPane id="SCREEN_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0" stylesheets="@../managehouseholdbook/logo.css">
                <children>
-                  <Button id="SCREEN1_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Quản lý tài khoản" textFill="#e7717d">
+                  <Button id="SCREEN1_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" text="Quản lý tài khoản" textFill="#e7717d">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="SCREEN1_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Đổi mật khẩu" textFill="#e7717d">
+                  <Button id="SCREEN1_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="Screen_subutton_pressed" text="Đổi mật khẩu" textFill="#e7717d">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

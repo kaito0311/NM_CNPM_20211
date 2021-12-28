@@ -1,4 +1,4 @@
-package gift.thongkegift;
+package gift.thongkescholar;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,28 +10,28 @@ import ConnectDB.ConnectToDB;
 import MainGift.GetGiftChild;
 import database.SQLConnection;
 
-public class GetDataGiving {
+public class GetDataScholar {
 	
 	public static ArrayList<Person> danhSachNhanQua = new ArrayList<Person>();
 	
-	public static void setGivingList() {
+	public static void setScholarList() {
 		danhSachNhanQua.clear();
 		try {
 		Connection connection = ConnectToDB.openConnection();
-		String sql = "select p.FullName, p.BirthDate, p.Gender, gi.Event, gv.Year, gv.GiftID, re.BookID\r\n"
+		String sql = "select p.FullName, p.BirthDate, p.Gender, DATEDIFF(year, p.BirthDate, getdate()) as Age, gv.GiftID, re.BookID\r\n"
 				+ "				from Person.Person p\r\n"
 				+ "				join Gift.Giving gv on p.PersonID = gv.PersonID\r\n"
 				+ "				join Gift.Gift gi on gi.GiftID = gv.GiftID\r\n"
 				+ "				join Gift.Detail d on d.GiftID = gv.GiftID\r\n"
 				+ "				join Gift.Product pr on pr.ProductID = d.ProductID\r\n"
 				+ "				join Person.Residence re on re.PersonID = p.PersonID\r\n"
-				+ "				where gi.Event <> N'Trao thưởng cuối kì'";
+				+ "				where gi.Event = N'Trao thưởng cuối kì'";
 		
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 		
 		while(rs.next()) {
-			danhSachNhanQua.add(new Person(rs.getString("FullName"), String.valueOf(ConnectToDB.VNDF.format(rs.getDate("BirthDate"))), rs.getString("Event"), rs.getString("BookID"), GetGiftChild.getGift(rs.getString("GiftID")), getValue(rs.getString("GiftID")), rs.getInt("Year")));
+			danhSachNhanQua.add(new Person(rs.getString("FullName"), String.valueOf(ConnectToDB.VNDF.format(rs.getDate("BirthDate"))), rs.getString("Gender"), rs.getInt("Age"), rs.getString("BookID"), GetGiftChild.getGift(rs.getString("GiftID")), getValue(rs.getString("GiftID"))));
 		}
 		
 		connection.close();

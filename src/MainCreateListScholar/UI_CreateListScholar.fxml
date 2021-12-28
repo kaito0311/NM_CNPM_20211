@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -84,19 +83,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="SCREEN4_button7" contentDisplay="TOP" layoutX="270.0" layoutY="-2.0" mnemonicParsing="false" onAction="#changeToScholar" prefHeight="200.0" prefWidth="270.0" text="Chia phần thưởng">
-                     <graphic>
-                        <ImageView fitHeight="118.0" fitWidth="168.0">
-                           <image>
-                              <Image url="@../img/money-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button id="SCREEN4_button8" contentDisplay="TOP" layoutX="540.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Thống kê">
+                  <Button id="SCREEN4_button8" contentDisplay="TOP" layoutX="270.0" mnemonicParsing="false" onAction="#changeToScholar" prefHeight="200.0" prefWidth="270.0" text="Thống kê">
                      <graphic>
                         <ImageView fitHeight="118.0" fitWidth="118.0">
                            <image>
@@ -124,19 +111,19 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane id="SCREEN_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
+            <AnchorPane id="SCREEN_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0" stylesheets="@../managehouseholdbook/logo.css">
                <children>
-                  <Button id="SCREEN3_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Cấp phần thưởng" textFill="#e7717d">
+                  <Button id="SCREEN3_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" text="Cấp phần thưởng" textFill="#e7717d">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="SCREEN3_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Quà học bổng" textFill="#e7717d">
+                  <Button id="SCREEN3_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" text="Quà học bổng" textFill="#e7717d">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="SCREEN3_subbutton1" layoutX="540.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Lập danh sách" textFill="#e7717d">
+                  <Button id="SCREEN3_subbutton1" layoutX="540.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="Screen_subutton_pressed" text="Lập danh sách" textFill="#e7717d">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -171,10 +158,6 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <TextField id="MID_find1" layoutX="140.0" layoutY="26.0" prefHeight="55.0" prefWidth="335.0" promptText="Cột tìm kiếm" />
-                  <Button id="MID_find1_button" layoutX="430.0" layoutY="35.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="find" />
-                  <TextField id="MID_find2" layoutX="576.0" layoutY="26.0" prefHeight="55.0" prefWidth="335.0" promptText="Nhập tìm kiếm" />
-                  <Button id="MID_find1_button" layoutX="865.0" layoutY="35.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="find" />
                   <Label fx:id="lbNoti" alignment="CENTER" layoutX="591.0" layoutY="520.0" prefHeight="31.0" prefWidth="259.0" textFill="RED">
                      <font>
                         <Font size="18.0" />

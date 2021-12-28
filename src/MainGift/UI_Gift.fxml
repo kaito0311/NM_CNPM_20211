@@ -124,19 +124,19 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane id="SCREEN_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0">
+            <AnchorPane id="SCREEN_head2" layoutY="200.0" prefHeight="50.0" prefWidth="1440.0" stylesheets="@../managehouseholdbook/logo.css">
                <children>
-                  <Button id="SCREEN3_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Cấp phần thưởng" textFill="#e7717d">
+                  <Button id="SCREEN3_subbutton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" text="Cấp phần thưởng" textFill="#e7717d">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="SCREEN3_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Quà dịp đặc biệt" textFill="#e7717d">
+                  <Button id="SCREEN3_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="SCREEN2_subbutton" text="Quà dịp đặc biệt" textFill="#e7717d">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="SCREEN3_subbutton1" layoutX="540.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Chia phần thưởng" textFill="#e7717d">
+                  <Button id="SCREEN3_subbutton1" layoutX="540.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="Screen_subutton_pressed" text="Chia phần thưởng" textFill="#e7717d">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.text.html.HTMLDocument.RunElement;
 
+import Main.LoginController;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -179,7 +180,25 @@ public class SplitHouseHoldController implements Initializable {
             changeBookForMember(i);
         }
 
+        SaveInforUser();
 
+
+    } 
+    void SaveInforUser()
+    {
+        String sql = "insert into Household.Changing values (?, ?, ?,'1','1', ?)";
+        try {
+            PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
+            preparedStatement.setString(1, bookID1);
+            preparedStatement.setInt(2, LoginController.getUserID());
+            preparedStatement.setInt(3, 4);
+            preparedStatement.setString(4, LocalDate.now().toString());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("SaveInforUser");
+        } 
 
     }
 

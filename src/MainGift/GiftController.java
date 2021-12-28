@@ -141,7 +141,7 @@ public class GiftController implements Initializable{
 			Connection connection = ConnectToDB.openConnection();
 			PreparedStatement stmt;
 			sql = "delete from Gift.Giving \n"
-					+ "where givingID = (\n"
+					+ "where givingID in (\n"
 					+ "	select gi.GivingID\n"
 					+ "	from Gift.Giving gi\n"
 					+ "	join Gift.Gift g on g.GiftID = gi.GiftID \n"
@@ -345,7 +345,7 @@ public class GiftController implements Initializable{
 			stage.setY(0);
 		}
 		catch(Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}	
 	}
   	

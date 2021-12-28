@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="1024.0" prefWidth="1440.0" stylesheets="@TKGift.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gift.thongkegift.ThongKeGiftController">
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" stylesheets="@TKScholar.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gift.thongkescholar.TKScholarController">
    <children>
       <Pane prefHeight="60.0" prefWidth="1440.0" style="-fx-background-color: #E7717D;">
          <children>
@@ -71,7 +71,7 @@
          <children>
             <AnchorPane id="SCREEN_head1" prefHeight="200.0" prefWidth="1440.0">
                <children>
-                  <Button id="SCREEN4_button6" contentDisplay="TOP" mnemonicParsing="false" onAction="#changeToCreateListChild" prefHeight="200.0" prefWidth="270.0" text="Lập danh sách">
+                  <Button id="SCREEN4_button6" contentDisplay="TOP" mnemonicParsing="false" onAction="#changeToScholarship" prefHeight="200.0" prefWidth="270.0" text="Lập danh sách">
                      <graphic>
                         <ImageView fitHeight="125.0" fitWidth="154.0">
                            <image>
@@ -83,19 +83,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="SCREEN4_button7" contentDisplay="TOP" layoutX="270.0" layoutY="-2.0" mnemonicParsing="false" onAction="#changeToGiftChild" prefHeight="200.0" prefWidth="270.0" text="Chia phần thưởng">
-                     <graphic>
-                        <ImageView fitHeight="118.0" fitWidth="168.0">
-                           <image>
-                              <Image url="@../../img/money-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button id="SCREEN4_button8" contentDisplay="TOP" layoutX="540.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Thống kê">
+                  <Button id="SCREEN4_button8" contentDisplay="TOP" layoutX="270.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="270.0" text="Thống kê">
                      <graphic>
                         <ImageView fitHeight="118.0" fitWidth="118.0">
                            <image>
@@ -109,11 +97,11 @@
                   </Button>
                   <Line endX="1440.0" layoutY="200.0" stroke="#ffc5c5" />
                   <Line endX="1440.0" stroke="#ffc5c5" />
-                  <Button id="SCREEN4_button9" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="1170.0" layoutY="1.0" mnemonicParsing="false" onAction="#changeToScholarship" prefHeight="197.0" prefWidth="270.0" style="-fx-border-width: 0 0 0 1;" text="Chuyển sang phát học bổng">
+                  <Button id="SCREEN4_button9" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="1170.0" layoutY="1.0" mnemonicParsing="false" onAction="#changeToCreateListChild" prefHeight="197.0" prefWidth="270.0" style="-fx-border-width: 0 0 0 1;" text="Chuyển sang phát quà">
                      <graphic>
                         <ImageView fx:id="changeToGift" fitHeight="137.0" fitWidth="137.0">
                            <image>
-                              <Image url="@../../img/user.png" />
+                              <Image url="@../../img/images-removebg-preview.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -130,7 +118,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="SCREEN3_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Quà dịp đặc biệt" textFill="#e7717d">
+                  <Button id="SCREEN3_subbutton1" layoutX="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Học bổng" textFill="#e7717d">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -158,13 +146,13 @@
                   <TableView id="MID_table" fx:id="giftThongKeTable" layoutX="11.0" layoutY="89.0" minHeight="400.0" minWidth="1200.0" prefHeight="520.0" prefWidth="1412.0">
                      <columns>
                         <TableColumn id="MID_columm1" fx:id="STT" editable="false" maxWidth="1144.0" minWidth="45.333343505859375" prefWidth="53.333343505859375" resizable="false" text="STT" />
-                        <TableColumn id="MID_columm1" fx:id="fullName" editable="false" maxWidth="520.6666564941406" minWidth="50.0" prefWidth="370.0" resizable="false" text="Họ tên" />
-                        <TableColumn id="MID_columm2" fx:id="birthDate" editable="false" maxWidth="500.0" minWidth="0.0" prefWidth="143.0" resizable="false" text="Ngày sinh" />
-                        <TableColumn id="MID_columm3" fx:id="event" editable="false" maxWidth="508.0" minWidth="60.0" prefWidth="240.0" resizable="false" text="Sự kiện" />
-                        <TableColumn id="MID_columm4" fx:id="year" editable="false" maxWidth="564.0" minWidth="23.0" prefWidth="56.0" resizable="false" text="Năm" />
-                        <TableColumn id="MID_columm4" fx:id="gift" editable="false" maxWidth="714.0" minWidth="62.0" prefWidth="327.0" resizable="false" text="Phần quà" />
-                        <TableColumn id="MID_columm4" fx:id="value" editable="false" maxWidth="631.3333740234375" minWidth="0.0" prefWidth="114.0" resizable="false" text="Giá trị (VND)" />
-                        <TableColumn id="MID_columm6" fx:id="bookID" editable="false" maxWidth="689.0" minWidth="99.0" prefWidth="110.0" resizable="false" text="Mã hộ khẩu" />
+                        <TableColumn id="MID_columm1" fx:id="fullName" editable="false" maxWidth="520.6666564941406" minWidth="50.0" prefWidth="417.0" resizable="false" text="Họ tên" />
+                        <TableColumn id="MID_columm2" fx:id="birthDate" editable="false" maxWidth="500.0" minWidth="0.0" prefWidth="148.0" resizable="false" text="Ngày sinh" />
+                        <TableColumn id="MID_columm3" fx:id="gender" editable="false" maxWidth="508.0" minWidth="103.66668701171875" prefWidth="120.0" resizable="false" text="Giới tính" />
+                        <TableColumn id="MID_columm4" fx:id="age" editable="false" maxWidth="564.0" minWidth="62.0" prefWidth="92.0" resizable="false" text="Tuổi" />
+                        <TableColumn id="MID_columm4" fx:id="gift" editable="false" maxWidth="714.0" minWidth="62.0" prefWidth="315.0" resizable="false" text="Phần quà" />
+                        <TableColumn id="MID_columm4" fx:id="value" editable="false" maxWidth="631.3333740234375" minWidth="0.0" prefWidth="116.0" resizable="false" text="Giá trị (VND)" />
+                        <TableColumn id="MID_columm6" fx:id="bookID" editable="false" maxWidth="689.0" minWidth="149.0" prefWidth="151.6666259765625" resizable="false" text="Mã hộ khẩu" />
                      </columns>
                   </TableView>
                   <Label fx:id="valueLabel" layoutX="943.0" layoutY="26.0" text="Tổng giá trị phần quà:">

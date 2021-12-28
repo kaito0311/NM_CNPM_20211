@@ -6,25 +6,29 @@ import javafx.beans.property.SimpleStringProperty;
 public class Person {
     private final SimpleStringProperty fullName;
     private final SimpleStringProperty birthDate;
-    private final SimpleStringProperty gender;
-    private final SimpleIntegerProperty age;
+    private final SimpleStringProperty event;
     private final SimpleStringProperty gift;
     private final SimpleIntegerProperty value;   
     private final SimpleStringProperty houseID;
+    private final SimpleIntegerProperty year;
     
  
-    public Person(String fullName, String birthDate, String gender, int age, String houseID, String gift, int value) {
+    public Person(String fullName, String birthDate, String event, String houseID, String gift, int value, int year) {
         this.fullName = new SimpleStringProperty(fullName);
         this.birthDate = new SimpleStringProperty(birthDate);
-        this.gender = new SimpleStringProperty(gender);
-        this.age = new SimpleIntegerProperty(age);
+        this.event = new SimpleStringProperty(event);
 		this.gift = new SimpleStringProperty(gift);
 		this.value = new SimpleIntegerProperty (value);
         this.houseID = new SimpleStringProperty(houseID);
+		this.year = new SimpleIntegerProperty (year);
         
     }
  
-    public String getGift() {
+    public int getYear() {
+		return year.get();
+	}
+
+	public String getGift() {
 		return gift.get();
 	}
 
@@ -46,21 +50,8 @@ public class Person {
         this.birthDate.set(birthDate);
     }
     
-    public String getGender() {
-        if (gender.get().equals("1"))
-        	return "Nam";
-        
-        return "Nữ";
-    }
-    public void setGender(String school) {
-        this.gender.set(school);
-    }
-    
-    public int getAge() {
-        return age.get();
-    }
-    public void setAge(int className) {
-        this.age.set(className);
+    public String getEvent() {
+        return event.get();
     }
     
     public String getHouseID() {

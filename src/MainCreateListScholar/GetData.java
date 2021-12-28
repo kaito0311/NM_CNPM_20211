@@ -10,12 +10,12 @@ import ConnectDB.ConnectToDB;
 public class GetData {
 	
 	public static ResultSet getStudentList() throws SQLException {
-		 String sql = "select p.FullName, p.BirthDate, w.Place, e.Class, r.BookID\r\n"
-		 		+ "from Person.Person p, Person.Work w, Person.Education e, Person.Residence r\r\n"
-		 		+ "where p.PersonID = w.PersonID\r\n"
-		 		+ "	and p.PersonID = e.PersonID\r\n"
-		 		+ "	and p.PersonID = r.PersonID\r\n"
-		 		+ "	and DATEDIFF(year, p.BirthDate, GETDATE()) < 18";
+		 String sql = "select p.personID, p.FullName, p.BirthDate, w.Place, e.Class, r.BookID\n"
+		 		+ "		 		from Person.Person p, Person.Work w, Person.Education e, Person.Residence r\n"
+		 		+ "		 		where p.PersonID = w.PersonID\n"
+		 		+ "		 		and p.PersonID = e.PersonID\n"
+		 		+ "		 		and p.PersonID = r.PersonID\n"
+		 		+ "		 		and DATEDIFF(year, p.BirthDate, GETDATE()) between 7 and 17";
 		 Connection connection = ConnectToDB.openConnection();
 		 PreparedStatement stmt = connection.prepareStatement(sql);
 		 

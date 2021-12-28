@@ -5,11 +5,13 @@
  */
 package MainCreateListScholar;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 
 public class Person {
+	private final SimpleIntegerProperty personID;
     private final SimpleStringProperty fullName;
     private final SimpleStringProperty birthDate;
     private final SimpleStringProperty school;
@@ -18,8 +20,9 @@ public class Person {
     private ComboBox<String> achievement;    
     
  
-     public Person(String fullName, String birthDate, String school, String className, ObservableList<String> data, String houseID) {
-        this.fullName = new SimpleStringProperty(fullName);
+     public Person(String fullName, String birthDate, String school, String className, ObservableList<String> data, String houseID, int personID) {
+        this.personID = new SimpleIntegerProperty(personID);
+		this.fullName = new SimpleStringProperty(fullName);
         this.birthDate = new SimpleStringProperty(birthDate);
         this.school = new SimpleStringProperty(school);
         this.className = new SimpleStringProperty(className);
@@ -28,7 +31,11 @@ public class Person {
         
     }
  
-    public String getFullName() {
+    public int getPersonID() {
+		return personID.get();
+	}
+
+	public String getFullName() {
         return fullName.get();
     }
     public void setFullName(String fullName) {

@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
 
 public class ChangeHeadController implements Initializable {
@@ -228,8 +229,9 @@ public class ChangeHeadController implements Initializable {
         return 1; 
     }
     @FXML
-    void checkSql(){
-
+    void SAS(){
+    	Stage stage = (Stage) buttonSaveAndSubmit.getScene().getWindow();
+        stage.close();
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {

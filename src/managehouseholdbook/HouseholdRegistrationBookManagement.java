@@ -127,6 +127,34 @@ public class HouseholdRegistrationBookManagement implements Initializable {
 		e.printStackTrace();
 		}
 	}
+
+    // public void changeToTemporaryResidenceAbsence(ActionEvent event) throws Exception {
+    //     try{
+    //         TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("thaydoisohokhau/ChangeHouseholdBook.fxml"));
+    //         root.getSelectionModel().select(1);
+    //         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    //         scene = new Scene(root); 
+    //         stage.setScene(scene); 
+    //     }
+    //     catch (Exception e){
+    //         System.out.println("Loi changeToTemporaryResidence ... trong class HouseholdBookRegistr... ");
+    //         System.out.println(e.getStackTrace());
+    //     }
+    // }
+
+	
+
+    public void changeToTemporaryAbsence(ActionEvent event){
+        try {
+            setNewSceneInSameWindow("/managehouseholdbook/tamtrutamvang/tamtrutamvang.fxml", event);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(getClass());
+            System.out.println("changeToTemporaryAbsence");
+        }
+    }
+
 	public void changeToTimKiem(ActionEvent event) {
 		try {
 			SQLConnection.ConnectData();
@@ -141,17 +169,4 @@ public class HouseholdRegistrationBookManagement implements Initializable {
 			e.printStackTrace();
 		}	
 	}
-    // public void changeToTemporaryResidenceAbsence(ActionEvent event) throws Exception {
-    //     try{
-    //         TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("thaydoisohokhau/ChangeHouseholdBook.fxml"));
-    //         root.getSelectionModel().select(1);
-    //         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    //         scene = new Scene(root); 
-    //         stage.setScene(scene); 
-    //     }
-    //     catch (Exception e){
-    //         System.out.println("Loi changeToTemporaryResidence ... trong class HouseholdBookRegistr... ");
-    //         System.out.println(e.getStackTrace());
-    //     }
-    // }
 }
