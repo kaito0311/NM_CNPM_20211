@@ -189,12 +189,13 @@ public class CreateNewHouseholdBookController implements Initializable {
         }
         
       //  System.out.println(this.getHostID(this.soCMND.getText()));
-        this.createNewBook();
+        
         if(this.tenChuHo.getText().equals("") || this.comboBoxThanhPho.getSelectionModel().getSelectedItem().equals("")
            || this.comboBoxPhuong.getSelectionModel().getSelectedItem().equals("") || this.comboBoxQuan.getSelectionModel().getSelectedItem().equals("")) {
         	JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ thông tin ");
         }else
         	{
+        	this.createNewBook();
         	JOptionPane.showMessageDialog(null,"Tạo sổ hộ khẩu thành công. Vui lòng chuyển sang chức năng thêm nhân khẩu để thêm thông tin các thành viên trong hộ khẩu");
  //       	this.changeToAddNewPerson(event);
         	}
@@ -202,6 +203,8 @@ public class CreateNewHouseholdBookController implements Initializable {
         
         System.out.println(this.comboBoxQuan.getSelectionModel().getSelectedItem());
         System.out.println(this.getDistrictID(this.comboBoxQuan.getSelectionModel().getSelectedItem()));
+        System.out.println(this.getHostID(this.soCMND.getText()));
+        System.out.println(this.getBookID(this.getHostID(this.soCMND.getText())));
     }
     
     public int getHostID(String identitycard) throws SQLException {
@@ -287,6 +290,7 @@ public class CreateNewHouseholdBookController implements Initializable {
     	String sql = "INSERT INTO [Household].[Book] (HeadID,ProvinceID,DistrictID,CommuneID,DetailAddress,CreatedDate) VALUES (?,?,?,?,?,?) ";
     	int headID = 0;
     	headID = this.getHostID(this.soCMND.getText());
+    	
     	try {
     		
     		PreparedStatement ps = ConnectDatabase.connection.prepareStatement(sql);
@@ -305,6 +309,44 @@ public class CreateNewHouseholdBookController implements Initializable {
     	}catch (Exception e){
     		e.printStackTrace();
     	}
+    	
+    	int bookID = this.getBookID1(headID);
+    	String text = "Chủ hộ";
+    	String sql1 = "insert into [Person].[Residence] (PersonID,ResidenceTypeID,PrePermanentAddress,BookID,RelationshipWithHead) values(?,?,?,?,?)";
+    	try {
+    		PreparedStatement ps = ConnectDatabase.connection.prepareStatement(sql1);
+    		ps.setInt(1, headID);
+    		ps.setInt(2,1);
+    		ps.setString(3,this.detailAddress.getText());
+    		ps.setInt(4, bookID);
+    		ps.setString(5,text);
+    		ps.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+    	
+    }
+    
+    
+    
+    public int getBookID1(int personID) {   // kiem tra mot nguoi nam trong ho khau nao
+    	ConnectDatabase.ConnectData();
+    	try {
+        	Statement st = ConnectDatabase.connection.createStatement();
+        	ResultSet rs;
+        	rs = st.executeQuery("SELECT BookID FROM [Household].[Book] WHERE HeadID ='"+ personID + "'; ");
+        	int id = 0;
+        	while(rs.next()) {
+        	  id = rs.getInt("BookID");
+        
+        	}
+        	return id;
+        	}
+        	catch (Exception e){
+        		System.err.println("Error");
+        	}
+    		return 0;
     }
     
     public int getBookID(int personID) {   // kiem tra mot nguoi nam trong ho khau nao
@@ -325,7 +367,6 @@ public class CreateNewHouseholdBookController implements Initializable {
         	}
     		return 0;
     }
-    
     
 
     @FXML

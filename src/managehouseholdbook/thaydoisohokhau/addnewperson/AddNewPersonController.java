@@ -114,9 +114,16 @@ public class AddNewPersonController implements Initializable {
     			|| this.huyenSinhRa.getText().equals("") || this.phuongSinhRa.getText().equals("") || this.quocGiaCuTru.getText().equals("")
     			|| this.thanhPhoCuTru.getText().equals("") || this.huyenCuTru.getText().equals("") || this.phuongCuTru.getText().equals("")) {
     		JOptionPane.showMessageDialog(null,"Vui lòng nhập đủ thông tin");
-    	}else {	
-        this.addNewPerson();
-        JOptionPane.showMessageDialog(null,"Thêm nhân khẩu thành công");
+    	}else {
+    		if(!this.soCCCD.getText().equals(""))
+    		{
+    			if(this.getCMND(this.soCCCD.getText()).equals(this.soCCCD.getText())) 
+    				JOptionPane.showMessageDialog(null, "Cá nhân này đã được khai báo trong dữ liệu dân cư");
+    				else {
+                    this.addNewPerson();
+                    JOptionPane.showMessageDialog(null,"Thêm nhân khẩu thành công");
+    		           }
+    			}
 //    	    System.out.println(this.thanhPhoCuTru.getText());
 //    		System.out.println(this.getProvinceID(this.thanhPhoCuTru.getText()));
 //            System.out.println(this.getNationID(this.quocGiaCuTru.getText()));
@@ -125,9 +132,10 @@ public class AddNewPersonController implements Initializable {
 //            System.out.println(this.getDistrictID(this.huyenCuTru.getText()));
 //    	System.out.println(this.getPersonID("Nguyễn Thị Huế"));
     	}
+    	}
 //    	System.out.println(this.getBookID(this.getHostID(this.maHoKhau.getText())));
-    	System.out.println(this.getEthnicID(this.danToc.getText()));
-    }
+//    	System.out.println(this.getEthnicID(this.danToc.getText()));
+    
 
     // them nhan khau moi
     public void addNewPerson() throws SQLException  {
@@ -155,7 +163,7 @@ public class AddNewPersonController implements Initializable {
     		e.printStackTrace();
     	}
     	int id = this.getPersonID(this.hoTen.getText());
-//    	System.out.println(id);
+    	System.out.println(id);
     	// them vao bang Person.BirthPlace
     	// Tạm thời để chú thích vì lỗi hiển thị Tiếng Việt
     	String sql1 = "insert into [Person].[BirthPlace] (PersonID,NationID,ProvinceID,DistrictID,CommuneID) values(?,?,?,?,?)";
@@ -254,6 +262,7 @@ public class AddNewPersonController implements Initializable {
         		e.printStackTrace();
         	}
     	}
+    	if(this.getBookID(this.getHostID(this.maHoKhau.getText()))!=0) {
     	// thêm vào bảng Residence
     	String sql6 = "insert into [Person].[Residence] (PersonID,ResidenceTypeID,PrePermanentAddress,BookID,RelationshipWithHead) values(?,?,?,?,?)";
     	try {
@@ -267,6 +276,7 @@ public class AddNewPersonController implements Initializable {
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
+    	}
     	
     	
     	
@@ -277,7 +287,7 @@ public class AddNewPersonController implements Initializable {
     	try {
     	Statement st = ConnectDatabase.connection.createStatement();
     	ResultSet rs;
-    	rs = st.executeQuery("SELECT PersonID FROM [Person].[Person] WHERE Fullname = N'"+ Fullname +"' AND  ");
+    	rs = st.executeQuery("SELECT PersonID FROM [Person].[Person] WHERE Fullname = N'"+ Fullname +"'");
     	int id = 0;
     	while(rs.next()) {
     	  id = rs.getInt(1);
@@ -411,6 +421,25 @@ public class AddNewPersonController implements Initializable {
        		return 0;
        	}
    		
+   }
+   
+   public String getCMND(String number) {
+	   ConnectDatabase.ConnectData();
+	   	try {
+	       	Statement st = ConnectDatabase.connection.createStatement();
+	       	ResultSet rs;
+	       	rs = st.executeQuery("SELECT Number FROM [Person].[IdentityCard] WHERE Number ='"+ number + "'; ");
+	       	String id = "";
+	       	while(rs.next()) {
+	       	  id = rs.getString("Number");
+	       
+	       	}
+	       	return id;
+	       	}
+	       	catch (Exception e){
+	       		System.err.println("Error");
+	       	}
+	   		return null;  
    }
 
    public int getBookID(int personID) {   // kiem tra mot nguoi nam trong ho khau nao

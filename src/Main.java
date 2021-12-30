@@ -16,8 +16,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			ConnectDatabase.ConnectData();
-//			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/createhouseholdbook/CreateNewHouseholdBook.fxml"));
-			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/tamtrutamvang/tamtrutamvang.fxml"));
+			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/createhouseholdbook/CreateNewHouseholdBook.fxml"));
+//  		TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("managehouseholdbook/tamtrutamvang/tamtrutamvang.fxml"));
 			double _scale = 0.75; 
 			root.getSelectionModel().select(1);
 			Scene scene = new Scene(root, Width, Height);
