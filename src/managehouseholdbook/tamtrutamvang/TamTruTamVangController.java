@@ -91,16 +91,18 @@ public class TamTruTamVangController implements Initializable {
     		return;
     	}
        //System.out.println("abc");
-    	this.addResidence(11);
+    	this.addResidence(2);
     	this.addTemporaryResidence();
 //    	System.out.println(this.getPersonID(this.hoTen.getText()));
+    	JOptionPane.showMessageDialog(null, "Đăng ký thành công!");
     }
 
     @FXML
     void dangKyTamVang(ActionEvent event) throws HeadlessException, SQLException {
-        this.addResidence(12);
+        this.addResidence(3);
     	this.addAbsent();
     System.out.println(this.quanHeChuHo.getText());
+	JOptionPane.showMessageDialog(null, "Đăng ký thành công!");
     }
     // them vao bang tam tru
     public void addTemporaryResidence() throws SQLException {

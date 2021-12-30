@@ -1,3 +1,12 @@
+.Screen_subutton_pressed{
+
+    -fx-background-color: white;
+
+    -fx-text-fill: #E7717D;
+
+    -fx-border-color: #E7717D;
+
+}
 .tab_button {
   -fx-background-color: #e7717d;
   -fx-text-fill: white;

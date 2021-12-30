@@ -22,7 +22,7 @@
             <Font size="16.0" />
          </font></TextField>
       <ComboBox fx:id="comboBoxMember" layoutX="35.0" layoutY="337.0" onAction="#comboBoxNamePersonChange" prefHeight="50.0" prefWidth="340.0" promptText="Chọn thành viên" style="-fx-font-size: 16;" />
-      <Button fx:id="buttonSaveAndSubmit" layoutX="595.0" layoutY="188.0" mnemonicParsing="false" onAction="#changeHead" prefHeight="50.0" prefWidth="100.0" text="Xác nhận">
+      <Button layoutX="595.0" layoutY="188.0" mnemonicParsing="false" onAction="#changeHead" prefHeight="50.0" prefWidth="100.0" text="Xác nhận">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>
@@ -51,7 +51,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="buttonSaveAndSubmit1" layoutX="279.0" layoutY="459.0" mnemonicParsing="false" onAction="#SaveAndSubmit" prefHeight="50.0" prefWidth="164.0" text="Lưu và thoát">
+      <Button fx:id="buttonSaveAndSubmit" layoutX="279.0" layoutY="459.0" mnemonicParsing="false" onAction="#SAS" prefHeight="50.0" prefWidth="164.0" text="Lưu và thoát">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -61,6 +61,9 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Label fx:id="labelConfirm" alignment="CENTER" layoutX="268.0" layoutY="387.0" prefHeight="28.0" prefWidth="186.0" text="Thay đổi thành công" />
+      <Label fx:id="labelConfirm" alignment="CENTER" layoutX="102.0" layoutY="387.0" prefHeight="28.0" prefWidth="541.0" textFill="#fa0808">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
    </children>
 </AnchorPane>
