@@ -306,10 +306,10 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <Button fx:id="submiButton" layoutX="540.0" layoutY="539.0" mnemonicParsing="false" onAction="#submitAndSave" prefHeight="58.0" styleClass="button-submit" stylesheets="@../ChangePersonStyle.css" text="Lưu thông tin thay đổi" />
-            <Label fx:id="confirmLabel" layoutX="537.0" layoutY="496.0" prefHeight="26.0" prefWidth="300.0" textAlignment="RIGHT" textFill="#ec0c0c">
+            <Button fx:id="submiButton" layoutX="570.0" layoutY="539.0" mnemonicParsing="false" onAction="#submitAndSave" prefHeight="58.0" styleClass="button-submit" stylesheets="@../ChangePersonStyle.css" text="Lưu thông tin thay đổi" />
+            <Label fx:id="confirmLabel" alignment="CENTER" layoutX="720.0" layoutY="505.0" textFill="RED">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
          </children>

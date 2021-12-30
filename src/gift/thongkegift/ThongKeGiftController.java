@@ -61,7 +61,9 @@ public class ThongKeGiftController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-
+		SQLConnection.ConnectData();
+		GetDataGiving.setGivingList();
+		SQLConnection.DisconnectData();
 		giftThongKeList = FXCollections.observableArrayList(GetDataGiving.danhSachNhanQua);
 		loadTable();
 		loadLabel();

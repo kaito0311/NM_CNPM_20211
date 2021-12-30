@@ -40,8 +40,9 @@ public class TKScholarController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-
-		
+		SQLConnection.ConnectData();
+		GetDataScholar.setScholarList();
+		SQLConnection.DisconnectData();
 		TKScholarList = FXCollections.observableArrayList(GetDataScholar.danhSachNhanQua);
 		loadTable();
 		loadLabel();

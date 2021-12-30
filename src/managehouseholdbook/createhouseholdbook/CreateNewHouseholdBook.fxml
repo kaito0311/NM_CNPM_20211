@@ -101,8 +101,7 @@
             <ComboBox id="combo-box" fx:id="comboBoxThanhPho" layoutX="263.0" layoutY="502.0" onAction="#comboBoxProvinceChanged" prefWidth="150.0" promptText="Tỉnh/thành phố" stylesheets="@CreateNewHouseholdBookStyle.css" />
             <ComboBox id="combo-box" fx:id="comboBoxPhuong" layoutX="261.0" layoutY="595.0" prefWidth="150.0" promptText="Xã/Xóm" stylesheets="@CreateNewHouseholdBookStyle.css" />
             <Text layoutX="619.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THÔNG TIN CHỦ HỘ" wrappingWidth="170.205078125" />
-            <TextField fx:id="tenChuHo" layoutX="263.0" layoutY="384.0" prefHeight="39.0" prefWidth="296.0" promptText="Họ và tên" />
-            <TextField fx:id="soCMND" layoutX="847.0" layoutY="384.0" prefHeight="39.0" prefWidth="299.0" promptText="Số CMND/CCCD" />
+            <TextField fx:id="soCMND" layoutX="530.0" layoutY="383.0" prefHeight="39.0" prefWidth="299.0" promptText="Số CMND/CCCD" />
             <Text layoutX="619.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THÔNG TIN HỘ KHẨU" wrappingWidth="189.599609375" />
             <TextField fx:id="detailAddress" layoutX="847.0" layoutY="586.0" prefHeight="53.0" prefWidth="303.0" promptText="Địa chỉ chi tiết" />
          </children>

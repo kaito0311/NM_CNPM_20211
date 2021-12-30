@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -733,9 +735,12 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
         if (isHead == true) {
 
             if (currentID != inforPerson.getResidence().getBookID()
-                    || !textFieldRelationWithHead.getText().toString().toLowerCase().equals("chủ hộ"))
+                    || !textFieldRelationWithHead.getText().toString().toLowerCase().equals("chủ hộ")) {
+            	System.out.println("Blablablab");
+            	confirmLabel.setVisible(true);
                 confirmLabel.setText("Không thể thay đổi mã sổ hộ khẩu và quan hệ của chủ hộ");
-            return;
+            	return;
+            }
         }
         // Kiểm tra xem có tồn tại ID không nếu nó thay đổi
         int hasCurrentID = 0;
@@ -934,7 +939,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
     }
 
     void changeIdentityCard() {
-        confirmLabel.setAlignment(Pos.CENTER);
+//        confirmLabel.setAlignment(Pos.CENTER);
         if (inforPerson.getCard() == null) {
             if (textFieldIdentityCard.getText().length() == 0
                     || textFieldRegisterDateIdentityCard.getText().length() == 0
@@ -1190,8 +1195,10 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
         changeBirthDate();
         changeEthnic();
         changeNationality();
-        Stage stage = (Stage) submiButton.getScene().getWindow();
-        stage.close();
+        if (confirmLabel.getText().equals("Lưu thành công") || confirmLabel.getText().length() == 0)
+        	confirmLabel.setText("Lưu thành công");
+//        Stage stage = (Stage) submiButton.getScene().getWindow();
+//        stage.close();
     }
 
     @Override

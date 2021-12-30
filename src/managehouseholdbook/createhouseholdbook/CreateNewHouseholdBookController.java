@@ -58,7 +58,6 @@ public class CreateNewHouseholdBookController implements Initializable {
     public ComboBox<String> comboBoxPhuong;
     @FXML
     public Button xacNhan;
-    public TextField tenChuHo;
     public TextField soCMND;
     public TextField detailAddress;
     //   public AddNewPersonController addPerson;
@@ -182,6 +181,11 @@ public class CreateNewHouseholdBookController implements Initializable {
 
     public void xacNhan(ActionEvent event) throws Exception {
         System.out.println(this.soCMND.getText());
+        if(this.soCMND.getText().length() == 0) {
+        	JOptionPane.showMessageDialog(null,"Vui lòng nhập đủ thông tin");
+        	return;        	
+        }
+        
         if(this.getHostID(this.soCMND.getText()) == 0) {
         	JOptionPane.showMessageDialog(null,"Chủ hộ chưa tồn tại trong dữ liệu dân cư. Vui lòng thêm thông tin về chủ hộ trong phần thêm nhân khẩu");
         	return;
@@ -192,12 +196,13 @@ public class CreateNewHouseholdBookController implements Initializable {
         }
         
       //  System.out.println(this.getHostID(this.soCMND.getText()));
-        this.createNewBook();
-        if(this.tenChuHo.getText().equals("") || this.comboBoxThanhPho.getSelectionModel().getSelectedItem().equals("")
-           || this.comboBoxPhuong.getSelectionModel().getSelectedItem().equals("") || this.comboBoxQuan.getSelectionModel().getSelectedItem().equals("")) {
+
+        if(this.comboBoxThanhPho.getSelectionModel().getSelectedIndex() == -1
+           || this.comboBoxPhuong.getSelectionModel().getSelectedIndex() == -1 || this.comboBoxQuan.getSelectionModel().getSelectedIndex() == -1) {
         	JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ thông tin ");
         }else
         	{
+            this.createNewBook();
         	JOptionPane.showMessageDialog(null,"Tạo sổ hộ khẩu thành công. Vui lòng chuyển sang chức năng thêm nhân khẩu để thêm thông tin các thành viên trong hộ khẩu");
  //       	this.changeToAddNewPerson(event);
         	}
@@ -288,6 +293,7 @@ public class CreateNewHouseholdBookController implements Initializable {
     public void createNewBook() throws SQLException {
     	ConnectDatabase.ConnectData();
     	String sql = "INSERT INTO [Household].[Book] (HeadID,ProvinceID,DistrictID,CommuneID,DetailAddress,CreatedDate) VALUES (?,?,?,?,?,?) ";
+    	String sql1 = "update Person.Residence set BookID = (select max(bookID) from Household.Book), RelationshipWithHead = N'Chủ hộ' where PersonID = ?";
     	int headID = 0;
     	headID = this.getHostID(this.soCMND.getText());
     	try {
@@ -304,6 +310,9 @@ public class CreateNewHouseholdBookController implements Initializable {
     		ps.setDate(6, modifiedDate);
     		ps.executeUpdate();
     	
+    		ps = ConnectDatabase.connection.prepareStatement(sql1);
+    		ps.setInt(1, headID);
+    		ps.executeUpdate();
     		
     	}catch (Exception e){
     		e.printStackTrace();

@@ -18,7 +18,7 @@ public class SQLConnection {
 	
 	public static void ConnectData() {
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://DAT\\SQLEXPRESS;databaseName=PopulationManagement", "kdat194011", "datbk21094011");
+			connection = DriverManager.getConnection("jdbc:sqlserver://DAT\\SQLEXPRESS;databaseName=PopulationManagement", "sa", "datbk21094011");
 			statement = connection.createStatement();
 			
 		} catch (SQLException e) {

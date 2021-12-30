@@ -84,6 +84,8 @@ public class ChangeHeadController implements Initializable {
               System.out.println(e.getMessage());
               System.out.println(getClass());
               System.out.println("Change Head");
+              labelConfirm.setText("Mời nhập lại");
+              return;
            }
 
         //    takeInforMember(Integer.parseInt(textFieldBookID.getText()));

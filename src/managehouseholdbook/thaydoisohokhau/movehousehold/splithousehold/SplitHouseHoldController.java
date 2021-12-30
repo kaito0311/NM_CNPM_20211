@@ -24,6 +24,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 import managehouseholdbook.ConnectDatabase;
 
 public class SplitHouseHoldController implements Initializable {
@@ -238,6 +239,8 @@ public class SplitHouseHoldController implements Initializable {
     @FXML
     void show() {
         updateToDatabase();
+        Stage stage = (Stage) submit.getScene().getWindow();
+        stage.close();
     }
 
 }

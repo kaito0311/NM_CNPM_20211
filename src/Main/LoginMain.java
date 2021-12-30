@@ -18,6 +18,7 @@ public class LoginMain extends Application {
 			Scene scene = new Scene(root,800,670);
 			scene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Phần mềm quản lý dân cư");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -25,11 +26,10 @@ public class LoginMain extends Application {
 	}
 	
 	public static void main(String[] args) {
-//		SQLConnection.ConnectData();
-//		SQLConnection.setList();
-//		GetDataGiving.setGivingList();
-//		GetDataScholar.setScholarList();
-//		SQLConnection.DisconnectData();
+
+
+
+
 		launch(args);
 	}
 }

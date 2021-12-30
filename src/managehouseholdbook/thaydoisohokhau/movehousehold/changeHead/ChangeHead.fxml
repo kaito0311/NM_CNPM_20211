@@ -61,6 +61,9 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Label fx:id="labelConfirm" alignment="CENTER" layoutX="268.0" layoutY="387.0" prefHeight="28.0" prefWidth="186.0" text="Thay đổi thành công" />
+      <Label fx:id="labelConfirm" alignment="CENTER" layoutX="102.0" layoutY="387.0" prefHeight="28.0" prefWidth="541.0" textFill="#fa0808">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
    </children>
 </AnchorPane>

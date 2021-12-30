@@ -229,7 +229,7 @@
 	-fx-background-color: #E7717D;
 	-fx-text-fill:white;
 }
-#SCREEN2_button1{
+/*#SCREEN2_button1{
 	-fx-background-color: #E7717D;
 	-fx-text-fill:white;
 }
@@ -300,7 +300,7 @@
 #SCREEN2_subbutton2:pressed{
 	-fx-background-color: pink;
 	-fx-text-fill:white;
-}
+}*/
 
 
 

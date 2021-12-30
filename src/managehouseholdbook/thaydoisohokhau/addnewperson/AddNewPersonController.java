@@ -492,8 +492,8 @@ public class AddNewPersonController implements Initializable {
 				|| this.comboBoxOriginDistrict.getSelectionModel().getSelectedIndex() == -1
 				|| this.comboBoxOriginCommune.getSelectionModel().getSelectedIndex() == -1
 
-				|| this.quanHeVoiChuHo.getText().length() == 0
-				|| this.maHoKhau.getText().length() == 0) {
+				/*|| this.quanHeVoiChuHo.getText().length() == 0
+				|| this.maHoKhau.getText().length() == 0*/) {
 			JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ thông tin");
 		} else {
 			this.addNewPerson();
@@ -730,8 +730,14 @@ public class AddNewPersonController implements Initializable {
     		ps.setInt(1, id);
     		ps.setInt(2,1);
     		ps.setString(3,"NULL");
-    		ps.setInt(4, this.getBookID(this.getHostID(this.maHoKhau.getText())));
-    		ps.setString(5,this.quanHeVoiChuHo.getText());
+    		if (this.maHoKhau.getText().length() == 0)
+    			ps.setInt(4, 0);
+    		else 
+    			ps.setInt(4, this.getBookID(this.getHostID(this.maHoKhau.getText())));
+    		if (this.quanHeVoiChuHo.getText().length() == 0)
+    			ps.setString(5, null);
+    		else 
+    			ps.setString(5,this.quanHeVoiChuHo.getText());
     		ps.executeUpdate();
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -740,6 +746,7 @@ public class AddNewPersonController implements Initializable {
 	}
 
 	public int getHostID(String identitycard) throws SQLException {
+		
     	ConnectDatabase.ConnectData();
     	try {
         	Statement st = ConnectDatabase.connection.createStatement();
