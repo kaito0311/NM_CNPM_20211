@@ -2,11 +2,13 @@ package thongke.gioitinh;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import org.controlsfx.control.CheckComboBox;
 
+import ConnectDB.ConnectToDB;
 import database.SQLConnection;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
@@ -69,7 +71,7 @@ public class GioiTinhController implements Initializable {
 		fullNameCol.setCellValueFactory(cellData -> 
 			new SimpleStringProperty(cellData.getValue().getPerson().getFullName()));
 		birthCol.setCellValueFactory(cellData -> 
-			new SimpleStringProperty(cellData.getValue().getPerson().getBirthDate().toString()));
+			new SimpleStringProperty(ConnectToDB.VNDF.format(Date.valueOf(cellData.getValue().getPerson().getBirthDate().toString()))));
 		genderCol.setCellValueFactory(cellData -> 
 			new SimpleStringProperty(cellData.getValue().getPerson().getGender()));
 

@@ -83,15 +83,18 @@ public class TamTruTamVangController implements Initializable {
   
     @FXML
     void dangKyTamTru(ActionEvent event) throws SQLException {
-    	if(this.hoTen.getText().equals("") || this.gioiTinh.getValue().equals("") || this.diaChiTamTru.getText().equals("")
+    	if(this.hoTen.getText().equals("") || this.diaChiTamTru.getText().equals("")
     			|| this.diaChiThuongTru.getText().equals("") )
+    	{
 				JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ thông tin");
+				return;
+    	}
     	if(this.getPersonID(this.hoTen.getText()) == 0) {
     		JOptionPane.showMessageDialog(null, "Cá nhân chưa có ID. Vui lòng chọn chức năng thêm nhân khẩu để cập nhật ID");
     		return;
     	}
        //System.out.println("abc");
-    	this.addResidence(2);
+    	this.updateResidence(2);;
     	this.addTemporaryResidence();
 //    	System.out.println(this.getPersonID(this.hoTen.getText()));
     	JOptionPane.showMessageDialog(null, "Đăng ký thành công!");
@@ -99,10 +102,21 @@ public class TamTruTamVangController implements Initializable {
 
     @FXML
     void dangKyTamVang(ActionEvent event) throws HeadlessException, SQLException {
-        this.addResidence(3);
+    	if(this.hoTen.getText().equals("") || this.diaChiTamTru.getText().equals("")
+    			|| this.diaChiThuongTru.getText().equals("") )
+    	{
+				JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ thông tin");
+				return;
+    	}
+    	if(this.getPersonID(this.hoTen.getText()) == 0) {
+    		JOptionPane.showMessageDialog(null, "Cá nhân không thuộc nhân khẩu tại địa phương. Không thể khai báo tạm vắng");
+    		return;
+    	}
+       //System.out.println("abc");
+    	this.updateResidence(3);;
     	this.addAbsent();
-    System.out.println(this.quanHeChuHo.getText());
-	JOptionPane.showMessageDialog(null, "Đăng ký thành công!");
+//    	System.out.println(this.getPersonID(this.hoTen.getText()));
+    	JOptionPane.showMessageDialog(null, "Đăng ký thành công!");
     }
     // them vao bang tam tru
     public void addTemporaryResidence() throws SQLException {
@@ -186,6 +200,20 @@ public class TamTruTamVangController implements Initializable {
     	
     }
 
+    public void updateResidence(int i) throws SQLException {
+    	ConnectDatabase.ConnectData();
+    	if(this.getPersonID(this.hoTen.getText())>0) {
+    		String sql2 = "update [Person].[Residence]" + " set ResidenceTypeID = ?"  +" where PersonID = ?";
+    		try {
+    			PreparedStatement ps = ConnectDatabase.connection.prepareStatement(sql2);
+    			ps.setInt(1, i);
+    			ps.setInt(2,this.getPersonID(this.hoTen.getText()));
+    			ps.executeUpdate();
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
+    }
     
     public int getBookID(int personID) {   // kiem tra mot nguoi nam trong ho khau nao
     	ConnectDatabase.ConnectData();

@@ -70,11 +70,10 @@
                               <TableView id="thoi-gian-table" fx:id="thoiGianTable" minHeight="528.0" minWidth="859.0" prefHeight="528.0" prefWidth="1412.0">
                                  <columns>
                                     <TableColumn id="stt-column" fx:id="STTCol" maxWidth="-1.0" minWidth="50.0" prefWidth="50.0" text="STT" />
-                                    <TableColumn id="ho-ten-column" fx:id="fullNameCol" maxWidth="365.6666564941406" minWidth="200.0" prefWidth="365.6666564941406" text="Họ tên" />
-                                    <TableColumn id="ngay-sinh-column" fx:id="birthCol" maxWidth="234.66665649414062" minWidth="96.33331298828125" prefWidth="120.66668701171875" text="Ngày sinh" />
-                                    <TableColumn id="ma-ho-khau-column" fx:id="maHKCol" maxWidth="371.9999694824219" minWidth="120.0" prefWidth="212.33331298828125" text="Mã hộ khẩu" />
-                                    <TableColumn id="chu-ho-column" fx:id="chuHoCol" maxWidth="612.0000610351562" minWidth="184.0" prefWidth="450.0" text="Chủ hộ" />
-                                    <TableColumn id="quan-he-column" fx:id="qHevsChuHoCol" maxWidth="721.0" minWidth="140.0" prefWidth="219.666748046875" text="Quan hệ với chủ hộ" />
+                                    <TableColumn id="ho-ten-column" fx:id="fullNameCol" maxWidth="551.3333435058594" minWidth="200.0" prefWidth="551.3333435058594" text="Họ tên" />
+                                    <TableColumn id="ngay-sinh-column" fx:id="birthCol" maxWidth="366.3333740234375" minWidth="96.33331298828125" prefWidth="181.66665649414062" text="Ngày sinh" />
+                                    <TableColumn id="ma-ho-khau-column" fx:id="maHKCol" maxWidth="524.9999389648438" minWidth="120.0" prefWidth="279.6666259765625" text="Mã hộ khẩu" />
+                                    <TableColumn id="quan-he-column" fx:id="qHevsChuHoCol" maxWidth="721.0" minWidth="140.0" prefWidth="349.00006103515625" text="Quan hệ với chủ hộ" />
                                  </columns>
                                  <contextMenu>
                                     <ContextMenu>

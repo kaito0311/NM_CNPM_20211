@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import javax.swing.JOptionPane;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -71,7 +69,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
     int indexBirthNation = -1;
 
     ////////////////////////////////////////////////////////////
-    ObservableList<String> listGioiTinh = FXCollections.observableArrayList("Nữ", "Nam", "LGBT");
+    ObservableList<String> listGioiTinh = FXCollections.observableArrayList("Nữ", "Nam");
     @FXML
     public ComboBox<String> gender;
     @FXML
@@ -677,7 +675,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
         textFieldBookID.setText(Integer.toString(inforPerson.getResidence().getBookID()));
         textFieldRelationWithHead.setText(inforPerson.getResidence().getRelaWithHead());
 
-        if (inforPerson.getCard() != null) {
+        if (inforPerson.getCard().getRegisterPlace() != null) {
             textFieldIdentityCard.setText(inforPerson.getCard().getNumber());
             textFieldRegisterDateIdentityCard.setText(inforPerson.getCard().getRegisterDate().toString());
             textFieldRegisterPlaceIdentityCard.setText(inforPerson.getCard().getRegisterPlace());
@@ -721,6 +719,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
         // Lấy tên người
 
         if (takeInforFromDatabase()) {
+        	System.out.println("DBDBDB");
             fillPopup();
             return true;
         } else
@@ -735,12 +734,12 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
         if (isHead == true) {
 
             if (currentID != inforPerson.getResidence().getBookID()
-                    || !textFieldRelationWithHead.getText().toString().toLowerCase().equals("chủ hộ")) {
-            	System.out.println("Blablablab");
-            	confirmLabel.setVisible(true);
-                confirmLabel.setText("Không thể thay đổi mã sổ hộ khẩu và quan hệ của chủ hộ");
-            	return;
-            }
+                    || !textFieldRelationWithHead.getText().toString().toLowerCase().equals("chủ hộ"))
+                    {
+
+                        confirmLabel.setText("Không thể thay đổi mã sổ hộ khẩu và quan hệ của chủ hộ");
+                    return;
+                    }
         }
         // Kiểm tra xem có tồn tại ID không nếu nó thay đổi
         int hasCurrentID = 0;
@@ -767,7 +766,17 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
             if (currentID != inforPerson.getResidence().getBookID() || !textFieldRelationWithHead.getText()
                     .equals(inforPerson.getResidence().getRelaWithHead())) {
                 if (isDuplicateRelation11(currentID))
+                {
+                    confirmLabel.setText("Quan hệ với chủ hộ không đúng.");
                     return;
+                }
+                if(isHead != true){
+                    if(textFieldRelationWithHead.getText().toLowerCase().equals("chủ hộ")){
+                        confirmLabel.setText("Quan hệ với chủ hộ không đúng");
+                        return;
+                    };
+
+                }
 
                 sql = "update Person.Residence"
                         + " set BookID = '" + currentID + "', relationshipwithhead = N'" +
@@ -802,6 +811,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                 || comboBoxOriginProvince.getSelectionModel().getSelectedIndex() == -1
                 || comboBoxOriginDistrict.getSelectionModel().getSelectedIndex() == -1
                 || comboBoxOriginCommune.getSelectionModel().getSelectedIndex() == -1) {
+            confirmLabel.setText("Nhập đủ thông tin nguyên quán");
             return;
         }
 
@@ -840,6 +850,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                     System.out.println(e.getMessage());
                     System.out.println(getClass());
                     System.out.println("changeOriginPlace");
+                    confirmLabel.setText("Lỗi thay đổi nguyên quán");
                 }
             }
         }
@@ -857,6 +868,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                 || comboBoxBirthProvince.getSelectionModel().getSelectedIndex() == -1
                 || comboBoxBirthDistrict.getSelectionModel().getSelectedIndex() == -1
                 || comboBoxBirthCommune.getSelectionModel().getSelectedIndex() == -1) {
+                    confirmLabel.setText("Nhập đủ thông tin nơi sinh");
             return; // add alert
         }
         if (hasChange == 1) {
@@ -895,6 +907,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                     System.out.println(e.getMessage());
                     System.out.println(getClass());
                     System.out.println("changeBirthPlace");
+                    confirmLabel.setText("Lỗi thay đổi nơi sinh");
                 }
             }
         }
@@ -916,81 +929,89 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                     System.out.println(e.getMessage());
                     System.out.println(getClass());
                     System.out.println("Change Work and Place " + sql);
+                    confirmLabel.setText("Lỗi thay đổi công việc ");
                 }
-
+                
             }
         } else {
             if (!textFieldWork.getText().toLowerCase().equals(inforPerson.getWork().getJob().toLowerCase())
                     || !textFieldWorkPlace.getText().toLowerCase().equals(inforPerson.getWork().getPlace())) {
-                String sql = "update Person.Work set Person.Work.Job = ?, Person.Work.Place = ? where Person.Work.PersonID = ?";
-                try {
-                    PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
-                    preparedStatement.setString(1, textFieldWork.getText());
-                    preparedStatement.setString(2, textFieldWorkPlace.getText());
-                    preparedStatement.setString(3, Integer.toString(inforPerson.getPerson().getPersonID()));
-                    preparedStatement.executeUpdate();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                    System.out.println(getClass());
-                    System.out.println("Change Work and Place " + sql);
+                        String sql = "update Person.Work set Person.Work.Job = ?, Person.Work.Place = ? where Person.Work.PersonID = ?";
+                        try {
+                            PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
+                            preparedStatement.setString(1, textFieldWork.getText());
+                            preparedStatement.setString(2, textFieldWorkPlace.getText());
+                            preparedStatement.setString(3, Integer.toString(inforPerson.getPerson().getPersonID()));
+                            preparedStatement.executeUpdate();
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                            System.out.println(getClass());
+                            System.out.println("Change Work and Place " + sql);
+                            confirmLabel.setText("Lỗi thay đổi nơi làm việc ");
                 }
             }
         }
     }
 
     void changeIdentityCard() {
-//        confirmLabel.setAlignment(Pos.CENTER);
-        if (inforPerson.getCard() == null) {
-            if (textFieldIdentityCard.getText().length() == 0
-                    || textFieldRegisterDateIdentityCard.getText().length() == 0
-                    || textFieldRegisterPlaceIdentityCard.getText().length() == 0) {
-                return; // add alert nhaajp thieu
-            }
-            {
-
-            }
-            if (textFieldIdentityCard.getText().length() != 0
-                    || textFieldRegisterDateIdentityCard.getText().length() != 0
-                    || textFieldRegisterPlaceIdentityCard.getText().length() != 0) {
-                String sql = "insert into Person.IdentityCard  values  ('" + inforPerson.getPerson().getPersonID()
-                        + "', '" + textFieldIdentityCard.getText() + "', '"
-                        + textFieldRegisterDateIdentityCard.getText() + "', N'"
-                        + textFieldRegisterPlaceIdentityCard.getText() + "') ;";
-                System.out.println(sql);
-                try {
-                    int rows = ConnectDatabase.statement.executeUpdate(sql);
-                    System.out.println("rows: " + rows);
-
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                    System.out.println(getClass());
-                    System.out.println("changeIdentityCard + insert value");
-                    return;
-
+        // confirmLabel.setAlignment(Pos.CENTER);
+        try {
+            if (inforPerson.getCard() == null) {
+                if (textFieldIdentityCard.getText().length() == 0
+                        || textFieldRegisterDateIdentityCard.getText().length() == 0
+                        || textFieldRegisterPlaceIdentityCard.getText().length() == 0) {
+                    return; // add alert nhaajp thieu
                 }
-
-            }
-        } else {
-            if (!textFieldIdentityCard.getText().equals(inforPerson.getCard().getNumber())
-                    || !textFieldRegisterDateIdentityCard.getText()
-                            .equals(inforPerson.getCard().getRegisterDate().toString())
-                    || !textFieldRegisterPlaceIdentityCard.getText().equals(inforPerson.getCard().getRegisterPlace())) {
-                String sql = "update Person.identityCard set number = '" + textFieldIdentityCard.getText()
-                        + "', registerdate = '" + textFieldRegisterDateIdentityCard.getText() + "', registerplace = N'"
-                        + textFieldRegisterPlaceIdentityCard.getText() + "' where personid = '"
-                        + inforPerson.getPerson().getPersonID() + "'; ";
-                try {
-                    // int rows =
-                    ConnectDatabase.statement.executeUpdate(sql);
-
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                    System.out.println(getClass());
-                    System.out.println("change identitycard + change value");
-                    return;
+                {
+    
                 }
+                if (textFieldIdentityCard.getText().length() != 0
+                        || textFieldRegisterDateIdentityCard.getText().length() != 0
+                        || textFieldRegisterPlaceIdentityCard.getText().length() != 0) {
+                    String sql = "insert into Person.IdentityCard  values  ('" + inforPerson.getPerson().getPersonID()
+                            + "', '" + textFieldIdentityCard.getText() + "', '"
+                            + textFieldRegisterDateIdentityCard.getText() + "', N'"
+                            + textFieldRegisterPlaceIdentityCard.getText() + "') ;";
+                    System.out.println(sql);
+                    try {
+                        int rows = ConnectDatabase.statement.executeUpdate(sql);
+                        System.out.println("rows: " + rows);
+    
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        System.out.println(getClass());
+                        System.out.println("changeIdentityCard + insert value");
+                        return;
+    
+                    }
+    
+                }
+            } else {
+                if (!textFieldIdentityCard.getText().equals(inforPerson.getCard().getNumber())
+                        || !textFieldRegisterDateIdentityCard.getText()
+                                .equals(inforPerson.getCard().getRegisterDate().toString())
+                        || !textFieldRegisterPlaceIdentityCard.getText().equals(inforPerson.getCard().getRegisterPlace())) {
+                    String sql = "update Person.identityCard set number = '" + textFieldIdentityCard.getText()
+                            + "', registerdate = '" + textFieldRegisterDateIdentityCard.getText() + "', registerplace = N'"
+                            + textFieldRegisterPlaceIdentityCard.getText() + "' where personid = '"
+                            + inforPerson.getPerson().getPersonID() + "'; ";
+                    try {
+                        // int rows =
+                        ConnectDatabase.statement.executeUpdate(sql);
+    
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        System.out.println(getClass());
+                        System.out.println("change identitycard + change value");
+                        confirmLabel.setText("Lỗi cccd");
+                        return;
+                    }
+                }
+    
             }
-
+            
+        } catch (Exception e) {
+            confirmLabel.setText("Lỗi ngày đăng ký cccd");
         }
 
         // confirmLabel.setText("Lưu thành công");
@@ -1014,25 +1035,31 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
         }
     }
     void changeNationality(){
-        int index = comboBoxNationality.getSelectionModel().getSelectedIndex();
-        if(!listNationality.get(index).equals(inforPerson.getPerson().getNationalityID())){
-            String sql = null;
-            try {
-                sql = "update Person.Person set NationalityID = ? where PersonID = ?"; 
-                PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
-                preparedStatement.setString(1, listNationalityID.get(index));
-                preparedStatement.setInt(2, inforPerson.getPerson().getPersonID());
-                preparedStatement.executeUpdate();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-                System.out.println(getClass());
-                System.out.println(sql);
+        try {
+            int index = comboBoxNationality.getSelectionModel().getSelectedIndex();
+            if(!listNationality.get(index).equals(inforPerson.getPerson().getNationalityID())){
+                String sql = null;
+                try {
+                    sql = "update Person.Person set NationalityID = ? where PersonID = ?"; 
+                    PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
+                    preparedStatement.setString(1, listNationalityID.get(index));
+                    preparedStatement.setInt(2, inforPerson.getPerson().getPersonID());
+                    preparedStatement.executeUpdate();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    System.out.println(getClass());
+                    System.out.println(sql);
+                    confirmLabel.setText("Lỗi dân tộc");
+                }
             }
+        } catch (Exception e) {
+            confirmLabel.setText("Lỗi dân tộc");
         }
     }
 
     void changeFullName() {
         if (textFieldNamePerson.getText().length() == 0) {
+            confirmLabel.setText("Tên không được để trống");
             return;
         }
         if (!textFieldNamePerson.getText().equals(inforPerson.getPerson().getFullName())) {
@@ -1047,7 +1074,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                 System.out.println(e.getMessage());
                 System.out.println(getClass());
                 System.out.println("changeFullName");
-
+                confirmLabel.setText("Lỗi thay đổi họ tên");
                 return;
 
             }
@@ -1075,7 +1102,8 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                 System.out.println(e.getMessage());
                 System.out.println(getClass());
                 System.out.println("changeNickName");
-
+                confirmLabel.setText("Lỗi thay đổi biệt danh");
+                
                 return;
 
             }
@@ -1093,7 +1121,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
                 System.out.println(e.getMessage());
                 System.out.println(getClass());
                 System.out.println("changeNickName");
-
+                confirmLabel.setText("Lỗi thay đổi biệt danh");
                 return;
 
             }
@@ -1130,21 +1158,23 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
         }
 
         if (!textFieldBirthDate.getText().equals(inforPerson.getPerson().getBirthDate().toString())) {
-            if (textFieldBirthDate.getText().length() == 0
-                    || LocalDate.parse(textFieldBirthDate.getText()).isAfter(LocalDate.now())) {
-                System.out.println("oke ổn");
-                return;
-            }
-            inforPerson.getPerson().getBirthDate().compareTo(LocalDate.now());
-            String sql = "update Person.person set birthdate = '" + textFieldBirthDate.getText()
-                    + "' where personid = '" + inforPerson.getPerson().getPersonID() + "'; ";
             try {
+                if (textFieldBirthDate.getText().length() == 0
+                        || LocalDate.parse(textFieldBirthDate.getText()).isAfter(LocalDate.now())) {
+                    System.out.println("oke ổn");
+                    confirmLabel.setText("Lỗi ngày sinh");
+                    return;
+                }
+                inforPerson.getPerson().getBirthDate().compareTo(LocalDate.now());
+                String sql = "update Person.person set birthdate = '" + textFieldBirthDate.getText()
+                        + "' where personid = '" + inforPerson.getPerson().getPersonID() + "'; ";
                 // int rows =
                 ConnectDatabase.statement.executeUpdate(sql);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 System.out.println(getClass());
                 System.out.println("change Birth Date");
+                confirmLabel.setText("Lỗi ngày sinh");
                 return;
             }
 
@@ -1184,6 +1214,7 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
     @FXML
     void submitAndSave(ActionEvent event) {
         confirmLabel.setText("");
+        confirmLabel.setVisible(true);;
         changeBookIDAndRelationshipWithHead();
         changeOriginPlace();
         changeBirthPlace();
@@ -1195,10 +1226,9 @@ public class PopupInforPersonController extends AnchorPane implements Initializa
         changeBirthDate();
         changeEthnic();
         changeNationality();
-        if (confirmLabel.getText().equals("Lưu thành công") || confirmLabel.getText().length() == 0)
-        	confirmLabel.setText("Lưu thành công");
-//        Stage stage = (Stage) submiButton.getScene().getWindow();
-//        stage.close();
+        if(confirmLabel.getText().equals("Lưu thành công") || confirmLabel.getText().length() == 0){
+            confirmLabel.setText("Lưu thành công");
+        } 
     }
 
     @Override

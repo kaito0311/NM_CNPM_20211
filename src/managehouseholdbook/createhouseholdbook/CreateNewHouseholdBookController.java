@@ -190,7 +190,7 @@ public class CreateNewHouseholdBookController implements Initializable {
         	JOptionPane.showMessageDialog(null,"Chủ hộ chưa tồn tại trong dữ liệu dân cư. Vui lòng thêm thông tin về chủ hộ trong phần thêm nhân khẩu");
         	return;
         }
-        if(this.getBookID(this.getHostID(this.soCMND.getText())) != 0) {
+        if(this.getBookID(this.getHostID(this.soCMND.getText())) != 0 || this.getBookID1(this.getHostID(this.soCMND.getText())) != 0 ) {
         	JOptionPane.showMessageDialog(null, "Chủ hộ hiện đang nằm trong một sổ hộ khẩu khác.Để tạo sổ hộ khẩu mới vui lòng chọn chức năng tách sổ hộ khẩu");
         	return;
         }
@@ -248,6 +248,26 @@ public class CreateNewHouseholdBookController implements Initializable {
     	}
 		return null;
     }
+    
+    public int getBookID1(int personID) {   // kiem tra mot nguoi nam trong ho khau nao
+    	ConnectDatabase.ConnectData();
+    	try {
+        	Statement st = ConnectDatabase.connection.createStatement();
+        	ResultSet rs;
+        	rs = st.executeQuery("SELECT BookID FROM [Household].[Book] WHERE HeadID ='"+ personID + "'; ");
+        	int id = 0;
+        	while(rs.next()) {
+        	  id = rs.getInt("BookID");
+        
+        	}
+        	return id;
+        	}
+        	catch (Exception e){
+        		System.err.println("Error");
+        	}
+    		return 0;
+    }
+
    
     public String getProvinceID(String Province) throws SQLException {
     	ConnectDatabase.ConnectData();
@@ -296,6 +316,7 @@ public class CreateNewHouseholdBookController implements Initializable {
     	String sql1 = "update Person.Residence set BookID = (select max(bookID) from Household.Book), RelationshipWithHead = N'Chủ hộ' where PersonID = ?";
     	int headID = 0;
     	headID = this.getHostID(this.soCMND.getText());
+    	
     	try {
     		
     		PreparedStatement ps = ConnectDatabase.connection.prepareStatement(sql);
@@ -317,6 +338,22 @@ public class CreateNewHouseholdBookController implements Initializable {
     	}catch (Exception e){
     		e.printStackTrace();
     	}
+    	
+    	int bookID = this.getBookID1(headID);
+    	String text = "Chủ hộ";
+    	String sql2 = "insert into [Person].[Residence] (PersonID,ResidenceTypeID,PrePermanentAddress,BookID,RelationshipWithHead) values(?,?,?,?,?)";
+    	try {
+    		PreparedStatement ps = ConnectDatabase.connection.prepareStatement(sql2);
+    		ps.setInt(1, headID);
+    		ps.setInt(2,1);
+    		ps.setString(3,this.detailAddress.getText());
+    		ps.setInt(4, bookID);
+    		ps.setString(5,text);
+    		ps.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+
     }
     
     public int getBookID(int personID) {   // kiem tra mot nguoi nam trong ho khau nao

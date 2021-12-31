@@ -231,16 +231,7 @@
                         <ComboBox fx:id="comboBoxBirthCommune" layoutX="89.0" layoutY="17.0" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
-                     <children>
-                        <Label layoutY="15.0" prefHeight="26.0" prefWidth="98.0" text="Số nhà:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="98.0" layoutY="15.0" />
-                     </children>
-                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
                      <children>
                         <Label layoutY="3.0" prefHeight="26.0" prefWidth="98.0" text="Quê quán (*):">
@@ -260,16 +251,7 @@
                         <ComboBox fx:id="comboBoxOriginCommune" layoutX="90.0" layoutY="12.0" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                     <children>
-                        <Label layoutY="15.0" prefHeight="26.0" prefWidth="98.0" text="Số nhà:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="98.0" layoutY="15.0" />
-                     </children>
-                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
                      <children>
                         <Label layoutY="15.0" prefHeight="26.0" prefWidth="98.0" text="Quận/Huyện:">

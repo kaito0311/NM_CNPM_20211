@@ -23,11 +23,9 @@ public class MainController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		if (SQLConnection.danhSachNhanKhau.size() < 1) {
 			SQLConnection.ConnectData();
 			SQLConnection.setList();
 			SQLConnection.DisconnectData();
-		}
 	}
 	
 	public void changeToThongKeHome(ActionEvent event) {

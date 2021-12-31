@@ -51,6 +51,8 @@ public class SplitHouseHoldController implements Initializable {
     Label labelNewHead;
     @FXML 
     Label labelNewBook;
+    @FXML
+    Label labelConfirm;
 
     ObservableList<ChangeMember> listMem = FXCollections.observableArrayList();
 
@@ -89,6 +91,11 @@ public class SplitHouseHoldController implements Initializable {
     void changeBookForMember(int index) {
         String sql = null;
         try {
+        	if(listMem.get(index).idHoKhau.getSelectionModel().getSelectedIndex() == -1)
+            {
+                labelConfirm.setText("Chọn hộ khẩu");
+                return;
+            }
             sql = "update person.residence set bookid = ?, relationshipwithhead = ?  where personid = ?";
             PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
             preparedStatement.setString(1,
@@ -100,6 +107,7 @@ public class SplitHouseHoldController implements Initializable {
             System.out.println(e.getMessage());
             System.out.println(getClass());
             System.out.println(sql);
+            labelConfirm.setText("Cập nhật không thành công");
         }
     }
 
@@ -135,17 +143,17 @@ public class SplitHouseHoldController implements Initializable {
                 provinceID = resultSet.getString("provinceID");
                 districtID = resultSet.getString("districtID");
                 communeID = resultSet.getString("communeID");
-                sql = "insert into Household.book values (?, ?, ?, ?, ?, NULL, NULL, ?)";
+                sql = "insert into Household.book values (?, ?, ?, ?, NULL, NULL, ?)";
 
                 try {
 
                     preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
-                    preparedStatement.setString(1, this.bookID2);
-                    preparedStatement.setString(2, this.personIDHead2);
-                    preparedStatement.setString(3, provinceID);
-                    preparedStatement.setString(4, districtID);
-                    preparedStatement.setString(5, communeID);
-                    preparedStatement.setString(6, LocalDate.now().toString());
+                    //preparedStatement.setString(1, this.bookID2);
+                    preparedStatement.setString(1, this.personIDHead2);
+                    preparedStatement.setString(2, provinceID);
+                    preparedStatement.setString(3, districtID);
+                    preparedStatement.setString(4, communeID);
+                    preparedStatement.setString(5, LocalDate.now().toString());
                     preparedStatement.executeUpdate();
                     System.out.println(this.bookID2);
                 } catch (Exception e) {
@@ -239,8 +247,8 @@ public class SplitHouseHoldController implements Initializable {
     @FXML
     void show() {
         updateToDatabase();
-        Stage stage = (Stage) submit.getScene().getWindow();
-        stage.close();
+//        Stage stage = (Stage) submit.getScene().getWindow();
+//        stage.close();
     }
 
 }

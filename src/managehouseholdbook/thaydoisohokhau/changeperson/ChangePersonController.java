@@ -126,6 +126,7 @@ public class ChangePersonController implements Initializable {
         // Lấy personid 
         int personID = takePersonID(textFieldHoTen.getText(), textFieldIDSo.getText(), textFieldNgaySinh.getText());
         if(personID == -1){
+        	inforPopup.setText("Không tìm thấy nhân khẩu");
             return;
         }
         // Kiểm tra chủ hộ 
@@ -149,7 +150,7 @@ public class ChangePersonController implements Initializable {
             PreparedStatement preparedStatement = ConnectDatabase.connection.prepareStatement(sql);
             preparedStatement.setInt(1, personID);
             preparedStatement.executeUpdate();
-
+            inforPopup.setText("Đã xoá nhân khẩu");
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println(getClass());

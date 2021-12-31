@@ -496,8 +496,14 @@ public class AddNewPersonController implements Initializable {
 				|| this.maHoKhau.getText().length() == 0*/) {
 			JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ thông tin");
 		} else {
-			this.addNewPerson();
-			JOptionPane.showMessageDialog(null, "Thêm nhân khẩu thành công");
+			if(!this.soCCCD.getText().equals("")) {
+				if(this.getCMND(this.soCCCD.getText()).equals(this.soCCCD.getText()))
+					JOptionPane.showMessageDialog(null, "Cá nhân này đã được khai báo trong dữ liệu dân cư");
+				else {
+					this.addNewPerson();
+					JOptionPane.showMessageDialog(null, "Thêm nhân khẩu thành công");
+				}
+			}
 
 		}
 	}
@@ -724,6 +730,8 @@ public class AddNewPersonController implements Initializable {
 				e.printStackTrace();
 			}
 		}
+		
+		if (this.getBookID(this.getHostID(this.maHoKhau.getText()))!=0) {
     	String sql6 = "insert into [Person].[Residence] (PersonID,ResidenceTypeID,PrePermanentAddress,BookID,RelationshipWithHead) values(?,?,?,?,?)";
     	try {
     		PreparedStatement ps = ConnectDatabase.connection.prepareStatement(sql6);
@@ -742,8 +750,29 @@ public class AddNewPersonController implements Initializable {
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
+		}
     	
 	}
+	
+	public String getCMND(String number) {
+		   ConnectDatabase.ConnectData();
+		   	try {
+		       	Statement st = ConnectDatabase.connection.createStatement();
+		       	ResultSet rs;
+		       	rs = st.executeQuery("SELECT Number FROM [Person].[IdentityCard] WHERE Number ='"+ number + "'; ");
+		       	String id = "";
+		       	while(rs.next()) {
+		       	  id = rs.getString("Number");
+		       
+		       	}
+		       	return id;
+		       	}
+		       	catch (Exception e){
+		       		System.err.println("Error");
+		       	}
+		   		return null;  
+	   }
+
 
 	public int getHostID(String identitycard) throws SQLException {
 		

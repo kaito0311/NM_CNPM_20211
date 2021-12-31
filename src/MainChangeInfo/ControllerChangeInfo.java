@@ -173,15 +173,12 @@ public class ControllerChangeInfo implements Initializable{
 		// TODO Auto-generated method stub
 		ObservableList<String> pstList = 
 			    FXCollections.observableArrayList(
-			        "Tổ trưởng",
-			        "Tổ phó",
-			        "Thủ quỹ"
+			        "Tổ trưởng"
 			    );
 		cbPosition.setItems(pstList);
 		ObservableList<String> rList = 
 			    FXCollections.observableArrayList(
-			        "Admin",
-			        "Editor"
+			        "Admin"
 			    );
 		cbRole.setItems(rList);
 		

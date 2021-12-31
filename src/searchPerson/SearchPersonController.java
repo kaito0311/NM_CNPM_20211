@@ -60,7 +60,7 @@ public class SearchPersonController implements Initializable{
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
-		if (rs == null) {
+//		if (rs == null) {
 			try {
 				//Get names of people
 				String query = "select * from Person.Person order by PersonID asc;";
@@ -77,7 +77,7 @@ public class SearchPersonController implements Initializable{
 					//System.out.println(e);
 				}
 			} catch (Exception e) {System.out.println(e);;}
-		}
+//		}
 		TextFields.bindAutoCompletion(input, names);
 		reset();
 	}
