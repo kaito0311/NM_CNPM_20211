@@ -1,8 +1,8 @@
 <h1 align="center">
   <br>
-  <img src="" alt="Logo"/>
+  <img src="https://github.com/kaito0311/NM_CNPM_20211/blob/main/Logo%20team%20NM%20CNPM.png" alt="Logo" width="20%"/>
   <br>
-  <i>Program name</i>
+  <i>Phần mềm quản lý dân cư</i>
   <br>
 </h1>
 
@@ -21,10 +21,18 @@ This project is made by **Team 10** in Introduction to Software Engineering clas
 It is used to manage population infomation of Civil Group 7, La Khe Ward.
 
 ## Key features
-- None at the moment
+- Đăng ký, đăng nhập
+- Thay đổi thông tin tài khoản
+- Thêm nhân khẩu, hộ khẩu
+- Thêm, xóa, sửa nhân khẩu, hộ khẩu
+- Quản lý việc cấp quà, cấp phần thưởng
+- Thống kê nhân khẩu
+- Tìm kiếm nhân khẩu, hộ khẩu
 
 ## How to use
-1. Cannot use at the moment
+1. Clone this repository
+2. Add library JDK, JavaFX, ControlsFX
+3. Run file **LoginMain.java** in folder **Main**
 
 ## Credit
 Members of team 10:
